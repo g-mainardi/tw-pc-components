@@ -1,3 +1,10 @@
+/* HOMEPAGE */
+html, body {
+    height: 100%;
+    width: 100%;
+    display: table;
+}
+
 body{
    background-color: rgb(54,54,54);
     margin: 0;
@@ -16,7 +23,7 @@ ul{
 }
 
 a:hover{
-    color: #44d62c;
+    color: #44d62c!important;
 }
 
 
@@ -76,10 +83,14 @@ div.barra > ul > li > a{
   
 }
 
+.bottoneMenu {
+    background-color: transparent;
+    border: 0px;
+}
 
 nav.menu{
     background-color: #040404;
-    display: block;
+    display: none;
     position: absolute;
     padding-right: 16%;
     padding-left: 12%;
@@ -130,6 +141,7 @@ section{
     background-color: #040404;
     padding-top: 3%;
     padding-bottom: 3%;
+    margin-bottom: 3%;
    
 }
 section:not(:first-of-type){
@@ -145,7 +157,7 @@ section:not(:first-of-type){
     height: 100%;
 }
 
-/* Resize images */
+
 .container img {
     
     width: 100%;
@@ -189,8 +201,12 @@ footer{
     background-color: #040404;
     text-align: center;
     margin-top: 2%;
+    margin-bottom: 0;
     padding-top: 20px;
     padding-bottom: 20px;
+    display: table-row;
+    height: 0;
+  
 
     
 }
@@ -201,7 +217,116 @@ footer>p{
     color: #999;
     font-size: 20px;
     font-weight: 100;
+    
 }
+
+
+/* LOGIN.HTML e REGISTER.HTML*/
+div.login{
+    display: flex;
+    justify-content: center;
+    background-color: #040404;
+    margin-top: 3%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    padding-right: 2%;
+    max-height: 500px;
+    max-width: 400px;
+    margin-bottom: 3%;
+    
+}
+
+div.login>form>h2{
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    font-weight: 100;
+    color: #FFF;
+    padding-left: 19%;
+
+}
+
+div.login>form{
+    text-align: center;
+}
+
+
+
+div.login>form>ul>li{
+    margin-top: 15%;
+    margin-bottom: 15%;
+
+}
+
+li.registerButton>input{
+    padding-top: 5%!important;
+    padding-bottom: 5%!important;
+    padding-left: 29%!important;
+    padding-right: 29%!important;
+    background-color: #44d62c!important;
+}
+
+li.loginButton>input{
+    padding-top: 5%!important;
+    padding-bottom: 5%!important;
+    padding-left: 33%!important;
+    padding-right: 33%!important;
+    background-color: #44d62c!important;
+}
+
+
+div.login>form>ul>li>input{
+    background-color: #999999;
+    padding-right: 10%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+
+     
+}
+
+div.login>form>ul>li>p{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    color: #999;
+
+    
+}
+
+a.vadoRegister{
+    padding-top: 5%;
+    padding-bottom: 5%;
+    padding-left: 28%;
+    padding-right: 28%;
+    background-color: #999;
+    color: #040404;
+    text-decoration: none;
+
+    
+}
+
+a.vadoLogin{
+    padding-top: 5%;
+    padding-bottom: 5%;
+    padding-left: 35%;
+    padding-right: 35%;
+    background-color: #999;
+    color: #040404;
+    text-decoration: none;
+
+
+    
+}
+
+::placeholder{
+    
+    color: #040404;
+
+ 
+}
+
 
 @media screen and (min-width: 768px){
 
@@ -228,6 +353,11 @@ footer>p{
         width: 100%;
         height: 100%;
       
+    }
+
+    div.login{
+        max-height: 500px;
+        max-width: 500px;
     }
 
 }
