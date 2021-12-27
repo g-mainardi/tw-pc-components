@@ -1,13 +1,72 @@
 $(document).ready(function(){
 
-    $(".bottoneMenu").click(function(){
+    $(".mostra").click(function(){
         
-        if($(".menu").css("display") == "none"){
-            $(".menu").css("display", "block");
+        if($(".tabella").css("display") == "none"){
+            $(".tabella").css("display", "");
         } else {
-            $(".menu").css("display", "none");
+            $(".tabella").css("display", "none");
         }
 
         });
+
+        $(".bottoneMenu").click(function(){
+        
+            if($(".menu").css("display") == "none"){
+                $(".menu").css("display", "block");
+            } else {
+                $(".menu").css("display", "none");
+            }
+    
+            });
+
+        var slideIndex = 1;
+        showSlides(slideIndex);
+        
+        function plusSlides(n) {
+          showSlides(slideIndex += n);
+        }
+        
+        function currentSlide(n) {
+          showSlides(slideIndex = n);
+        }
+        
+        function showSlides(n) {
+          var i;
+          var slides = document.getElementsByClassName("mySlides");
+          var dots = document.getElementsByClassName("dot");
+          if (n > slides.length) {slideIndex = 1}    
+          if (n < 1) {slideIndex = slides.length}
+          for (i = 0; i < slides.length; i++) {
+              slides[i].style.display = "none";  
+          }
+          for (i = 0; i < dots.length; i++) {
+              dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";  
+          dots[slideIndex-1].className += " active";
+        }
+
+        $(".prev").click(function(){
+            plusSlides(-1);
+        });
+
+        $(".next").click(function(){
+            plusSlides(1);
+        });
+
+        $(".dot:first-of-type").click(function(){
+            currentSlide(1)
+        });
+
+        $(".dot:last-of-type").click(function(){
+            currentSlide(3)
+        });
+
+        $(".dot:nth-child(2)").click(function(){
+            currentSlide(2)
+        });
+
+
 
 });

@@ -1,4 +1,4 @@
-        <section>
+<section>
             
             <h1>I NOSTRI PRODOTTI</h1>
             <h2>scegli la componentistica che più si addice al tuo computer!</h2>
@@ -11,12 +11,12 @@
              </div>
             <h2>SCHEDE MADRI</h2>
             <p>scegli tra la vasta gamma di schede madri quella che fa al caso tuo</p>
-            <a class="link1" href="#">Scopri di più...</a> 
+            <a class="link1" href="motherboard.php">Scopri di più...</a> 
         </section>
         
         <section >    
             <div class="container">
-            <a href="#"><img src="immagini/gpu.jpg" alt=""></a>
+            <a href="graphicprocess.php"><img src="immagini/gpu.jpg" alt=""></a>
         </div>
             <h2>SCHEDE VIDEO</h2>
             <p>scegli tra la vasta gamma di schede madri quella che fa al caso tuo</p>

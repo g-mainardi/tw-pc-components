@@ -1,0 +1,106 @@
+<?php
+class DatabaseHelper{
+    private $db;
+
+    public function __construct($servername, $username, $password, $dbname, $port){
+        $this->db = new mysqli($servername, $username, $password, $dbname, $port);
+        if ($this->db->connect_error) {
+            die("Connection failed: " . $db->connect_error);
+        }        
+    }
+
+    public function getProdotti($categoria){
+        $stmt = $this->db->prepare("SELECT DISTINCT articolo.* FROM articolo, categoria WHERE categoria.nome = ?");
+        $stmt->bind_param('s',$categoria);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getTipoProdotti($categoria, $tipologia){
+        $stmt = $this->db->prepare("SELECT DISTINCT articolo.* FROM articolo, categoria WHERE categoria.nome = ? AND articolo.tipologia = ?");
+        $stmt->bind_param('ss',$categoria, $tipologia);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getProdotto($id){
+        $stmt = $this->db->prepare("SELECT * FROM articolo WHERE ID_Articolo = ?");
+        $stmt->bind_param('i', $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+
+    }
+
+    public function getUtenti(){
+        $stmt = $this->db->prepare("SELECT * FROM utente");
+        $stmt->bind_param('i', $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getProdottiRandom(){
+        $query = ("SELECT nome FROM articolo ORDER BY RAND() LIMIT 5");
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getQuantitaProdotti($id){
+        $query = $this->db->prepare("SELECT DISTINCT COUNT(*) FROM articolo WHERE quantità <= 6 AND venditore = ?");
+        $stmt->bind_param('i', $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+
+
+
+    /*
+
+        ESEMPI
+
+    public function getRandomPosts($n){
+        $stmt = $this->db->prepare("SELECT idarticolo, titoloarticolo, imgarticolo FROM articolo ORDER BY RAND() LIMIT ?");
+        $stmt->bind_param('i',$n);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getAuthors(){
+        $query = "SELECT username, nome, GROUP_CONCAT(DISTINCT nomecategoria) as argomenti FROM categoria, articolo, autore, articolo_ha_categoria WHERE idarticolo=articolo AND categoria=idcategoria AND autore=idautore AND attivo=1 GROUP BY username, nome";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function checkLogin($username,$password){
+        $query = "SELECT idautore, nome, username FROM autore WHERE attivo=1 AND username=? AND password=?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ss', $username, $password);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+
+    }
+    */
+
+
+}
+?>
