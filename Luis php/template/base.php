@@ -42,12 +42,12 @@
     
     <div class="barra">
         <ul>
-            <li><a href="">Motherboard</a></li>
-            <li><a href="GPU.php">GPU</a></li>
-            <li><a href="">CPU</a></li>
-            <li><a href="">Alimentatori</a></li>
-            <li><a href="">RAM</a></li>
-            <li><a href="">Case</a></li>
+            <li><a href="categorie.php?categoria=Motherboard">Motherboard</a></li>
+            <li><a href="categorie.php?categoria=GPU">GPU</a></li>
+            <li><a href="categorie.php?categoria=CPU">CPU</a></li>
+            <li><a href="categorie.php?categoria=PSU">Alimentatori</a></li>
+            <li><a href="categorie.php?categoria=RAM">RAM</a></li>
+            <li><a href="categorie.php?categoria=Case">Case</a></li>
         </ul>
     </div>
 
@@ -90,14 +90,14 @@
     <footer>
     <p>CATEGORIE:</p>
     <ul>
-        <li><a href="">Motherboard</a></li>
-        <li><a href="GPU.html">GPU</a></li>
-        <li><a href="">CPU</a></li>
+        <li><a href="categorie.php?categoria=Motherboard">Motherboard</a></li>
+        <li><a href="categorie.php?categoria=GPU">GPU</a></li>
+        <li><a href="categorie.php?categoria=CPU">CPU</a></li>
     </ul>
     <ul>
-        <li><a href="">Alimentatori</a></li>
-        <li><a href="">RAM</a></li>
-        <li><a href="">Case</a></li>
+        <li><a href="categorie.php?categoria=PSU">Alimentatori</a></li>
+        <li><a href="categorie.php?categoria=RAM">RAM</a></li>
+        <li><a href="categorie.php?categoria=Case">Case</a></li>
     </ul>
     <p>Progetto Tecnologie Web - A.A. 2021/2022</p>
     <p>Giacomo Magrini, Giosuè Mainardi,Luigi Incarnato</p>

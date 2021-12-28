@@ -10,7 +10,11 @@ class DatabaseHelper{
     }
 
     public function getProdotti($categoria){
-        $stmt = $this->db->prepare("SELECT DISTINCT articolo.* FROM articolo, categoria WHERE categoria.nome = ?");
+        $stmt = $this->db->prepare("SELECT DISTINCT articolo.* 
+                                    FROM articolo, categoria 
+                                    WHERE categoria.nome = ? 
+                                    AND categoria.ID_Categoria = articolo.categoria");
+
         $stmt->bind_param('s',$categoria);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -18,9 +22,13 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getTipoProdotti($categoria, $tipologia){
-        $stmt = $this->db->prepare("SELECT DISTINCT articolo.* FROM articolo, categoria WHERE categoria.nome = ? AND articolo.tipologia = ?");
-        $stmt->bind_param('ss',$categoria, $tipologia);
+    public function getVenditoreProdotti($categoria, $venditore){
+        $stmt = $this->db->prepare("SELECT DISTINCT articolo.* 
+                                    FROM articolo, categoria, utente 
+                                    WHERE categoria.nome = ? 
+                                    AND utente.nome = ? AND categoria.ID_Categoria = articolo.categoria AND utente.ID_Utente = articolo.venditore");
+
+        $stmt->bind_param('ss',$categoria, $venditore);
         $stmt->execute();
         $result = $stmt->get_result();
 
