@@ -313,15 +313,10 @@ div.login{
     display: flex;
     justify-content: center;
     background-color: #0B090A;
-    margin-top: 3%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 5%;
-    padding-bottom: 5%;
-    padding-right: 2%;
+    margin: 2% auto;
     max-height: 500px;
     max-width: 400px;
-    margin-bottom: 3%;
+    text-align: center;
     
 }
 
@@ -330,66 +325,77 @@ div.login>form>h2{
     font-size: 30px;
     font-weight: 100;
     color: #FFF;
-    padding-left: 19%;
+    margin: 2% 0%;
 
 }
 
 div.login>form{
     text-align: center;
+    margin: 5% 0;
 }
 
+div.login>form>ul{
+    padding: 0px;
+}
 
+div.login>form>ul>li:first-of-type>p{
+    text-align: center;
+    color: red;
+}
 
 div.login>form>ul>li{
-    margin-top: 15%;
-    margin-bottom: 15%;
-
+    margin: 5% 0;
 }
 
+div.login>form>ul>li:last-of-type{
+    padding: 5% 0;
+}
+
+
 li.registerButton>input{
-    padding-top: 5%!important;
-    padding-bottom: 5%!important;
-    padding-left: 29%!important;
-    padding-right: 29%!important;
+    padding: 5% 29% !important;
+    font-weight: bold;
+    font-size: 14px;
     background-color: #A4161A!important;
 }
 
 li.loginButton>input{
-    padding-top: 5%!important;
-    padding-bottom: 5%!important;
-    padding-left: 33%!important;
-    padding-right: 33%!important;
+    padding: 5% 33% !important;
+    font-weight: bold;
+    font-size: 14px;
     background-color: #A4161A!important;
 }
 
 
 div.login>form>ul>li>input{
     background-color: #999999;
-    padding-right: 10%;
-    padding-top: 5%;
-    padding-bottom: 5%;
-
-     
+    padding: 5% 10% 5% 1%;
+    margin-top: 3px;
 }
 
 div.login>form>ul>li>p{
     text-align: center;
     font-weight: 100;
     color: #999;
+    margin: 5px;
+}
 
-    
+div.login>form>ul>li>label{
+    text-align: center;
+    color: #999;
+    margin: 5px;
+    padding: 5px 0;
 }
 
 a.vadoRegister{
-    padding-top: 5%;
-    padding-bottom: 5%;
-    padding-left: 28%;
-    padding-right: 28%;
+    text-align: center;
+    padding: 5% 28%;
     background-color: #999;
     color: #0B090A;
     text-decoration: none;
-
-    
+    margin-top: 3%;
+    font-weight: bold;
+    font-size: 14px;
 }
 
 a.vadoLogin{
@@ -399,10 +405,9 @@ a.vadoLogin{
     padding-right: 35%;
     background-color: #999;
     color: #0B090A;
-    text-decoration: none;
-
-
-    
+    text-decoration: none;    
+    font-weight: bold;
+    font-size: 14px;
 }
 
 ::placeholder{
