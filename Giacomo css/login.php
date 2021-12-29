@@ -7,13 +7,22 @@ if(isset($_POST["username"]) && isset($_POST["password"])) {
     $login_result = $dbh->checkLogin($_POST["username"], $_POST["password"]);
 
     if(count($login_result)==0) {
-        $templateParams["errorelogin"] = "Errore username o password errati";
+        $SetParameters["risultatologin"] = "Errore: username o password errati";
     } else {
-        $templateParams["loginriuscito"] = "Login riuscito!";
+        $SetParameters["risultatologin"] = "Login riuscito!";
     }
 
 }
+
+$SetParameters["file"] = "login_form.php";
+
+require("base.php");
+
 ?>
+
+
+
+<!-- PARTE HTML
 
 <html lang="it">
 <head>
@@ -57,10 +66,6 @@ if(isset($_POST["username"]) && isset($_POST["password"])) {
         </ul>
     
 </nav>
-
-
-    
-    
     <div class="barra">
         <ul>
             <li><a href="">Motherboard</a></li>
@@ -73,29 +78,18 @@ if(isset($_POST["username"]) && isset($_POST["password"])) {
     </div>
 
 
-    
-
-  
-
     <main>
-   
-
-
         <div class="login">
             <form action="#" method="POST">
                 <h2>LOGIN</h2>                
 
                 <?php 
                 // PARTE AGGIUNTA PER PROVA
-                if(isset($templateParams["errorelogin"])): 
+                //if(isset($SetParameters["risultatologin"])): 
                 ?>
-                    <p style="color: red"><?php echo $templateParams["errorelogin"]; ?></p>
+                    <p><?php //echo $SetParameters["errorelogin"]; ?></p>
                 <?php 
-                elseif(isset($templateParams["loginriuscito"])): 
-                ?>
-                    <p style="color: green"><?php echo $templateParams["loginriuscito"]; ?></p>
-                <?php 
-                endif; 
+                //endif; 
                 // Fine parte per prova
                 ?>    
 
@@ -142,4 +136,4 @@ if(isset($_POST["username"]) && isset($_POST["password"])) {
 
 
 </body>
-</html>
+</html> -->
