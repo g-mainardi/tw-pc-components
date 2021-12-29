@@ -22,7 +22,7 @@ SET time_zone = "+00:00";
 --
 -- --------------------------------------------------------
 
-CREATE DATABASE hd_progetto
+CREATE DATABASE hd_progetto;
 
 --
 -- Struttura della tabella `articolo`
