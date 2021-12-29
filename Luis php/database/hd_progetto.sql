@@ -20,8 +20,9 @@ SET time_zone = "+00:00";
 --
 -- Database: `hd_progetto`
 --
-
 -- --------------------------------------------------------
+
+CREATE DATABASE hd_progetto
 
 --
 -- Struttura della tabella `articolo`
