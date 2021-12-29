@@ -78,7 +78,6 @@ div.barra > ul > li{
 div.barra > ul > li > a{
     text-decoration: none;
     color: #B1A7A6;
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
   
 }
@@ -115,7 +114,6 @@ nav.menu>ul>li{
 nav.menu>ul>li>a{
     text-decoration: none;
     font-size: 30px;
-    font-family: Arial, Helvetica, sans-serif;
     color: #B1A7A6;
 
 }
@@ -197,7 +195,6 @@ nav.menu>ul>li>a{
   /*SLIDER IMMAGINI FINE*/
 
 section > h1 {
-    font-family: Arial, Helvetica, sans-serif;
     color: #A4161A;
     text-align: center;
     font-size: 50px;
@@ -205,7 +202,6 @@ section > h1 {
     font-weight: 100;
 }
 section> h2 {
-    font-family: Arial, Helvetica, sans-serif;
     color: #B1A7A6;
     text-align: center;
     font-size: 30px;
@@ -243,7 +239,6 @@ section:not(:first-of-type){
 
 
 section:not(:first-of-type) > h2{
-    font-family: Arial, Helvetica, sans-serif;
     color: #F5F3F4;
     font-size: 30px;
     font-weight: 100;
@@ -253,7 +248,6 @@ section:not(:first-of-type) > h2{
 }
 
 section:not(:first-of-type) > p{
-    font-family: Arial, Helvetica, sans-serif;
     color: #B1A7A6;
     font-size: 20px;
     font-weight: 100;
@@ -263,7 +257,6 @@ section:not(:first-of-type) > p{
 }
 
 .link1{
-    font-family: Arial, Helvetica, sans-serif;
     color: #A4161A;
     font-size: 15px;
     font-weight: 100;
@@ -292,7 +285,6 @@ footer>p:first-child{
 
 
 footer>p{
-    font-family: Arial, Helvetica, sans-serif;
     color: #B1A7A6;
     font-size: 20px;
     font-weight: 100;
@@ -311,7 +303,6 @@ footer>ul>li{
 footer > ul > li > a{
     text-align: center;
     text-decoration: none;
-    font-family: Arial, Helvetica, sans-serif;
     color: #F5F3F4;
 }
 
@@ -336,7 +327,6 @@ div.login{
 
 div.login>form>h2{
     text-align: left;
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 30px;
     font-weight: 100;
     color: #FFF;
@@ -384,7 +374,6 @@ div.login>form>ul>li>input{
 
 div.login>form>ul>li>p{
     text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
     font-weight: 100;
     color: #999;
 
@@ -467,14 +456,12 @@ table.tebellaCategorie {
 }
 
 h2.testoTabella{
-    font-family: Arial, Helvetica, sans-serif;
     color: #FFF;
     font-weight: 100;
 }
 
 
 p.testoTabella{
-    font-family: Arial, Helvetica, sans-serif;
     color: #999;
     font-weight: 100;
 }
@@ -485,7 +472,6 @@ button.bottoneTabella {
     min-width: 150px;
     min-height: 50px;
     color: #0B090A;
-    font-family: Arial, Helvetica, sans-serif;
 }
   
 /* CATEGORIE FINE */
@@ -521,7 +507,6 @@ section.prodottoSingolo > button:first-of-type{
 }
 
 section.prodottoSingolo > p{
-    font-family: Arial, Helvetica, sans-serif;
     color: #B1A7A6;
     font-size: 20px;
     font-weight: 100;
@@ -536,7 +521,6 @@ section.prodottoSingolo > button:last-of-type{
     background-color: #A4161A;
     max-width: 100px;
     color: #0B090A;
-    font-family: Arial, Helvetica, sans-serif;
     min-width: 150px;
     min-height: 50px;
     
@@ -610,4 +594,8 @@ section.prodottoSingolo > table td, section.prodottoSingolo > table th{
         margin-left: 15px;
     }
 
+}
+
+*{
+    font-family: Verdana, Geneva, Tahoma, sans-serif !important;
 }
