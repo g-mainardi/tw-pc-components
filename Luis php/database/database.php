@@ -75,6 +75,21 @@ class DatabaseHelper{
 
 
 
+
+    public function checkLogin($username,$password){
+        $query = "SELECT ID_Utente, nome, username, Tipo FROM utente WHERE username=? AND password=?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ss', $username, $password);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+
+
+
+
     /*
 
         ESEMPI
@@ -97,16 +112,7 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function checkLogin($username,$password){
-        $query = "SELECT idautore, nome, username FROM autore WHERE attivo=1 AND username=? AND password=?";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ss', $username, $password);
-        $stmt->execute();
-        $result = $stmt->get_result();
 
-        return $result->fetch_all(MYSQLI_ASSOC);
-
-    }
     */
 
 

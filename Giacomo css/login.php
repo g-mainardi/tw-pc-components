@@ -1,22 +1,17 @@
 <?php
-session_start();
+require_once '../Luis php/required.php';
 
 if(isset($_POST["username"]) && isset($_POST["password"])) {
     
-    // DA AGGIUNGERE: Controllo se c'è su db
-    //$login_result = dbh->checkLogin($_POST["username"], $_POST["password"]);
+    // Controllo se c'è su db
+    $login_result = $dbh->checkLogin($_POST["username"], $_POST["password"]);
 
-    // Controllo provvisorio
-    $username = $_POST["username"];
-    $password = $_POST["password"];
-
-    $usernames_ok = ["giosuè", "giacomo", "luis"];
-    $passwords_ok = ["progettotw"];
-    if(!in_array($username, $usernames_ok) || !in_array($password, $passwords_ok)){
+    if(count($login_result)==0) {
         $templateParams["errorelogin"] = "Errore username o password errati";
     } else {
         $templateParams["loginriuscito"] = "Login riuscito!";
     }
+
 }
 ?>
 
@@ -40,7 +35,7 @@ if(isset($_POST["username"]) && isset($_POST["password"])) {
                 <button class="bottoneMenu"><img src="immagini/menu-logo.png" alt=""></button>
             </li>
             <li>
-                <a href="Homepage.html"><img src="immagini/Razer-Logo.png" alt=""></a>          
+                <a href="index.html"><img src="immagini/Razer-Logo.png" alt=""></a>          
             </li>
             <li>
                 <a href="#"><img src="immagini/carelllo.png" alt=""></a>
@@ -103,7 +98,7 @@ if(isset($_POST["username"]) && isset($_POST["password"])) {
                 // Fine parte per prova
                 ?>    
 
-                
+
                 <ul>
                     <li>
                         <input type="text" id="username" name="username" placeholder="user id" />
