@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HomePage</title>
+    <title><?php echo $SetParameters["titolo"]?></title>
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
     <script
     src="https://code.jquery.com/jquery-3.4.1.min.js"

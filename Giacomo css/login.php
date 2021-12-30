@@ -4,18 +4,30 @@ require_once '../Luis php/required.php';
 if(isset($_POST["username"]) && isset($_POST["password"])) {
     
     // Controllo se c'è su db
-    $login_result = $dbh->checkLogin($_POST["username"], $_POST["password"]);
+    $risultatologin = $dbh->checkLogin($_POST["username"], $_POST["password"]);
 
-    if(count($login_result)==0) {
+    if(count($risultatologin)==0) {
         $SetParameters["risultatologin"] = "Errore: username o password errati";
     } else {
         $SetParameters["risultatologin"] = "Login riuscito!";
+        setLoggedUser($risultatologin[0]);
     }
 
 }
 
-$SetParameters["file"] = "login_form.php";
-
+if(isLoggedIn()){
+    if(isVenditore()){
+        $SetParameters["titolo"] = "Gestisci Articoli";
+        $SetParameters["file"] = "login_form.php"; // Da cambiare
+    } else {
+        $SetParameters["titolo"] = "Gestisci Carrello";
+        $SetParameters["file"] = "login_form.php"; // Da cambiare
+    }
+} else {
+    $SetParameters["titolo"] = "Login";
+    $SetParameters["file"] = "login_form.php";
+}
+    
 require("base.php");
 
 ?>
