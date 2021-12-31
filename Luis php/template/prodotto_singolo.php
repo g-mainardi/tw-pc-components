@@ -5,6 +5,14 @@
          </div>
         <h1><?php echo $prodotto["marca"]." ".$prodotto["nome"]; ?></h1>
         <h2>1300 $</h2>
+        <form class="selezioaQuantità"> 
+            <label>QTY<br/>
+            <select name="quantità">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            </select></label>
+            </form>
         <button class="bottoneTabella">AGGIUNGI AL CARRELLO</button>
         <p><?php echo $prodotto["anteprima"]; ?></p>
         <button class="mostra">Espandi/Riduci</button>

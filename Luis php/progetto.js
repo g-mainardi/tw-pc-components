@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+
     $(".mostra").click(function(){
         
         if($(".tabella").css("display") == "none"){
@@ -19,53 +20,18 @@ $(document).ready(function(){
             }
     
             });
+    // $("select.quantità").change(function(){
+    //   var selectedNumber = $(this).children("option:selected").val();
+    //});
 
-        var slideIndex = 1;
-        showSlides(slideIndex);
-        
-        function plusSlides(n) {
-          showSlides(slideIndex += n);
-        }
-        
-        function currentSlide(n) {
-          showSlides(slideIndex = n);
-        }
-        
-        function showSlides(n) {
-          var i;
-          var slides = document.getElementsByClassName("mySlides");
-          var dots = document.getElementsByClassName("dot");
-          if (n > slides.length) {slideIndex = 1}    
-          if (n < 1) {slideIndex = slides.length}
-          for (i = 0; i < slides.length; i++) {
-              slides[i].style.display = "none";  
-          }
-          for (i = 0; i < dots.length; i++) {
-              dots[i].className = dots[i].className.replace(" active", "");
-          }
-          slides[slideIndex-1].style.display = "block";  
-          dots[slideIndex-1].className += " active";
-        }
+    var temp = 0;
+    $(".prezzo").each(function(){
+    var tdTxt = $(this).text();
+    temp+= parseFloat(tdTxt); 
+    $(".totale").text(temp+" $");
+    });
 
-        $(".prev").click(function(){
-            plusSlides(-1);
-        });
 
-        $(".next").click(function(){
-            plusSlides(1);
-        });
-
-        $(".dot:first-of-type").click(function(){
-            currentSlide(1)
-        });
-
-        $(".dot:last-of-type").click(function(){
-            currentSlide(3)
-        });
-
-        $(".dot:nth-child(2)").click(function(){
-            currentSlide(2)
-        });
 
 
 
