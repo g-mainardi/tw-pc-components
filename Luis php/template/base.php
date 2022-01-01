@@ -22,7 +22,7 @@
                 <a href="template.php"><img src="immagini/Razer-Logo.png" alt=""></a>          
             </li>
             <li>
-                <a href="#"><img src="immagini/carelllo.png" alt=""></a>
+                <a href="carrello.php"><img src="immagini/carelllo.png" alt=""></a>
             </li>            
         </ul>
       
@@ -32,7 +32,7 @@
         <ul>
             <li><a href="login.php">ACCEDI</a></li>
             <li><a href="register.php">REGISTRATI</a></li>
-            <li><a href="">CARRELLO</a></li>
+            <li><a href="carrello.php">CARRELLO</a></li>
             <li><a href="">ORDINI</a></li>
             <li><a href="">ESCI</a></li>
         </ul>
@@ -48,36 +48,11 @@
             <li><a href="categorie.php?categoria=PSU">Alimentatori</a></li>
             <li><a href="categorie.php?categoria=RAM">RAM</a></li>
             <li><a href="categorie.php?categoria=Case">Case</a></li>
+            <li><a href="#">Dissipatori</a></li>
         </ul>
     </div>
 
-    <section class="slider">
-    <div class="slideshow-container">
-
-        <div class="mySlides fade">
-          <img src="immagini/case2.jpg" style="width:100%">
-        </div>
-        
-        <div class="mySlides fade">
-          <img src="immagini/cpu2.jpg" style="width:100%">
-        </div>
-        
-        <div class="mySlides fade">
-          <img src="immagini/gpu2.jpg" style="width:100%">
-        </div>
-        
-        <a class="prev">&#10094;</a>
-        <a class="next">&#10095;</a>
-        
-        </div>
-        <br>
-        
-        <div style="text-align:center">
-          <span class="dot"></span> 
-          <span class="dot"></span> 
-          <span class="dot"></span> 
-        </div>
-    </section>
+    
           
 
     <main>
@@ -89,16 +64,30 @@
 
     <footer>
     <p>CATEGORIE:</p>
-    <ul>
-        <li><a href="categorie.php?categoria=Motherboard">Motherboard</a></li>
-        <li><a href="categorie.php?categoria=GPU">GPU</a></li>
-        <li><a href="categorie.php?categoria=CPU">CPU</a></li>
-    </ul>
-    <ul>
-        <li><a href="categorie.php?categoria=PSU">Alimentatori</a></li>
-        <li><a href="categorie.php?categoria=RAM">RAM</a></li>
-        <li><a href="categorie.php?categoria=Case">Case</a></li>
-    </ul>
+    
+    <table class="tabellaFooter">
+            <tr>
+               <th><a href="categorie.php?categoria=Motherboard">Motherboard</a></th> 
+                <th><a href="categorie.php?categoria=GPU">GPU</a></th>
+                <th><a href="categorie.php?categoria=CPU">CPU</a></th>
+            </tr>
+    <tr>
+        <th> <a href="categorie.php?categoria=PSU">Alimentatori</a></th>
+        <th> <a href="categorie.php?categoria=RAM">RAM</a></th>
+        <th> <a href="categorie.php?categoria=case">Case</a></th>
+    </tr>
+    <tr>
+    <th></th>    
+    <th><a class href="#">Dissipatori</a></th>
+    </tr>
+        </table>
+
+
+
+
+    
+        
+
     <p>Progetto Tecnologie Web - A.A. 2021/2022</p>
     <p>Giacomo Magrini, Giosuè Mainardi,Luigi Incarnato</p>
 
