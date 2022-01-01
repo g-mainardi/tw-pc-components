@@ -15,7 +15,15 @@ function setLoggedUser($user){
     $_SESSION["Tipo"] = $user["Tipo"];
 }
 
-
+function setParametersByType(){
+    if(isVenditore()){
+        $SetParameters["titolo"] = "Gestisci Articoli";
+        $SetParameters["file"] = "login_form.php"; // Da cambiare
+    } else {
+        $SetParameters["titolo"] = "Gestisci Carrello";
+        $SetParameters["file"] = "login_form.php"; // Da cambiare
+    }
+}
 
 
 ?>

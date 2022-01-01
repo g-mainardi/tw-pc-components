@@ -16,13 +16,7 @@ if(isset($_POST["username"]) && isset($_POST["password"])) {
 }
 
 if(isLoggedIn()){
-    if(isVenditore()){
-        $SetParameters["titolo"] = "Gestisci Articoli";
-        $SetParameters["file"] = "login_form.php"; // Da cambiare
-    } else {
-        $SetParameters["titolo"] = "Gestisci Carrello";
-        $SetParameters["file"] = "login_form.php"; // Da cambiare
-    }
+    setParametersByType();
 } else {
     $SetParameters["titolo"] = "Login";
     $SetParameters["file"] = "login_form.php";

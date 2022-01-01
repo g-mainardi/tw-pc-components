@@ -317,7 +317,7 @@ div.login{
     max-height: 500px;
     max-width: 400px;
     text-align: center;
-    
+    padding: 2%;
 }
 
 div.login>form>h2{
@@ -383,7 +383,7 @@ div.login>form>ul>li>p{
 div.login>form>ul>li>label{
     text-align: center;
     color: #999;
-    margin: 5px;
+    margin: 8px;
     padding: 5px 0;
 }
 
@@ -602,5 +602,5 @@ section.prodottoSingolo > table td, section.prodottoSingolo > table th{
 }
 
 *{
-    font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
