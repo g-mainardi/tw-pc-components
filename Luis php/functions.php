@@ -17,11 +17,9 @@ function setLoggedUser($user){
 
 function setParametersByType(){
     if(isVenditore()){
-        $SetParameters["titolo"] = "Gestisci Articoli";
-        $SetParameters["file"] = "login_form.php"; // Da cambiare
+        header("location:index.php"); // Da cambiare
     } else {
-        $SetParameters["titolo"] = "Gestisci Carrello";
-        $SetParameters["file"] = "login_form.php"; // Da cambiare
+        header("location:index.php");
     }
 }
 
