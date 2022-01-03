@@ -57,10 +57,6 @@ header > ul > li:nth-child(2) > a > img{
  max-height: 50px;
 }
 
-
-    
-
-
 div.barra > ul{
     display:  none;
     margin-top: 0;
@@ -78,7 +74,6 @@ div.barra > ul > li{
 div.barra > ul > li > a{
     text-decoration: none;
     color: #B1A7A6;
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
   
 }
@@ -93,9 +88,10 @@ nav.menu{
     background-color: #0B090A;
     display: none;
     position: absolute;
-    padding-right: 5%;
-    padding-bottom: 2%;
-    padding-top: 2%;
+    padding-right: 16%;
+    padding-left: 12%;
+    padding-bottom: 10%;
+    padding-top: 10%;
     border: 3px solid #A4161A;
 }
 
@@ -114,7 +110,6 @@ nav.menu>ul>li{
 nav.menu>ul>li>a{
     text-decoration: none;
     font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
     color: #B1A7A6;
 
 }
@@ -126,7 +121,6 @@ nav.menu>ul>li>a{
     margin-bottom: 3%;
     width: 100%;
     background-color: #0B090A;
-    
 }
 
 
@@ -134,10 +128,9 @@ nav.menu>ul>li>a{
     max-width: 1000px;
     position: relative;
     margin: auto;
-  }
+}
   
-
-  .prev, .next {
+.prev, .next {
     cursor: pointer;
     position: absolute;
     top: 50%;
@@ -150,22 +143,18 @@ nav.menu>ul>li>a{
     transition: 0.6s ease;
     border-radius: 0 3px 3px 0;
     user-select: none;
-  }
-  
+}
 
-  .next {
+.next {
     right: 0;
     border-radius: 3px 0 0 3px;
-  }
-  
+}
 
-  .prev:hover, .next:hover {
+.prev:hover, .next:hover {
     background-color: #0B090A;
-  }
+}
 
-  
-
-  .dot {
+.dot {
     cursor: pointer;
     height: 15px;
     width: 15px;
@@ -174,33 +163,31 @@ nav.menu>ul>li>a{
     border-radius: 50%;
     display: inline-block;
     transition: background-color 0.6s ease;
-  }
-  
-  .active, .dot:hover {
-    background-color: #717171;
-  }
-  
+}
 
-  .fade {
+.active, .dot:hover {
+    background-color: #717171;
+}
+
+.fade {
     -webkit-animation-name: fade;
     -webkit-animation-duration: 1.5s;
     animation-name: fade;
     animation-duration: 1.5s;
-  }
-  
-  @-webkit-keyframes fade {
+}
+
+@-webkit-keyframes fade {
     from {opacity: .4} 
     to {opacity: 1}
-  }
-  
-  @keyframes fade {
+}
+
+@keyframes fade {
     from {opacity: .4} 
     to {opacity: 1}
-  }
-  /*SLIDER IMMAGINI FINE*/
+}
+/*SLIDER IMMAGINI FINE*/
 
 section > h1 {
-    font-family: Arial, Helvetica, sans-serif;
     color: #A4161A;
     text-align: center;
     font-size: 50px;
@@ -208,7 +195,6 @@ section > h1 {
     font-weight: 100;
 }
 section> h2 {
-    font-family: Arial, Helvetica, sans-serif;
     color: #B1A7A6;
     text-align: center;
     font-size: 30px;
@@ -223,6 +209,7 @@ section{
     margin-bottom: 3%;
    
 }
+
 section:not(:first-of-type){
     background-color: #0B090A;
     margin-top: 2%;
@@ -230,23 +217,19 @@ section:not(:first-of-type){
     margin-right: 2%;
 
 }
+
 .container {
     margin-top: -3.5%;
     width: 100%;
     height: 100%;
 }
 
-
 .container img {
-    
     width: 100%;
     height: 100%;
 }
 
-
-
 section:not(:first-of-type) > h2{
-    font-family: Arial, Helvetica, sans-serif;
     color: #F5F3F4;
     font-size: 30px;
     font-weight: 100;
@@ -256,7 +239,6 @@ section:not(:first-of-type) > h2{
 }
 
 section:not(:first-of-type) > p{
-    font-family: Arial, Helvetica, sans-serif;
     color: #B1A7A6;
     font-size: 20px;
     font-weight: 100;
@@ -266,7 +248,6 @@ section:not(:first-of-type) > p{
 }
 
 .link1{
-    font-family: Arial, Helvetica, sans-serif;
     color: #A4161A;
     font-size: 15px;
     font-weight: 100;
@@ -278,59 +259,45 @@ section:not(:first-of-type) > p{
 
 footer{
     background-color: #0B090A;
+    text-align: center;
     margin-top: 2%;
     margin-bottom: 0;
     padding-top: 20px;
     padding-bottom: 20px;
     display: table-row;
     height: 0;
-  
-
-    
 }
+
 footer>p:first-child{
     color: #A4161A;
     padding-left: 5%;
 }
 
-
 footer>p{
-    font-family: Arial, Helvetica, sans-serif;
     color: #B1A7A6;
     font-size: 20px;
     font-weight: 100;
     margin-top: 3%;
-    text-align: center;
-    
-    
+    text-align: center;    
 }
 
 table.tabellaFooter{
     margin-left: auto;
     margin-right: auto;
-
     text-align: center;
 }
+
 table.tabellaFooter tr, table.tabellaFooter th{
-    padding-right: 30px;
-    padding-left: 30px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-
-
+    padding: 10px 30px;
 }
 
 table.tabellaFooter th > a{
-
     text-align: center;
     text-decoration: none;
     font-family: Arial, Helvetica, sans-serif;
     color: #F5F3F4;
 
 }
-
-
-
 /*HOMEPAGE FINE*/
 
 /* LOGIN e REGISTER INIZIO*/
@@ -338,85 +305,86 @@ div.login{
     display: flex;
     justify-content: center;
     background-color: #0B090A;
-    margin-top: 3%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 5%;
-    padding-bottom: 5%;
-    padding-right: 2%;
+    margin: 2% auto;
     max-height: 500px;
     max-width: 400px;
-    margin-bottom: 3%;
-    
+    text-align: center;
+    padding: 2%;
 }
 
 div.login>form>h2{
     text-align: left;
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 30px;
     font-weight: 100;
     color: #FFF;
-    padding-left: 19%;
-
+    margin: 2% 0%;
 }
 
 div.login>form{
     text-align: center;
+    margin: 5% 0;
 }
 
+div.login>form>ul{
+    padding: 0px;
+}
 
+div.login>form>ul>li:first-of-type>p{
+    text-align: center;
+    color: red;
+}
 
 div.login>form>ul>li{
-    margin-top: 15%;
-    margin-bottom: 15%;
+    margin: 5% 0;
+}
 
+div.login>form>ul>li:last-of-type{
+    padding: 5% 0;
 }
 
 li.registerButton>input{
-    padding-top: 5%!important;
-    padding-bottom: 5%!important;
-    padding-left: 29%!important;
-    padding-right: 29%!important;
+    padding: 5% 29% !important;
+    font-weight: bold;
+    font-size: 14px;
     background-color: #A4161A!important;
 }
 
 li.loginButton>input{
-    padding-top: 5%!important;
-    padding-bottom: 5%!important;
-    padding-left: 33%!important;
-    padding-right: 33%!important;
+    padding: 5% 33% !important;
+    font-weight: bold;
+    font-size: 14px;
     background-color: #A4161A!important;
 }
 
-
 div.login>form>ul>li>input{
     background-color: #999999;
-    padding-right: 10%;
-    padding-top: 5%;
-    padding-bottom: 5%;
-
-     
+    padding: 5% 10% 5% 1%;
+    margin-top: 3px;
 }
 
 div.login>form>ul>li>p{
     text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
     font-weight: 100;
     color: #999;
+    margin: 5px;
+}
 
-    
+div.login>form>ul>li>label{
+    text-align: center;
+    color: #999;
+    margin: 8px;
+    padding: 5px 0;
 }
 
 a.vadoRegister{
-    padding-top: 5%;
-    padding-bottom: 5%;
-    padding-left: 28%;
-    padding-right: 28%;
+    text-align: center;
+    padding: 5% 28%;
     background-color: #999;
     color: #0B090A;
     text-decoration: none;
-
-    
+    margin-top: 3%;
+    font-weight: bold;
+    font-size: 14px;
 }
 
 a.vadoLogin{
@@ -426,17 +394,13 @@ a.vadoLogin{
     padding-right: 35%;
     background-color: #999;
     color: #0B090A;
-    text-decoration: none;
-
-
-    
+    text-decoration: none;    
+    font-weight: bold;
+    font-size: 14px;
 }
 
 ::placeholder{
-    
     color: #0B090A;
-
- 
 }
 /* LOGIN e REGISTER FINE */
 
@@ -453,10 +417,9 @@ section.filtro > h2{
     font-size: 20px;
 }
 
-section.filtro >button:first-of-type, section.filtro >button:nth-child(8){
-
+section.filtro >button:first-of-type, 
+section.filtro >button:nth-child(8){
 margin-left: 10%;
-    
 }
 
 section.filtro >button{
@@ -468,50 +431,36 @@ section.filtro >button{
     padding-top: 5px;
     padding-bottom: 5px;
     color: #0B090A;
-
-    
 }
 
 
 table.tebellaCategorie {
-    
     border-collapse: collapse;
     width: 100%;
     text-align: center;
-
-
 }
 
 h2.testoTabella{
-    font-family: Arial, Helvetica, sans-serif;
     color: #FFF;
     font-weight: 100;
 }
 
-
 p.testoTabella{
-    font-family: Arial, Helvetica, sans-serif;
     color: #999;
     font-weight: 100;
 }
-
 
 button.bottoneTabella {
     background-color: #A4161A;
     min-width: 150px;
     min-height: 50px;
     color: #0B090A;
-    font-family: Arial, Helvetica, sans-serif;
 }
-  
 /* CATEGORIE FINE */
 
 /* PRODOTTO INIZIO */
 section.prodottoSingolo{
-    margin-top: 5%;
-    margin-left: 3%;
-    margin-right: 3%;
-    margin-bottom: 5%;
+    margin: 5% 3%;
 }
 
 section.prodottoSingolo > h1{
@@ -529,31 +478,13 @@ section.prodottoSingolo > h2{
     font-size: 30px;
     color: #FFF;
 }
-form.selezioaQuantità{
-    display: inline-block;
-    margin-left: 50px;
-
-}
-select{
-    background-color: rgba(0, 0, 0, 0);
-    min-width: 50px;
-    min-height: 50px;
-    color: #F5F3F4;
-    border: 1px solid #A4161A;
-}
-option{
-    background-color: #0B090A;
-    
-}
 
 section.prodottoSingolo > button:first-of-type{
     position: relative;
     left: 50px;
- 
 }
 
 section.prodottoSingolo > p{
-    font-family: Arial, Helvetica, sans-serif;
     color: #B1A7A6;
     font-size: 20px;
     font-weight: 100;
@@ -568,11 +499,8 @@ section.prodottoSingolo > button:last-of-type{
     background-color: #A4161A;
     max-width: 100px;
     color: #0B090A;
-    font-family: Arial, Helvetica, sans-serif;
     min-width: 150px;
     min-height: 50px;
-    
-    
 }
 
 section.prodottoSingolo > table{
@@ -583,8 +511,6 @@ section.prodottoSingolo > table{
     border-spacing: 0px;
     border-collapse: collapse;
     text-align: center;
-    
-
 }
 
 section.prodottoSingolo > table td, section.prodottoSingolo > table th{
@@ -599,9 +525,26 @@ label{
     font-size: 15px;
     margin-bottom: 1%;
     font-weight: 100;
-
 }
-    /* PRODOTTO FINE */
+
+form.selezionaQuantità{
+    display: inline-block;
+    margin-left: 50px;
+}
+
+select{
+    background-color: rgba(0, 0, 0, 0);
+    min-width: 50px;
+    min-height: 50px;
+    color: #F5F3F4;
+    border: 1px solid #A4161A;
+}
+
+option{
+    background-color: #0B090A;
+}
+/* PRODOTTO FINE */
+
  /* CARRELLO INIZIO */
  section.carelloSection > ul >li > p{
     font-family: Arial, Helvetica, sans-serif;
@@ -610,26 +553,24 @@ label{
     margin-bottom: 5px;
 }
 
-
 section.carelloSection>ul{
     display:flex;
     justify-content:center;
 }
 
-
-
 section.carelloSection > ul > li:nth-child(1){
     margin-right: auto;
     margin-left: 1%;
 }
+
 section.carelloSection > ul > li:nth-child(2){
    padding-left: 25%;
 }
+
 section.carelloSection > ul > li:nth-child(3){
     margin-right: 1%;
     margin-left: auto;
 }
-
 
 .link2{
     font-family: Arial, Helvetica, sans-serif;
@@ -646,8 +587,8 @@ section.carelloSection > ul > li:nth-child(3){
     color: #0B090A;
 
 }
-
 /* CARRELLO FINE*/
+
 @media screen and (min-width: 768px){
     /*HOMEPAGE*/
     div.barra > ul {
@@ -664,22 +605,15 @@ section.carelloSection > ul > li:nth-child(3){
         margin-top: -3.5%;
         width: 100%;
         height: 100%;
-    
     }
     
     .container img {
-        
         width: 100%;
         height: 100%;
-      
     }
 
     nav.menu{
-        padding-left: 6%;
-        padding-right:10%;
-        padding-bottom: 5%;
-        padding-top: 5%;
-
+        padding: 5% 10% 5% 6%;
     }
 
     section.prodottoEsaurito{
@@ -696,7 +630,6 @@ section.carelloSection > ul > li:nth-child(3){
         max-width: 500px;
     }
 
-
     /*CATEGORIE*/
     section.filtro >button{
         min-width: 130px;
@@ -708,4 +641,8 @@ section.carelloSection > ul > li:nth-child(3){
     section.carelloSection > ul > li:nth-child(2){
         padding-left: 50%;
      }
+}
+
+*{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
