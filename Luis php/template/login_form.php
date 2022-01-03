@@ -1,12 +1,15 @@
 <div class="login">
             <form action="#" method="POST">
-                <h2>LOGIN</h2>                
+                <h2>LOGIN</h2>
                 <ul>
                     <li>
-                        <input type="text" id="username" name="username" placeholder="user id" />
+                      <?php if(isset($SetParameters["risultatologin"])):?><p><?php echo $SetParameters["risultatologin"]; ?></p><?php endif; ?>
                     </li>
                     <li>
-                        <input type="password" id="password" name="password" placeholder="password" />
+                        <label for="username">Username:</label><input type="text" id="username" name="username" placeholder="username" />
+                    </li>
+                    <li>
+                        <label for="password">Password:</label><input type="password" id="password" name="password" placeholder="password" />
                     </li>
                     <li class="loginButton">
                         <input type="submit" name="submit" value="LOG-IN" />
