@@ -19,10 +19,10 @@
                 <button class="bottoneMenu"><img src="immagini/menu-logo.png" alt=""></button>
             </li>
             <li>
-                <a href="template.php"><img src="immagini/Razer-Logo.png" alt=""></a>          
+                <a href="index.php"><img src="immagini/Razer-Logo.png" alt=""></a>          
             </li>
             <li>
-                <a href="#"><img src="immagini/carelllo.png" alt=""></a>
+                <a href="#"><img src="immagini/carrello.png" alt=""></a>
             </li>            
         </ul>
     </header>
