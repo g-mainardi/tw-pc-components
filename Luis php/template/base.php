@@ -22,7 +22,7 @@
                 <a href="index.php"><img src="immagini/Razer-Logo.png" alt=""></a>          
             </li>
             <li>
-                <a href="#"><img src="immagini/carrello.png" alt=""></a>
+                <a href="carrello.php"><img src="immagini/carrello.png" alt=""></a>
             </li>            
         </ul>
     </header>
@@ -31,7 +31,7 @@
             <ul>
                 <li><a href="login.php">ACCEDI</a></li>
                 <li><a href="register.php">REGISTRATI</a></li>
-                <li><a href="">CARRELLO</a></li>
+                <li><a href="carrello.php">CARRELLO</a></li>
                 <li><a href="">ORDINI</a></li>
                 <li><a href="">ESCI</a></li>
             </ul>

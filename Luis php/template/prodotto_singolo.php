@@ -5,7 +5,7 @@
          </div>
         <h1><?php echo $prodotto["marca"]." ".$prodotto["nome"]; ?></h1>
         <h2>1300 $</h2>
-        <form class="selezioaQuantità"> 
+        <form class="selezionaQuantità"> 
             <label>QTY<br/>
             <select name="quantità">
             <option value="1">1</option>

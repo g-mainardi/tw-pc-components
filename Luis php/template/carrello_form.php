@@ -9,7 +9,7 @@
     <section class="prodottoEsaurito">    
         <div class="container">
             <img src="immaginiGPU/3080.jpg" alt="">
-            <table class="tebellaCategorie">
+            <table class="tabellaCategorie">
                 <tr>
                     <th><h2 class="testoTabella">RTX 3080</h2></th>
                     <th><h2 class="testoTabella prezzo">1800 $</h2></th>
@@ -35,7 +35,7 @@
    <section>
     <div class="container">
         <img src="immaginiGPU/3080.jpg" alt="">
-        <table class="tebellaCategorie">
+        <table class="tabellaCategorie">
             <tr>
                 <th><h2 class="testoTabella">RTX 3080</h2></th>
                 <th><h2 class="testoTabella prezzo">1000 $</h2></th>

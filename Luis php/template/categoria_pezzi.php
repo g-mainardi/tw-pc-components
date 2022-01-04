@@ -13,7 +13,7 @@
     <section>
         <div class="container">
         <img src="immagini/gpu.jpg" alt="">
-        <table class="tebellaCategorie">
+        <table class="tabellaCategorie">
             <tr>
                 <th><h2 class="testoTabella"><?php echo $prodotto["nome"]; ?></h2></th>
                 <th><h2 class="testoTabella"><?php echo $prodotto["prezzo"]; ?></h2></th>

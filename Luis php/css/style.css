@@ -95,7 +95,7 @@ nav.menu{
     z-index: 1;
     background-color: #0B090A;
     display: none;
-    position: absolute;
+    position: fixed;
     padding: 2% 15%;
     border: 3px solid #A4161A;
     margin-top: 90px;
@@ -318,7 +318,7 @@ div.login>form>h2{
     text-align: left;
     font-size: 30px;
     font-weight: 100;
-    color: #FFF;
+    color: #F5F3F4;
     margin: 2% 0%;
 }
 
@@ -435,14 +435,14 @@ section.filtro >button{
 }
 
 
-table.tebellaCategorie {
+table.tabellaCategorie {
     border-collapse: collapse;
     width: 100%;
     text-align: center;
 }
 
 h2.testoTabella{
-    color: #FFF;
+    color: #F5F3F4;
     font-weight: 100;
 }
 
@@ -477,7 +477,24 @@ section.prodottoSingolo > h2{
     margin-top: 2%;
     margin-left: 2%;
     font-size: 30px;
-    color: #FFF;
+    color: #F5F3F4;
+}
+
+form.selezionaQuantità{
+    display: inline-block;
+    margin-left: 50px;
+
+}
+select{
+    background-color: rgba(0, 0, 0, 0);
+    min-width: 50px;
+    min-height: 50px;
+    color: #F5F3F4;
+    border: 1px solid #A4161A;
+}
+option{
+    background-color: #0B090A;
+    
 }
 
 section.prodottoSingolo > button:first-of-type{
@@ -517,7 +534,7 @@ section.prodottoSingolo > table{
 section.prodottoSingolo > table td, section.prodottoSingolo > table th{
     border: 1px solid #A4161A;
     padding: 0 20px;
-    color: #FFF;
+    color: #F5F3F4;
 }
 
 label{
@@ -527,22 +544,7 @@ label{
     font-weight: 100;
 }
 
-form.selezionaQuantità{
-    display: inline-block;
-    margin-left: 50px;
-}
 
-select{
-    background-color: rgba(0, 0, 0, 0);
-    min-width: 50px;
-    min-height: 50px;
-    color: #F5F3F4;
-    border: 1px solid #A4161A;
-}
-
-option{
-    background-color: #0B090A;
-}
 /* PRODOTTO FINE */
 
 /* CARRELLO INIZIO */
@@ -588,6 +590,71 @@ section.carelloSection > ul > li:nth-child(3){
 
 }
 /* CARRELLO FINE*/
+
+/* GESTIONE PRODOTTI INIZIO*/
+.modificaProdotti{
+    background-color: #B1A7A6;
+    margin-top: 2%;
+}
+
+table.tabellaCategorie td > button.bottoneTabella{
+    margin-top: 10%;
+}
+/* GESTIONE PRODOTTI FINE*/
+
+/* NOTIFICHE INIZIO*/
+section.notifiche{
+    text-align: center;
+}
+section.notifiche > div {
+    display: none;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: #161A1D;
+    border-bottom: 1px solid #0B090A;
+    
+}
+
+
+section.notifiche > div > p {
+    color: #F5F3F4;
+    text-align: left;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    
+}
+
+section.notifiche > button {
+    background-color: #161A1D;
+    padding: 20px;
+    width: 80%;
+    text-align: left;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #A4161A;
+    color: #A4161A;
+    
+}
+section.notifiche > div > button{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 80%;
+    min-width: auto;
+    min-height: auto;
+    
+}
+
+.visualizzato{
+    background-color: #B1A7A6!important;
+    color: #0B090A!important;
+    border-bottom: 1px solid #0B090A!important;
+}
+
+
+
+/*NOTIFICHE FINE*/
 
 @media screen and (min-width: 768px){
     /*HOMEPAGE*/

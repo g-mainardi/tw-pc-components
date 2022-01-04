@@ -32,6 +32,25 @@ $(document).ready(function(){
     });
 
 
+    function hideElement(element){
+        element
+            .removeClass("selected")     
+            .next().slideUp();            
+    }
+    $(".bottoneNotifica").click(function(){
+        $(this).addClass("visualizzato")
+        if ($(this).hasClass("selected")){
+            hideElement($(this));
+        }
+        else{
+            $(this)
+                .addClass("selected")
+                .next().slideDown(); 
+           
+        }
+    
+       
+    });
 
 
 
