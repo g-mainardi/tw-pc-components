@@ -311,7 +311,7 @@ div.login{
     max-height: 500px;
     max-width: 400px;
     text-align: center;
-    padding: 2%;
+    padding: 0 2% 7% 2%;
 }
 
 div.login>form>h2{
@@ -345,23 +345,24 @@ div.login>form>ul>li:last-of-type{
 }
 
 li.registerButton>input{
-    padding: 5% 29% !important;
+    padding: 5% 27%;
     font-weight: bold;
     font-size: 14px;
-    background-color: #A4161A!important;
+    background-color: #A4161A;
+    margin: 0;
 }
 
 li.loginButton>input{
-    padding: 5% 33% !important;
+    padding: 5% 33%;
     font-weight: bold;
     font-size: 14px;
-    background-color: #A4161A!important;
+    background-color: #A4161A;
+    margin: 0;
 }
 
-div.login>form>ul>li>input{
+div.login>form>ul>li>input.field{
     background-color: #999999;
-    padding: 5% 10% 5% 1%;
-    margin-top: 3px;
+    padding: 2% 10% 2% 2%;
 }
 
 div.login>form>ul>li>p{
@@ -374,7 +375,7 @@ div.login>form>ul>li>p{
 div.login>form>ul>li>label{
     text-align: center;
     color: #999;
-    margin: 12px;
+    margin: 20%;
     padding: 5px 0;
 }
 
@@ -390,10 +391,8 @@ a.vadoRegister{
 }
 
 a.vadoLogin{
-    padding-top: 5%;
-    padding-bottom: 5%;
-    padding-left: 35%;
-    padding-right: 35%;
+    text-align: center;
+    padding: 5% 30%;
     background-color: #999;
     color: #0B090A;
     text-decoration: none;    
