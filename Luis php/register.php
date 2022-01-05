@@ -19,11 +19,14 @@ if(isset($_POST["nome"]) && $_POST["nome"]!=""){
         if(count($stessousername)!=0) {
             // E-mail già presente
             $SetParameters["username"] = $_POST["username"];
+            $SetParameters["nome"] = $_POST["nome"];
             $msg = "E-mail già presente";
             $success = false;
         } elseif(isset($_POST["password"]) && $_POST["password"]!=""){
             /* REGISTRARE UTENTE */
+            $userid = $dbh->insertUser($_POST["nome"], $_POST["username"], $_POST["password"]);
 
+            $msg = ($userid!=false)? "Inserimento completato correttamente!" : "Errore in inserimento!";
 
             // Registrazione effettuata correttamente!
             $SetParameters["titolo"] = "Registrato";
