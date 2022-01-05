@@ -64,13 +64,27 @@ class DatabaseHelper{
     }
 
     public function getQuantitaProdotti($id){
-        $query = $this->db->prepare("SELECT DISTINCT COUNT(*) FROM articolo WHERE quantità <= 6 AND venditore = ?");
+        $stmt = $this->db->prepare("SELECT DISTINCT COUNT(*) FROM articolo WHERE quantità <= 6 AND venditore = ?");
         $stmt->bind_param('i', $id);
         $stmt->execute();
         $result = $stmt->get_result();
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function getVenditori($categoria){
+        $stmt = $this->db->prepare("SELECT DISTINCT utente.nome 
+                                     FROM articolo, utente, categoria
+                                     WHERE utente.ID_Utente = articolo.venditore 
+                                     AND categoria.nome = ? 
+                                     AND categoria.ID_Categoria = articolo.categoria");
+        $stmt->bind_param('s', $categoria);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
 
     public function checkLogin($username,$password){
         $query = "SELECT ID_Utente, nome, username, Tipo FROM utente WHERE username=? AND password=?";
