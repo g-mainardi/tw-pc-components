@@ -14,7 +14,6 @@ body{
 header {
     background-color: #0B090A;
     margin-top: 0;
-    padding: 0;
     overflow: hidden;
     position: fixed;
     top: 0;
@@ -32,30 +31,26 @@ a:hover{
     color: #A4161A!important;
 }
 
-
 header>ul{
     display:flex;
     justify-content:center;
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-top: 1%;
-    padding-bottom: 1%;
+    margin: 15px 1% 20px;
+    padding: 0;
+    max-height: 50px;
 }
-
 
 header > ul > li:first-of-type > button > img{
-    max-height: 40px;
-    padding-top: 10%;
-
+    max-height: 50px;
 }
+
 header > ul > li:nth-child(2){
     margin-right: auto;
     margin-left: auto;
 }
 
-header > ul > li:last-of-type > a >img{
+header > ul > li > a >img{
     max-height: 50px;
-    
+    margin: 0 10px;
 }
 
 header > ul > li:nth-child(2) > a > img{
@@ -89,6 +84,7 @@ div.barra > ul > li > a{
 .bottoneMenu {
     background-color: transparent;
     border: 0px;
+    padding: 0;
 }
 
 nav.menu{
