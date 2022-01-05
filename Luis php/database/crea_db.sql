@@ -73,12 +73,12 @@ CREATE TABLE IF NOT EXISTS `categoria` (
 -- Struttura della tabella `ordine`
 --
 
-CREATE TABLE `ordine` (
+CREATE TABLE IF NOT EXISTS `ordine` (
   `ID_Ordine` int(11) NOT NULL,
   `ID_Cliente` int(11) NOT NULL,
   `ID_Carrello` int(11) NOT NULL,
   `stato` enum('in esecuzione','spedito','consegnato') NOT NULL DEFAULT 'in esecuzione'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -87,7 +87,7 @@ CREATE TABLE `ordine` (
 --
 
 CREATE TABLE IF NOT EXISTS `utente` (
-  `ID_Utente` int(11) NOT NULL,
+    `ID_Utente` int(11) NOT NULL,
   `nome` text NOT NULL,
   `username` text NOT NULL,
   `password` text NOT NULL,
@@ -162,7 +162,6 @@ ALTER TABLE `ordine`
 --
 ALTER TABLE `utente`
   MODIFY `ID_Utente` int(11) NOT NULL AUTO_INCREMENT;
-COMMIT;
 
 --
 -- Indici per le tabelle `notifica`
@@ -176,7 +175,6 @@ ALTER TABLE `notifica`
 --
 ALTER TABLE `notifica`
   MODIFY `ID_Notifica` int(11) NOT NULL AUTO_INCREMENT;
-COMMIT;
 
 --
 -- Indici per le tabelle `ordine`
