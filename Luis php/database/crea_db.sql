@@ -94,6 +94,19 @@ CREATE TABLE IF NOT EXISTS `utente` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Struttura della tabella `notifica`
+--
+
+CREATE TABLE `notifica` (
+  `ID_Notifica` int(11) NOT NULL,
+  `utente` int(11) NOT NULL,
+  `ordine` int(11) NOT NULL,
+  `titolo` text NOT NULL,
+  `descrizione` text NOT NULL,
+  `visualizzato` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
 -- Indici per le tabelle scaricate
 --
 
@@ -158,6 +171,20 @@ ALTER TABLE `ordine`
 --
 ALTER TABLE `utente`
   MODIFY `ID_Utente` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
+
+--
+-- Indici per le tabelle `notifica`
+--
+ALTER TABLE `notifica`
+  ADD PRIMARY KEY (`ID_Notifica`),
+  ADD KEY `utente` (`utente`,`ordine`);
+
+--
+-- AUTO_INCREMENT per la tabella `notifica`
+--
+ALTER TABLE `notifica`
+  MODIFY `ID_Notifica` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
