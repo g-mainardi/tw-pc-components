@@ -5,14 +5,14 @@
             <li><button class="bottoneTabella">CHECKOUT</button></li>
         </ul>
     </section>
-  
+<?php $cont = 0; ?>
 <?php foreach($SetParameters["cart"] as $prodotto):
     $articolo = $dbh->getProdotto($prodotto["ID_Articolo"]);
 
     if($prodotto["quantità"] > $articolo[0]["quantità"]){
-        echo "<section class='prodottoEsaurito'";
+        echo "<section class='prodottoEsaurito ".$cont."'>";
     } else {
-        echo "<section>";
+        echo "<section class='>".$cont."'>";
     }
     ?>
         <div class="container">
