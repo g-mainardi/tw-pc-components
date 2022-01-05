@@ -92,6 +92,18 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function insertUser($nome, $username, $password){
+        $query = "INSERT INTO utente (nome, username, password, Tipo) VALUES (?, ?, ?, ?)";
+
+        $tipo = "cliente";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ssss', $nome, $username, $password, $tipo);
+
+        $stmt->execute();
+        return $stmt->insert_id;
+    }
+
     /*
 
         ESEMPI

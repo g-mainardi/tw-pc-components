@@ -8,14 +8,18 @@
                         <?php endif; ?>
                     </li>
                     <li>
-                        <label for="nome">Nome:</label>
-                        <input class="field" type="text" id="nome" name="nome" placeholder="nome" required/>
+                        <?php if(isset($SetParameters["nome"])):?>
+                            <label for="nome">Nome:</label>
+                            <input class="field" type="text" id="nome" name="nome" placeholder="nome" required value="<?php echo $SetParameters["nome"]?>"/>
+                        <?php else:?>
+                            <label for="nome">Nome:</label>
+                            <input class="field" type="text" id="nome" name="nome" placeholder="nome" required/>
+                        <?php endif; ?>
                     </li>
                     <li>
-                        <?php // Con js bisogna inserire l'username nell'input
-                            if(isset($SetParameters["username"])):?>
+                        <?php if(isset($SetParameters["username"])):?>
                             <label for="username" class="error">E-mail:</label>
-                            <input class="field error" type="text" id="username" name="username" placeholder="e-mail" required/>
+                            <input class="field error" type="text" id="username" name="username" placeholder="e-mail" required value="<?php echo $SetParameters["username"]?>"/>
                             <p class="error"><?php echo $msg; ?></p>
                         <?php else:?>
                             <label for="username">E-mail:</label>
