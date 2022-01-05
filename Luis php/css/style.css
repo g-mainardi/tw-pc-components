@@ -714,3 +714,16 @@ section.notifiche > div > button{
 *{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
+div.login>form>ul>li>input.error{
+    border: 1px solid red;
+    background-color: rgb(197, 197, 197);
+}
+
+div.login>form>ul>li>p.error {
+    color: red;
+}
+
+div.login>form>ul>li>label.error {
+    color: white;
+}
