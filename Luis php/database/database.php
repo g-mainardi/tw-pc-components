@@ -95,10 +95,10 @@ class DatabaseHelper{
     public function insertUser($nome, $username, $password){
         $query = "INSERT INTO utente (nome, username, password, Tipo) VALUES (?, ?, ?, ?)";
 
-        $tipo = "cliente";
+        $Tipo = "cliente";
 
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ssss', $nome, $username, $password, $tipo);
+        $stmt->bind_param('ssss', $nome, $username, $password, $Tipo);
 
         $stmt->execute();
         return $stmt->insert_id;

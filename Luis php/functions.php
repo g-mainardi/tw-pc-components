@@ -23,5 +23,9 @@ function setParametersByType(){
     }
 }
 
-
+function unsetParamIfPresent($param) {
+    if(isset($_SESSION[$param])){
+        unset($_SESSION[$param]);
+    }
+}
 ?>

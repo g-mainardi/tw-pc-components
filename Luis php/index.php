@@ -5,21 +5,22 @@ require_once '../Luis php/required.php';
 if(isset($_POST["username"]) && isset($_POST["password"])) {
     
     // Controllo se c'è su db
-    $risultatologin = $dbh->checkLogin($_POST["username"], $_POST["password"]);
+    $utente = $dbh->checkLogin($_POST["username"], $_POST["password"]);
 
-    if(count($risultatologin)==0) {
+    if(count($utente)==0) {
         // Login fallito -> ?
         // $SetParameters["risultatologin"] = "Errore: username o password errati";
     } else {
-        // Login riuscito
-        setLoggedUser($risultatologin[0]);
-        // Prendo dati utente per usarli nella pagina (?)
+        // Login riuscito -> setto l'utente come loggato
+        setLoggedUser($utente[0]);
+        header();
     }
 
 }
 
-if(isLoggedIn()){
+if($SetParameters["logged"]){
     // Loggato -> Non mostro Accedi e Registrati, mostro icona notifiche e quantità carrello
+    
 } else {
     // Non loggato -> Visualizzazione normale
 }

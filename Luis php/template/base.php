@@ -21,19 +21,31 @@
             <li>
                 <a href="index.php"><img src="immagini/Razer-Logo.png" alt=""></a>          
             </li>
+            <?php if(isset($SetParameters["logged"]) && $SetParameters["logged"]) :?>
+            <li>
+                <a href="carrello.php"><img src="immagini/notification-zero.png" alt=""></a>
+            </li>
+            <?php endif;?>
             <li>
                 <a href="carrello.php"><img src="immagini/carrello.png" alt=""></a>
-            </li>            
+            </li> 
         </ul>
     </header>
 
     <nav class="menu">
             <ul>
+                <?php if(isset($SetParameters["logged"]) && $SetParameters["logged"]): ?>
+                    <?php if($SetParameters["Tipo"] == "venditore"): ?>
+                    <li><a href="gestione.php">GESTIONE PRODOTTI</a></li>
+                    <?php else: ?>
+                    <li><a href="carrello.php">CARRELLO</a></li>
+                    <li><a href="notifiche.php">ORDINI</a></li>
+                    <?php endif; ?>
+                    <li><a href="logout.php">ESCI</a></li>
+                <?php else: ?>
                 <li><a href="login.php">ACCEDI</a></li>
                 <li><a href="register.php">REGISTRATI</a></li>
-                <li><a href="carrello.php">CARRELLO</a></li>
-                <li><a href="">ORDINI</a></li>
-                <li><a href="">ESCI</a></li>
+                <?php endif; ?>
             </ul>
     </nav>
 
