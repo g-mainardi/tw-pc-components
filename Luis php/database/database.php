@@ -129,7 +129,7 @@ class DatabaseHelper{
     }
 
     public function getCartProducts($idutente) {
-        $query = "SELECT carrello.ID_Articolo, carrello.quantità, articolo.nome, articolo.descrizione, articolo.img, articolo.prezzo, articolo.marca
+        $query = "SELECT carrello.ID_Carrello, carrello.ID_Articolo, carrello.quantità, articolo.nome, articolo.descrizione, articolo.img, articolo.prezzo, articolo.marca
                   FROM carrello, articolo
                   WHERE articolo.ID_Articolo=carrello.ID_Articolo AND carrello.ID_Cliente=?";
         $stmt = $this->db->prepare($query);
