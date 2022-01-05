@@ -118,10 +118,36 @@ class DatabaseHelper{
         return $stmt->insert_id;
     }
 
-    public function getNotifications($idutente) {
-        $query = "SELECT *campi notifica* FROM utente, notifica WHERE ID_Utente=?";
+    public function getAllNotifications($idutente) {
+        $query = "SELECT ID_Notifica, ordine, titolo, descrizione, visualizzato
+                  FROM notifica
+                  WHERE utente=?";
+
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('s', $idutente);
+
+        if(!$stmt){
+            echo "NON VA BENE LA QUERY";
+        }
+
+        $stmt->bind_param('i', $idutente);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getOnlyUnreadNotifications($idutente) {
+        $query = "SELECT ID_Notifica, ordine, titolo, descrizione, visualizzato
+                  FROM notifica
+                  WHERE utente=? AND visualizzato=0";
+
+        $stmt = $this->db->prepare($query);
+
+        if(!$stmt){
+            echo "NON VA BENE LA QUERY";
+        }
+
+        $stmt->bind_param('i', $idutente);
         $stmt->execute();
         $result = $stmt->get_result();
 

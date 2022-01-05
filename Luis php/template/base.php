@@ -23,7 +23,7 @@
             </li>
             <?php if(isset($SetParameters["logged"]) && $SetParameters["logged"]) :?>
             <li>
-                <a href="notifiche.php"><img src="immagini/notification-zero.png" alt=""></a>
+                <a href="notifiche.php"><img src="immagini/notification<?php if(count($dbh->getOnlyUnreadNotifications($SetParameters["ID_Utente"])) == 0 ) {echo "-zero";} ?>.png" alt=""></a>
             </li>
             <?php endif;?>
             <li>

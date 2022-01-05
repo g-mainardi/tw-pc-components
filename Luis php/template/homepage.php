@@ -28,7 +28,7 @@
         </div>
 
         <section class="Section1">
-            <h1>Benvenuto <?php echo $SetParameters["nome"] ?> ecco i nostri prodotti</h1>
+            <h1>Benvenuto<?php if(isset($setParameters["nome"])) {echo " ".$SetParameters["nome"];} ?>, ecco i nostri prodotti</h1>
             <h2>scegli la componentistica che più si addice al tuo computer!</h2>
         </section>    
         
