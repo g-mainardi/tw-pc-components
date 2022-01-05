@@ -134,20 +134,6 @@ ALTER TABLE `categoria`
 
 
 --
--- Indici per le tabelle `ordine`
---
-ALTER TABLE `ordine`
-  ADD PRIMARY KEY (`ID_Ordine`),
-  ADD KEY `ID_Carrello` (`ID_Carrello`),
-  ADD KEY `ID_Cliente` (`ID_Cliente`);
-
---
--- AUTO_INCREMENT per la tabella `ordine`
---
-ALTER TABLE `ordine`
-  MODIFY `ID_Ordine` int(11) NOT NULL AUTO_INCREMENT;
-COMMIT;
---
 -- Indici per le tabelle `utente`
 --
 ALTER TABLE `utente`
@@ -190,6 +176,21 @@ ALTER TABLE `notifica`
 --
 ALTER TABLE `notifica`
   MODIFY `ID_Notifica` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
+
+--
+-- Indici per le tabelle `ordine`
+--
+ALTER TABLE `ordine`
+  ADD PRIMARY KEY (`ID_Ordine`),
+  ADD KEY `ID_Carrello` (`ID_Carrello`),
+  ADD KEY `ID_Cliente` (`ID_Cliente`);
+
+--
+-- AUTO_INCREMENT per la tabella `ordine`
+--
+ALTER TABLE `ordine`
+  MODIFY `ID_Ordine` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
