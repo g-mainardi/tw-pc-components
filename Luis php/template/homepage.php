@@ -2,15 +2,15 @@
         <div class="slider">
             <div class="slideshow-container">
                 <div class="mySlides fade">
-                    <img src="immagini/case2.jpg" style="width:100%">
+                    <img src="immagini/case2.jpg" style="width:100%" />
                 </div>
                 
                 <div class="mySlides fade">
-                    <img src="immagini/cpu2.jpg" style="width:100%">
+                    <img src="immagini/cpu2.jpg" style="width:100%" />
                 </div>
                 
                 <div class="mySlides fade">
-                    <img src="immagini/gpu2.jpg" style="width:100%">
+                    <img src="immagini/gpu2.jpg" style="width:100%" />
                 </div>
                 
                 <a class="prev">&#10094;</a>
