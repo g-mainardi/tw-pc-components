@@ -23,11 +23,11 @@
             </li>
             <?php if(isset($SetParameters["logged"]) && $SetParameters["logged"]) :?>
             <li>
-                <a href="carrello.php"><img src="immagini/notification-zero.png" alt=""></a>
+                <a href="notifiche.php"><img src="immagini/notification-zero.png" alt=""></a>
             </li>
             <?php endif;?>
             <li>
-                <a href="carrello.php"><img src="immagini/carrello.png" alt=""></a>
+                <a href="carrello.php"><img src="immagini/carrello<?php if(isset($SetParameters["cart"]) && count($SetParameters["cart"])!=0) {echo "_non_vuoto";}?>.png" alt=""></a>
             </li> 
         </ul>
     </header>

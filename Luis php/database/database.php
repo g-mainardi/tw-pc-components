@@ -118,6 +118,30 @@ class DatabaseHelper{
         return $stmt->insert_id;
     }
 
+    public function getNotifications($idutente) {
+        $query = "SELECT *campi notifica* FROM utente, notifica WHERE ID_Utente=?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s', $idutente);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getCartProducts($idutente) {
+        $query = "SELECT carrello.ID_Articolo, carrello.quantità, articolo.nome, articolo.descrizione, articolo.img, articolo.prezzo, articolo.marca
+                  FROM carrello, articolo
+                  WHERE articolo.ID_Articolo=carrello.ID_Articolo AND carrello.ID_Cliente=?";
+        $stmt = $this->db->prepare($query);
+        if(!$stmt){
+            echo "NON VA BENE LA QUERY";
+        }
+        $stmt->bind_param('i', $idutente);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
     /*
 
         ESEMPI

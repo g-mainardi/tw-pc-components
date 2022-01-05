@@ -13,8 +13,12 @@ if(isLoggedIn()){
     $SetParameters["logged"] = true;
 
     // Prendo dati utente per usarli nella pagina
+    $SetParameters["ID_Utente"] = $_SESSION["ID_Utente"];
     $SetParameters["nome"] = $_SESSION["nome"];
     $SetParameters["username"] = $_SESSION["username"];
+    if(!isVenditore()){
+        $SetParameters["cart"]=$dbh->getCartProducts($SetParameters["ID_Utente"]);
+    }
     $SetParameters["Tipo"] = isVenditore()? "venditore" : "cliente";
 } else {
     // Non loggato -> Visualizzazione normale
