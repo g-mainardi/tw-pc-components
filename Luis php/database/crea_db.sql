@@ -73,11 +73,12 @@ CREATE TABLE IF NOT EXISTS `categoria` (
 -- Struttura della tabella `ordine`
 --
 
-CREATE TABLE IF NOT EXISTS `ordine` (
+CREATE TABLE `ordine` (
+  `ID_Ordine` int(11) NOT NULL,
   `ID_Cliente` int(11) NOT NULL,
   `ID_Carrello` int(11) NOT NULL,
   `stato` enum('in esecuzione','spedito','consegnato') NOT NULL DEFAULT 'in esecuzione'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
 
 -- --------------------------------------------------------
 
@@ -131,22 +132,26 @@ ALTER TABLE `carrello`
 ALTER TABLE `categoria`
   ADD PRIMARY KEY (`ID_Categoria`);
 
+
 --
 -- Indici per le tabelle `ordine`
 --
 ALTER TABLE `ordine`
-  ADD PRIMARY KEY (`ID_Cliente`),
-  ADD KEY `ID_Carrello` (`ID_Carrello`);
+  ADD PRIMARY KEY (`ID_Ordine`),
+  ADD KEY `ID_Carrello` (`ID_Carrello`),
+  ADD KEY `ID_Cliente` (`ID_Cliente`);
 
+--
+-- AUTO_INCREMENT per la tabella `ordine`
+--
+ALTER TABLE `ordine`
+  MODIFY `ID_Ordine` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
 --
 -- Indici per le tabelle `utente`
 --
 ALTER TABLE `utente`
   ADD PRIMARY KEY (`ID_Utente`);
-
---
--- AUTO_INCREMENT per le tabelle scaricate
---
 
 --
 -- AUTO_INCREMENT per la tabella `articolo`

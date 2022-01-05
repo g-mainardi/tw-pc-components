@@ -1,25 +1,11 @@
     
-<?php foreach($SetParameters["cart"] as $prodotto):?>
+
     <p style="color: white"><?php echo $prodotto["nome"]?></p>
     <p style="color: white"><?php echo $prodotto["quantità"]?></p>
     <p style="color: white"><?php echo $prodotto["descrizione"]?></p>
     <p style="color: white"><?php echo $prodotto["prezzo"]?></p>
     <p style="color: white"><?php echo $prodotto["marca"]?></p>
-<?php endforeach?>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-<!--     
-    
+
     <section class="carelloSection">
         <ul>
             <li><p>Carrello: 2</p></li>
@@ -28,6 +14,7 @@
         </ul>
     </section>
   
+<?php foreach($SetParameters["cart"] as $prodotto):?> 
     <section class="prodottoEsaurito">    
         <div class="container">
             <img src="immaginiGPU/3080.jpg" alt="">
@@ -52,6 +39,7 @@
     
        
     </section>
+<?php endforeach; ?> 
 
 
    <section>
