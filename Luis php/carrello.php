@@ -1,7 +1,10 @@
 <?php
 require_once 'required.php';
 
-if($SetParameters["logged"] && $SetParameters["Tipo"] == "venditore"){
+if(!$SetParameters["logged"]){
+    // Utente non loggato -> mando alla pagina di login
+    header("location:login.php");
+} elseif($SetParameters["Tipo"] == "venditore"){
     // Loggato come venditore -> mando alla pagina di gestione
     header("location:gestione.php");   
 }

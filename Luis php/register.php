@@ -3,7 +3,7 @@ require_once '../Luis php/required.php';
 
 // Non si dovrebbe poter accedere a questa pagina se l'utente è loggato
 if(isLoggedIn()){
-    setParametersByType(); // Rimanda a index
+    setParametersByType(); // Rimanda alla pagina principale in base al tipo utente
 }
 
 $SetParameters["titolo"] = "Register";
