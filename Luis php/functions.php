@@ -28,4 +28,14 @@ function unsetParamIfPresent($param) {
         unset($_SESSION[$param]);
     }
 }
+
+function getSpecs($desc){
+    $dictionary = [];
+    $array = trim($desc, ";");
+    for($i = 0; $i < $array.length-1; $i++){
+        $dictionary = [$array[i]] => $array[i+1];
+    }
+
+    return $dictionary;
+}
 ?>
