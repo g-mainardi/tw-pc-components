@@ -17,7 +17,7 @@ function setLoggedUser($user){
 
 function setParametersByType(){
     if(isVenditore()){
-        header("location:index.php"); // Da cambiare
+        header("location:gestione.php");
     } else {
         header("location:index.php");
     }

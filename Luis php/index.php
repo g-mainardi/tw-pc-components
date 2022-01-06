@@ -2,6 +2,7 @@
 <?php
 require_once '../Luis php/required.php';
 
+// Controllo se l'utente proviene dalla pagina di accesso per loggarlo
 if(isset($_POST["username"]) && isset($_POST["password"])) {
     
     // Controllo se c'è su db
@@ -15,17 +16,13 @@ if(isset($_POST["username"]) && isset($_POST["password"])) {
         setLoggedUser($utente[0]);
         header();
     }
-
 }
 
-if($SetParameters["logged"]){
-    // Loggato -> Non mostro Accedi e Registrati, mostro icona notifiche e quantità carrello
-    
-} else {
-    // Non loggato -> Visualizzazione normale
+if($SetParameters["logged"] && $SetParameters["Tipo"] == "venditore"){
+    // Loggato come venditore -> mando alla pagina di gestione
+    header("location:gestione.php");
 }
 
-// Per ora rimando a homepage in entrambi i casi
 $SetParameters["titolo"] = "Home";
 $SetParameters["file"] = "homepage.php";
     

@@ -26,9 +26,11 @@
                 <a href="notifiche.php"><img src="immagini/notification<?php if(count($dbh->getOnlyUnreadNotifications($SetParameters["ID_Utente"])) == 0 ) {echo "-zero";} ?>.png" alt=""></a>
             </li>
             <?php endif;?>
+            <?php if(isset($SetParameters["logged"]) && $SetParameters["logged"] && $SetParameters["Tipo"]!="venditore") :?>
             <li>
                 <a href="carrello.php"><img src="immagini/carrello<?php if(isset($SetParameters["cart"]) && count($SetParameters["cart"])!=0) {echo "_non_vuoto";}?>.png" alt=""></a>
-            </li> 
+            </li>
+            <?php endif;?> 
         </ul>
     </header>
 
@@ -39,8 +41,8 @@
                     <li><a href="gestione.php">GESTIONE PRODOTTI</a></li>
                     <?php else: ?>
                     <li><a href="carrello.php">CARRELLO</a></li>
-                    <li><a href="notifiche.php">ORDINI</a></li>
                     <?php endif; ?>
+                    <li><a href="notifiche.php">NOTIFICHE</a></li>
                     <li><a href="logout.php">ESCI</a></li>
                 <?php else: ?>
                 <li><a href="login.php">ACCEDI</a></li>
@@ -49,6 +51,7 @@
             </ul>
     </nav>
 
+    <?php if(!isset($SetParameters["logged"]) || (!$SetParameters["logged"]) || ($SetParameters["Tipo"] != "venditore")): ?>
     <div class="barra">
         <ul>
             <li><a href="categorie.php?categoria=Motherboard">Motherboard</a></li>
@@ -60,6 +63,7 @@
             <li><a href="#">Dissipatori</a></li>
         </ul>
     </div>
+    <?php endif; ?>
 
     <main>
         <?php
@@ -68,6 +72,7 @@
     </main>
 
     <footer>
+        <?php if(!isset($SetParameters["logged"]) || (!$SetParameters["logged"]) || ($SetParameters["Tipo"] != "venditore")): ?>
         <p>CATEGORIE:</p>
         <table class="tabellaFooter">
             <tr>
@@ -85,6 +90,7 @@
                 <th><a class href="#">Dissipatori</a></th>
             </tr>
         </table>
+        <?php endif; ?>
         <p>Progetto Tecnologie Web - A.A. 2021/2022</p>
         <p>Giacomo Magrini, Giosuè Mainardi, Luigi Incarnato</p>
     </footer>
