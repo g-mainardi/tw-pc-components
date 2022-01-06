@@ -1,7 +1,7 @@
 <?php
 require_once 'required.php';
 
-$SetParameters["titolo"] = "Carrello di ".$SetParameters["nome"]; // Inserire nome utente
+$SetParameters["titolo"] = isset($SetParameters["nome"])? "Carrello di ".$SetParameters["nome"] : "Carrello"; 
 $SetParameters["file"] = "carrello_form.php";
 
 require("template/base.php");

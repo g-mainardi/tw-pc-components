@@ -19,11 +19,11 @@
                     <li>
                         <?php if(isset($SetParameters["username"])):?>
                             <label for="username" class="error">E-mail:</label>
-                            <input class="field error" type="text" id="username" name="username" placeholder="e-mail" required value="<?php echo $SetParameters["username"]?>"/>
+                            <input class="field error" type="email" id="username" name="username" placeholder="e-mail" required value="<?php echo $SetParameters["username"]?>"/>
                             <p class="error"><?php echo $msg; ?></p>
                         <?php else:?>
                             <label for="username">E-mail:</label>
-                            <input class="field" type="text" id="username" name="username" placeholder="e-mail" required/>
+                            <input class="field" type="email" id="username" name="username" placeholder="e-mail" required/>
                         <?php endif; ?>
                     </li>
                     <li>
