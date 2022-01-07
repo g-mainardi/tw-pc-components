@@ -1,4 +1,4 @@
-        <script src="slider.js" type="text/javascript"></script>
+        <script src="slider.js"></script>
         <div class="slider">
             <div class="slideshow-container">
                 <div class="mySlides fade">
