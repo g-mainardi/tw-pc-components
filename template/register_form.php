@@ -33,8 +33,8 @@
                     <li class="registerButton">
                         <input type="submit" name="submit" value="REGISTER" />
                     </li>
-                    <li><p>---------------or login--------------</p></li>
-                    <li><a class="vadoLogin" href="login.php">LOGIN</a></li>
+                    <li><p>---------------oppure fai Login--------------</p></li>
+                    <li><a class="vaiPagina" href="login.php">Vai al Login</a></li>
                 </ul>
             </form>
 </div>

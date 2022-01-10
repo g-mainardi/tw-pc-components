@@ -14,8 +14,8 @@
                     <li class="loginButton">
                         <input type="submit" name="submit" value="LOG-IN" />
                     </li>
-                    <li><p>---------------or register--------------</p></li>
-                    <li><a class="vadoRegister" href="register.php">REGISTER</a></li>
+                    <li><p>---------------oppure Registrati--------------</p></li>
+                    <li><a class="vaiPagina" href="register.php">Vai alla Registrazione</a></li>
                 </ul>
             </form>
 </div>
