@@ -5,15 +5,16 @@
          </div>
         <h1><?php echo $prodotto["marca"]." ".$prodotto["nome"]; ?></h1>
         <h2>1300 $</h2>
-        <form class="selezionaQuantità"> 
+        <form class="selezionaQuantità" action="#" method="POST">  
+            <input type="hidden" name="id" value="<?php echo $prodotto["ID_Articolo"];?>" />
             <label>QTY<br/>
             <select name="quantità">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
+            <?php for ($i=1; $i <= $prodotto["quantità"]; $i++) { 
+                echo "<option value='".$i."'>".$i."</option>";
+            }?>
             </select></label>
-            </form>
-        <button class="bottoneTabella">AGGIUNGI AL CARRELLO</button>
+            <button type="submit" class="bottoneTabella">AGGIUNGI AL CARRELLO</button>
+        </form>
         <p><?php echo $prodotto["anteprima"]; ?></p>
         <button class="mostra">Espandi/Riduci</button>
         <table class="tabella">

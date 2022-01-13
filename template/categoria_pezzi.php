@@ -32,7 +32,7 @@
                 </tr>
                 <tr>
                     <td><a class="link1" href="prodotto.php?id=<?php echo $prodotto['ID_Articolo']?>">Dettagli...</a></td>
-                    <td><input class="bottoneTabella" type="submit" name="submit" value="AGGIUNGI AL CARRELLO" /></td>
+                    <td><button class="bottoneTabella" type="submit" name="submit">AGGIUNGI AL CARRELLO</button></td>
                 </tr>
             </table>
         </div>
