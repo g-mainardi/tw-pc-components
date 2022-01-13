@@ -18,11 +18,14 @@
         <p><?php echo $prodotto["anteprima"]; ?></p>
         <button class="mostra">Espandi/Riduci</button>
         <table class="tabella">
-            <tr>
-                <th><p>Marca</p></th>
-                <td><p>Gigabyte</p></td>
-            </tr>
-            <tr>
+            <?php $dictonary = getSpecs($prodotto["descrizione"]);
+                foreach ($dictonary as $key => $value):?>
+                <tr>
+                    <th><p><?php echo $key;?></p></th>
+                    <td><p><?php echo $value;?></p></td>
+                </tr>
+            <?php endforeach; ?>
+            <!--<tr>
                 <th><p>Dimensioni prodotto</p></th>
                 <td><p>32 x 12.9 x 5.5 cm; 1.36 Kg</p></td>   
             </tr>
@@ -65,7 +68,7 @@
             <tr>
                 <th><p>Peso articolo</p></th>
                 <td><p>1,36 Kg</p></td>   
-            </tr>
+            </tr>-->
         </table>
 
 
