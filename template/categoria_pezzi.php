@@ -21,6 +21,7 @@
     <form action="#" method="POST">
     <?php foreach($SetParameters["prodotti"] as $prodotto): ?> 
     <form action="#" method="POST">
+        <input type="hidden" name="id" value="<?php echo $prodotto["ID_Articolo"];?>" />
         <section>
             <div class="container">
             <img src="immagini/gpu.jpg" alt="">

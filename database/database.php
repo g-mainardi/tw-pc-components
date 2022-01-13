@@ -193,6 +193,15 @@ class DatabaseHelper{
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function insertProductInCart($id_utente, $id_articolo, $quantità){
+        $query = "INSERT INTO carrello (ID_Cliente, ID_Articolo, quantità) VALUES (?, ?, ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('iii', $id_utente, $id_articolo, $quantità);
+
+        $stmt->execute();
+        return $stmt->insert_id;
+    }
     /*
 
         ESEMPI
