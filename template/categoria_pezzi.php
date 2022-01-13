@@ -4,7 +4,17 @@
         <h2>scegli un fornitore per filtrare i prodotti</h2>
         <?php foreach ($SetParameters["venditori"] as $venditore): ?> 
             <button onclick = "location.href = 'categorie.php?categoria=<?php echo $SetParameters['categoria']; ?>&venditore=<?php echo $venditore['nome']; ?>'"><?php echo $venditore["nome"]; ?></button>
-        <?php endforeach; ?>
+        <?php endforeach;?>
+        
+        <?php   if(isset($SetParameters["tipologia"])):
+                    echo "<h2>altri filtri</h2>";
+                    foreach ($SetParameters["venditori"] as $venditore): ?>
+                        <button onclick = "location.href = 'categorie.php?categoria=<?php echo $SetParameters['categoria']; ?>&venditore=<?php echo $venditore['nome']; ?>'"><?php echo $venditore["nome"]; ?></button>
+        <?php       endforeach;
+                endif; 
+        ?>
+
+
 
     </section>   
 

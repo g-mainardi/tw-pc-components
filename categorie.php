@@ -11,6 +11,10 @@ $SetParameters["file"] = "categoria_pezzi.php";
 $SetParameters["categoria"] = $_GET["categoria"];
 $SetParameters["venditori"] = $dbh->getVenditori($_GET["categoria"]);
 
+if($_GET["categoria"] == "Motherboard" || $_GET["categoria"] == "GPU"){
+    $SetParameters["tipologia"] = $dbh->getVenditoreProdotti($_GET["categoria"]);
+}
+
 if(isset($_GET["venditore"])){
     $SetParameters["prodotti"] = $dbh->getVenditoreProdotti($_GET["categoria"], $_GET["venditore"]);
 } else {
