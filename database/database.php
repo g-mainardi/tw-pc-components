@@ -39,9 +39,21 @@ class DatabaseHelper{
         $stmt = $this->db->prepare("SELECT DISTINCT articolo.tipologia 
                                     FROM articolo, categoria
                                     WHERE categoria.nome = ? 
-                                    categoria.ID_Categoria = articolo.categoria");
+                                    AND categoria.ID_Categoria = articolo.categoria");
 
         $stmt->bind_param('s', $categoria);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getTypeProducts($tipologia){
+        $stmt = $this->db->prepare("SELECT DISTINCT *
+                                    FROM articolo
+                                    WHERE tipologia = ?");
+
+        $stmt->bind_param('s', $tipologia);
         $stmt->execute();
         $result = $stmt->get_result();
 

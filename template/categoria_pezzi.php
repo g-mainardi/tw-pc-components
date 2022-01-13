@@ -8,8 +8,8 @@
         
         <?php   if(isset($SetParameters["tipologia"])):
                     echo "<h2>altri filtri</h2>";
-                    foreach ($SetParameters["venditori"] as $venditore): ?>
-                        <button onclick = "location.href = 'categorie.php?categoria=<?php echo $SetParameters['categoria']; ?>&venditore=<?php echo $venditore['nome']; ?>'"><?php echo $venditore["nome"]; ?></button>
+                    foreach ($SetParameters["tipologia"] as $tipologia): ?>
+                        <button onclick = "location.href = 'categorie.php?categoria=<?php echo $SetParameters['categoria']; ?>&tipologia=<?php echo $tipologia['tipologia']; ?>'"><?php echo $tipologia["tipologia"]; ?></button>
         <?php       endforeach;
                 endif; 
         ?>
