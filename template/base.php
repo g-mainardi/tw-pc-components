@@ -9,7 +9,7 @@
     src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
     crossorigin="anonymous"></script>
-    <script src="progetto.js"></script>
+    <script src="./script/progetto.js"></script>
 </head>
 
 <body>
@@ -35,23 +35,28 @@
     </header>
 
     <nav class="menu">
-            <ul>
-                <?php if(isset($SetParameters["logged"]) && $SetParameters["logged"]): ?>
-                    <?php if($SetParameters["Tipo"] == "venditore"): ?>
-                    <li><a href="gestione.php">GESTIONE PRODOTTI</a></li>
-                    <?php else: ?>
-                    <li><a href="carrello.php">CARRELLO</a></li>
-                    <?php endif; ?>
-                    <li><a href="notifiche.php">NOTIFICHE</a></li>
-                    <li><a href="logout.php">ESCI</a></li>
+        <ul>
+            <?php if(isset($SetParameters["logged"]) && $SetParameters["logged"]): ?>
+                <?php if($SetParameters["Tipo"] == "venditore"): ?>
+
+                <li><a href="gestione.php">GESTIONE PRODOTTI</a></li>
                 <?php else: ?>
+
+                <li><a href="carrello.php">CARRELLO</a></li>
+                <?php endif; ?>
+
+                <li><a href="notifiche.php">NOTIFICHE</a></li>
+                <li><a href="logout.php">ESCI</a></li>
+            <?php else: ?>
+
                 <li><a href="login.php">ACCEDI</a></li>
                 <li><a href="register.php">REGISTRATI</a></li>
-                <?php endif; ?>
-            </ul>
-    </nav>
+            <?php endif; ?>
 
+        </ul>
+    </nav>
     <?php if(!isset($SetParameters["logged"]) || (!$SetParameters["logged"]) || ($SetParameters["Tipo"] != "venditore")): ?>
+
     <div class="barra">
         <ul>
             <li><a href="categorie.php?categoria=Motherboard">Motherboard</a></li>
@@ -73,6 +78,7 @@
 
     <footer>
         <?php if(!isset($SetParameters["logged"]) || (!$SetParameters["logged"]) || ($SetParameters["Tipo"] != "venditore")): ?>
+        
         <p>CATEGORIE:</p>
         <table class="tabellaFooter">
             <tr>
@@ -91,8 +97,10 @@
             </tr>
         </table>
         <?php endif; ?>
+
         <p>Progetto Tecnologie Web - A.A. 2021/2022</p>
         <p>Giacomo Magrini, Giosuè Mainardi, Luigi Incarnato</p>
+
     </footer>
 
 </body>

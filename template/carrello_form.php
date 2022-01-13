@@ -1,23 +1,21 @@
-    <section class="carelloSection">
-        <ul>
-            <li><p>Carrello:</p></li>
-            <li><p class="totale"></p></li>
-            <li><button class="bottoneTabella">CHECKOUT</button></li>
-        </ul>
-    </section>
-<?php $cont = 0; ?>
-<?php 
+
+        <section class="carelloSection">
+            <ul>
+                <li><p>Carrello:</p></li>
+                <li><p class="totale"></p></li>
+                <li><button class="bottoneTabella">CHECKOUT</button></li>
+            </ul>
+        </section>
+
+<?php $cont = 0; 
 if(isset($SetParameters["cart"])) :
     foreach($SetParameters["cart"] as $prodotto):
         $articolo = $dbh->getProdotto($prodotto["ID_Articolo"]);
 
-        if($prodotto["quantità"] > $articolo[0]["quantità"]){
-            echo "<section class='prodottoEsaurito ".$cont."'>";
-        } else {
-            echo "<section class='>".$cont."'>";
-        }
+        echo "        <section class='".($prodotto['quantità'] > $articolo[0]['quantità'] ? 'prodottoEsaurito ' : '>').$cont."'>\n";
+
         ?>
-            <div class="container">
+            <div class="container" id="<?php echo $prodotto["ID_Articolo"];?>">
                 <img src="immaginiGPU/3080.jpg" alt="">
                 <table class="tabellaCategorie">
                     <tr>
@@ -25,18 +23,18 @@ if(isset($SetParameters["cart"])) :
                         <th><h2 class="testoTabella prezzo"><?php echo $prodotto["prezzo"]." $"; ?></h2></th>
                     </tr>
                     <tr>
-                        
-                        <td><button class="aggiornaQuantità">+</button>
-                        <p class="testoTabella">QTY: <?php echo $prodotto["quantità"]; ?></p>
-                        <button class="aggiornaQuantità">-</button></td>
                         <td>
-                                <a class="link2" href="#">rimuovi tutto</a>
-                            
-                    </td>
+                            <button class="aggiornaQuantità">+</button>
+                            <p class="testoTabella">QTY: <?php echo $prodotto["quantità"]; ?></p>
+                            <button class="aggiornaQuantità">-</button>
+                        </td>
+                        <td>
+                            <a class="link2" href="#">elimina dal carrello</a>
+                        </td>
                     </tr>
                 </table>
-            </div>
+            </div>  
+        </section>
 <?php 
     endforeach; 
-endif;?>  
-</section>
+endif;?>
