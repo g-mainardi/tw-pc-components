@@ -20,22 +20,22 @@
 
     <form action="#" method="POST">
     <?php foreach($SetParameters["prodotti"] as $prodotto): ?> 
-    <form action="#" method="POST">
-        <input type="hidden" name="id" value="<?php echo $prodotto["ID_Articolo"];?>" />
-        <section>
-            <div class="container">
-            <img src="immagini/gpu.jpg" alt="">
-            <table class="tabellaCategorie">
-                <tr>
-                    <th><h2 class="testoTabella"><?php echo $prodotto["marca"]." ".$prodotto["nome"]; ?></h2></th>
-                    <th><h2 class="testoTabella"><?php echo $prodotto["prezzo"]; ?></h2></th>
-                </tr>
-                <tr>
-                    <td><a class="link1" href="prodotto.php?id=<?php echo $prodotto['ID_Articolo']?>">Dettagli...</a></td>
+    <section>
+        <div class="container">
+        <img src="immagini/gpu.jpg" alt="">
+        <table class="tabellaCategorie">
+            <tr>
+                <th><h2 class="testoTabella"><?php echo $prodotto["marca"]." ".$prodotto["nome"]; ?></h2></th>
+                <th><h2 class="testoTabella"><?php echo $prodotto["prezzo"]; ?></h2></th>
+            </tr>
+            <tr>
+                <td><a class="link1" href="prodotto.php?id=<?php echo $prodotto['ID_Articolo']?>">Dettagli...</a></td>    
+                <form action="#" method="POST">
+                    <input type="hidden" name="id" value="<?php echo $prodotto["ID_Articolo"];?>" />
                     <td><button class="bottoneTabella" type="submit" name="submit">AGGIUNGI AL CARRELLO</button></td>
-                </tr>
-            </table>
-        </div>
-        </section>
-    </form>
+                </form>
+            </tr>
+        </table>
+    </div>
+    </section>
     <?php endforeach; ?>
