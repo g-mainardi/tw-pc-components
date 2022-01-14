@@ -17,6 +17,22 @@ if(isLoggedIn()){
     $SetParameters["nome"] = $_SESSION["nome"];
     $SetParameters["username"] = $_SESSION["username"];
     if(!isVenditore()){
+        // Aggiorno il carrello nel db se c'è bisogno
+        if(isset($_POST["submit"]) && isset($_POST["qty"])){ 
+
+            // Ciclo l'array che contiene il carrello nella forma "id" => "quantità"
+            foreach($_POST["qty"] as $key => $val) { 
+
+                if($val==0) { 
+                    // Rimuovi articolo dal carrello sul db
+                    $dbh->removeCartArticle($SetParameters["ID_Utente"], $key);
+                }else{ 
+                    // Modifica quantità articolo nel carrello sul db
+                    $dbh->modifyCartArticleQuantity($SetParameters["ID_Utente"], $key, $val);
+                } 
+            } 
+        
+        }
         $SetParameters["cart"]=$dbh->getCartProducts($SetParameters["ID_Utente"]);
     }
     $SetParameters["Tipo"] = isVenditore()? "venditore" : "cliente";

@@ -387,6 +387,21 @@ a.vaiPagina{
 ::placeholder{
     color: #0B090A;
 }
+
+
+div.login>form>ul>li>input.error{
+    border: 1px solid red;
+    background-color: rgb(197, 197, 197);
+}
+
+div.login>form>ul>li>p.error {
+    color: red;
+}
+
+div.login>form>ul>li>label.error {
+    color: white;
+}
+
 /* LOGIN e REGISTER FINE */
 
 /* CATEGORIE INIZIO */
@@ -435,7 +450,7 @@ p.testoTabella{
     font-weight: 100;
 }
 
-button.bottoneTabella {
+.bottoneTabella {
     background-color: #A4161A;
     min-width: 150px;
     min-height: 50px;
@@ -532,34 +547,22 @@ label{
 /* PRODOTTO FINE */
 
 /* CARRELLO INIZIO */
-section.carelloSection > ul >li > p{
-    font-family: Arial, Helvetica, sans-serif;
+section.intestazioneCarrello{
+    padding: 20px 10px;
+}
+
+section.intestazioneCarrello> h1{
+    color: #A4161A;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+section.intestazioneCarrello> p{
     color: #F5F3F4;
     font-size: 20px;
-    margin-bottom: 5px;
-}
-
-section.carelloSection>ul{
-    display:flex;
-    justify-content:center;
-}
-
-section.carelloSection > ul > li:nth-child(1){
-    margin-right: auto;
-    margin-left: 1%;
-}
-
-section.carelloSection > ul > li:nth-child(2){
-   padding-left: 25%;
-}
-
-section.carelloSection > ul > li:nth-child(3){
-    margin-right: 1%;
-    margin-left: auto;
 }
 
 .link2{
-    font-family: Arial, Helvetica, sans-serif;
     color: #A4161A;
     font-size: 15px;
     font-weight: 100;
@@ -570,9 +573,16 @@ section.carelloSection > ul > li:nth-child(3){
 .aggiornaQuantità{
     background-color: #A4161A;
     min-width: 10%;
-    color: #0B090A;
-
+    font-weight: bold;
+    font-size: 18px;
+    color: #D3D3D3;
 }
+
+input.testoTabella {
+    width: 40px;
+    text-align: center;
+}
+
 /* CARRELLO FINE*/
 
 /* GESTIONE PRODOTTI INIZIO*/
@@ -581,7 +591,7 @@ section.carelloSection > ul > li:nth-child(3){
     margin-top: 2%;
 }
 
-table.tabellaCategorie td > button.bottoneTabella{
+table.tabellaCategorie td > .bottoneTabella{
     margin-top: 10%;
 }
 /* GESTIONE PRODOTTI FINE*/
@@ -688,26 +698,8 @@ section.notifiche > div > button{
         margin-right: 15px;
         margin-left: 15px;
     }
-
-    /*CARRELLO*/
-    section.carelloSection > ul > li:nth-child(2){
-        padding-left: 50%;
-     }
 }
 
 *{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-div.login>form>ul>li>input.error{
-    border: 1px solid red;
-    background-color: rgb(197, 197, 197);
-}
-
-div.login>form>ul>li>p.error {
-    color: red;
-}
-
-div.login>form>ul>li>label.error {
-    color: white;
 }

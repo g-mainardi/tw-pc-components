@@ -4,21 +4,31 @@ function hideElement(element){
         .next().slideUp();            
 }
 
-function stringaToQuantità(str) {
-    var qty = str.split("QTY: ");
-    qty = parseInt(qty[qty.length - 1]);
-    return qty;
-}
-
 function calcolaTotaleCarrello() {
     var temp = 0;
     $(".container").each(function(){
         var prezzo = $(this).find(".prezzo").text().split("$");
         prezzo = parseInt(prezzo[0]);
 
-        temp += (prezzo * stringaToQuantità($(this).find("p.testoTabella").text()));
+        temp += (prezzo * parseInt($(this).find("input.testoTabella").attr("value")));
     });
     $(".totale").text("Totale: " + temp + "$");
+}
+
+function getQtyArticolo(articlename){
+    return $("input.testoTabella[name='" + articlename + "']");
+}
+
+function setQtyArticolo(articlename, qty){
+    $("input.testoTabella[name='" + articlename + "']").attr("value", qty);
+    checkRimozioneArticolo(articlename);
+    calcolaTotaleCarrello();
+}
+
+function checkRimozioneArticolo(articlename){
+    if(parseInt(getQtyArticolo(articlename).attr("value")) == 0){
+        $("section[name='" + articlename + "']").hide();
+    }
 }
 
 $(document).ready(function(){
@@ -36,44 +46,43 @@ $(document).ready(function(){
     calcolaTotaleCarrello();
 
     // Modificare la quantità di un singolo prodotto nel carrello
-    $(".container").each(function(){
+    $(this).find(".aggiornaQuantità").click(function(event) {
+        event.preventDefault();
+        var qtyElement = getQtyArticolo($(this).attr("name"));
+        var qty = parseInt(qtyElement.attr("value"));
 
-        $(this).find(".aggiornaQuantità").click(function() {
-            var qty;
-            if($(this).text() == "+"){ 
-                // Prendo la quantità e la aumento di 1 solo se non supera 99
-                qty = stringaToQuantità($(this).next().text())
-                qty += qty < 99 ? 1 : 0;
-                $(this).next().text("QTY: " + qty);
-            } else if($(this).text() == "-") {
-                // Prendo la quantità e la diminuisco di 1 solo se maggiore di 0
-                qty = stringaToQuantità($(this).prev().text());
-                qty -= qty > 0 ? 1 : 0;
-                $(this).prev().text("QTY: " + qty);
-            }
-            calcolaTotaleCarrello();
-        });
-                
+        if($(this).text() == "+"){ 
+            // + Prendo la quantità e la aumento di 1 solo se non supera il massimo e 99
+            var maxqty = parseInt(parseInt(qtyElement.attr("max")));
+            qty += (qty < maxqty) && (qty < 99) ? 1 : 0;
+        } else if($(this).text() == "-") {
+            // -  Prendo la quantità e la diminuisco di 1 solo se maggiore di 0
+            qty -= qty > 0 ? 1 : 0;
+        }
+
+        setQtyArticolo($(this).attr("name"), qty);
     });
 
-    // Checkout carrello - non completo - non funzionante
-    $("ul > li > button.bottoneTabella").click(function() {
-        console.log("Checkout");
-        $(".container").each(function(){
+    // Pulsante elimina da carrello
+    $("button.link2").click(function(e){
+        e.preventDefault();
+        if(parseInt(getQtyArticolo($(this).attr("name")).attr("value")) > 0){
+            setQtyArticolo($(this).attr("name"), 0);
+        }
+    });
 
-            var idProdotto = $(this).attr("id");
-            var qty = stringaToQuantità($(this).find("p.testoTabella").text());
-            console.log("Quantità: " + qty + " - ID: " + idProdotto);
+    // Invio carrello prima di cambio pagina
+/*     $(window).on("onunload",function() {
+        setTimeout(function() {
 
-            $.post("disponibili.json",
-            {
-                id: idProdotto
-            }, 
-            function(data,status) {
-                $(".carelloSection > ul > li > p").text("Data: " + data + "\nStatus: " + status);
-            });
-        });
-    })
+            console.log("Aspetta");
+        }, 30000000)
+    }); */
+    $("form[name='carrello']").onbeforeunload =  function () {
+        console.log("Aspetta");
+        // Invia l'alert
+        return "Le modifiche al carrello non sono state salvate";
+    };
 
     // Aprire e chiudere le notifiche
     $(".bottoneNotifica").click(function(){

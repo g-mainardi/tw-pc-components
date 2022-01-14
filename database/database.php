@@ -194,14 +194,32 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function insertProductInCart($id_utente, $id_articolo, $quantità){
+    public function insertProductInCart($idcliente, $idarticolo, $quantità){
         $query = "INSERT INTO carrello (ID_Cliente, ID_Articolo, quantità) VALUES (?, ?, ?)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('iii', $id_utente, $id_articolo, $quantità);
+        $stmt->bind_param('iii', $idcliente, $idarticolo, $quantità);
 
         $stmt->execute();
         return $stmt->insert_id;
     }
+
+    public function modifyCartArticleQuantity($idcliente, $idarticolo, $qty){
+        $query = "UPDATE carrello SET quantità = ? WHERE ID_Cliente = ? AND ID_Articolo = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('iii', $qty, $idcliente, $idarticolo);
+        
+        return $stmt->execute();
+    }
+
+    public function removeCartArticle($idcliente, $idarticolo){
+        $query = "DELETE FROM carrello WHERE ID_Cliente = ? AND ID_Articolo = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ii', $idcliente, $idarticolo);
+        $stmt->execute();
+        var_dump($stmt->error);
+        return true;
+    }
+
     /*
 
         ESEMPI
