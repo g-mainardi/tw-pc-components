@@ -1,20 +1,34 @@
 <section class="filtro">
             
-        <h1>SCEGLI UN FORNITORE</h1>
+<h1>SCEGLI UN FORNITORE</h1>
         <h2>scegli un fornitore per filtrare i prodotti</h2>
+        <ul>
         <?php foreach ($SetParameters["venditori"] as $venditore): ?> 
-            <button onclick = "location.href = 'categorie.php?categoria=<?php echo $SetParameters['categoria']; ?>&venditore=<?php echo $venditore['nome']; ?>'"><?php echo $venditore["nome"]; ?></button>
+            
+                <li>
+                <button onclick = "location.href = 'categorie.php?categoria=<?php echo $SetParameters['categoria']; ?>&venditore=<?php echo $venditore['nome']; ?>'"><?php echo $venditore["nome"]; ?></button>
+                </li>
+           
+            
         <?php endforeach;?>
-        
+        </ul>
+
+
+
         <?php   if(isset($SetParameters["tipologia"])):
                     echo "<h2>altri filtri</h2>";
+                    echo "<ul>";
                     foreach ($SetParameters["tipologia"] as $tipologia): ?>
-                        <button onclick = "location.href = 'categorie.php?categoria=<?php echo $SetParameters['categoria']; ?>&tipologia=<?php echo $tipologia['tipologia']; ?>'"><?php echo $tipologia["tipologia"]; ?></button>
+                        
+                            <li>
+                            <button onclick = "location.href = 'categorie.php?categoria=<?php echo $SetParameters['categoria']; ?>&tipologia=<?php echo $tipologia['tipologia']; ?>'"><?php echo $tipologia["tipologia"]; ?></button>
+                            </li>
+                    
+                       
         <?php       endforeach;
+        echo "</ul>";
                 endif; 
         ?>
-
-
 
     </section>   
 
@@ -25,7 +39,7 @@
         <table class="tabellaCategorie">
             <tr>
                 <th><h2 class="testoTabella"><?php echo $prodotto["marca"]." ".$prodotto["nome"]; ?></h2></th>
-                <th><h2 class="testoTabella"><?php echo $prodotto["prezzo"]; ?></h2></th>
+                <th><h2 class="testoTabella"><?php echo $prodotto["prezzo"]; ?> €</h2></th>
             </tr>
             <tr>
                 <td><a class="link1" href="prodotto.php?id=<?php echo $prodotto['ID_Articolo']?>">Dettagli...</a></td>    

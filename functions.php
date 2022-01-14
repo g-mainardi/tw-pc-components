@@ -32,6 +32,7 @@ function unsetParamIfPresent($param) {
 function getSpecs($desc){
     $dictionary = [];
     $array = explode(':', $desc);
+    var_dump($array);
     for($i = 0; $i < count($array)-1; $i+=2){
         $dictionary[$array[$i]] = $array[$i+1];
     }
