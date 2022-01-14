@@ -18,7 +18,6 @@
 
     </section>   
 
-    <form action="#" method="POST">
     <?php foreach($SetParameters["prodotti"] as $prodotto): ?> 
     <section>
         <div class="container">
@@ -30,10 +29,10 @@
             </tr>
             <tr>
                 <td><a class="link1" href="prodotto.php?id=<?php echo $prodotto['ID_Articolo']?>">Dettagli...</a></td>    
-                <form action="#" method="POST">
+                <td><form action="#" method="POST">
                     <input type="hidden" name="id" value="<?php echo $prodotto["ID_Articolo"];?>" />
-                    <td><button class="bottoneTabella" type="submit" name="submit">AGGIUNGI AL CARRELLO</button></td>
-                </form>
+                    <button class="bottoneTabella" type="submit" name="submit">AGGIUNGI AL CARRELLO</button>
+                </form></td>
             </tr>
         </table>
     </div>
