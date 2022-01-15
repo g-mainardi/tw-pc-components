@@ -216,7 +216,6 @@ class DatabaseHelper{
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('ii', $idcliente, $idarticolo);
         $stmt->execute();
-        var_dump($stmt->error);
         return true;
     }
 

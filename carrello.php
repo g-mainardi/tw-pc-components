@@ -9,8 +9,14 @@ if(!$SetParameters["logged"]){
     header("location:gestione.php");   
 }
 
+if(isset($_POST["submit"])){
+    header("location:pagamento.php");
+}
+
 $SetParameters["titolo"] = isset($SetParameters["nome"])? "Carrello di ".$SetParameters["nome"] : "Carrello"; 
 $SetParameters["file"] = "carrello_form.php";
+
+array_push($SetParameters["scripts"], "./script/carrello.js");
 
 foreach($SetParameters["cart"] as $articolo){
     $id = $articolo["ID_Articolo"];

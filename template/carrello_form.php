@@ -2,7 +2,8 @@
 
             <section class="intestazioneCarrello">
                 <h1>Carrello</h1>
-                <p class="totale"></p>
+                <p class="totale">Totale: 0$</p>
+                <input class="bottoneSecondario" type="submit" name="save" value="Salva carrello" disabled></input>
                 <input class="bottoneTabella" type="submit" name="submit" value="Vai al pagamento"></input>
             </section>
 
