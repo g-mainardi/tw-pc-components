@@ -85,15 +85,21 @@ $(document).ready(function(){
     };
 
     // Aprire e chiudere le notifiche
+    function hideElement(element){
+        element
+            .removeClass("selected")
+            .next().next().slideUp();            
+    }
     $(".bottoneNotifica").click(function(){
-        $(this).addClass("visualizzato");
+        $(this).addClass("visualizzato")
+        $(this).next().addClass("nascondi");
         if ($(this).hasClass("selected")){
             hideElement($(this));
         }
         else{
             $(this)
                 .addClass("selected")
-                .next().slideDown(); 
+                .next().next().slideDown()      
         }
     });
 });
