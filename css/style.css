@@ -12,7 +12,7 @@ body{
 }
 
 header {
-    background-color: #0B090A;
+    background-color: #000;
     margin-top: 0;
     overflow: hidden;
     position: fixed;
@@ -20,7 +20,7 @@ header {
     width: 100%;
     height: 80px;
     z-index: 2;
-    border-bottom: 5px solid #A4161A;
+    border-bottom: 5px solid #E5383B;
 }
 
 ul{
@@ -28,7 +28,7 @@ ul{
 }
 
 a:hover{
-    color: #A4161A!important;
+    color: #E32629!important;
 }
 
 header>ul{
@@ -70,7 +70,7 @@ header p {
     display: inline-block;
     bottom: 23px;
     right: 13px;
-    background-color: #a4161a;
+    background-color: #E32629;
     padding: 1px 5px;
     border-radius: 10px;
 }
@@ -106,8 +106,8 @@ div.barra > ul{
     margin-top: auto;
     padding-top: 1%;
     padding-bottom: 1%;
-    background-color: #0B090A;
-    border-bottom: 5px solid #A4161A;
+    background-color: #000;
+    border-bottom: 5px solid #E32629;
 }
 
 div.barra > ul > li{
@@ -128,11 +128,11 @@ div.barra > ul > li > a{
 
 nav.menu{
     z-index: 1;
-    background-color: #0B090A;
+    background-color: #000;
     display: none;
     position: fixed;
     padding: 2% 15%;
-    border: 3px solid #A4161A;
+    border: 3px solid #E32629;
     margin-top: 90px;
 }
 
@@ -151,7 +151,7 @@ nav.menu>ul>li>a{
     text-decoration: none;
     font-size: 20px;
     color: #D3D3D3;
-    border-bottom: 1px solid #A4161A;
+    border-bottom: 1px solid #E32629;
 }
 
 main{
@@ -163,7 +163,7 @@ main{
     padding: 2% 0;
     margin-bottom: 3%;
     width: 100%;
-    background-color: #0B090A;
+    background-color: #000;
 }
 
 
@@ -180,7 +180,7 @@ main{
     width: auto;
     padding: 16px;
     margin-top: -22px;
-    color: #F5F3F4;
+    color: #FFF;
     font-weight: bold;
     font-size: 18px;
     transition: 0.6s ease;
@@ -194,7 +194,7 @@ main{
 }
 
 .prev:hover, .next:hover {
-    background-color: #0B090A;
+    background-color: #000;
 }
 
 .dot {
@@ -231,7 +231,7 @@ main{
 /*SLIDER IMMAGINI FINE*/
 
 section > h1 {
-    color: #A4161A;
+    color: #E32629;
     text-align: center;
     font-size: 50px;
     margin-top: 0;
@@ -246,7 +246,7 @@ section> h2 {
 }
 
 section{
-    background-color: #0B090A;
+    background-color: #000;
     padding-top: 3%;
     padding-bottom: 3%;
     margin-bottom: 3%;
@@ -254,7 +254,7 @@ section{
 }
 
 section:not(:first-of-type){
-    background-color: #0B090A;
+    background-color: #000;
     margin-top: 2%;
     margin-left: 2%;
     margin-right: 2%;
@@ -273,10 +273,10 @@ section:not(:first-of-type){
 }
 
 section:not(:first-of-type) > h2{
-    color: #F5F3F4;
+    color: #FFF;
     font-size: 30px;
     font-weight: 100;
-    text-align: left;
+    text-align: center;
     padding-left: 2%;
 
 }
@@ -285,13 +285,13 @@ section:not(:first-of-type) > p{
     color: #D3D3D3;
     font-size: 20px;
     font-weight: 100;
-    text-align: left;
+    text-align: center;
     padding-left: 2%;
 
 }
 
 .link1{
-    color: #A4161A;
+    color: #E32629;
     font-size: 15px;
     font-weight: 100;
     text-align: left;
@@ -301,9 +301,18 @@ section:not(:first-of-type) > p{
 }
 
 footer{
-    background-color: #0B090A;
+    background-color: #000;
     text-align: center;
     padding: 1% 0;
+    display: table-row;
+}
+
+footer>p:first-of-type{
+    padding-top: 20px;
+}
+
+footer>p:last-of-type{
+    padding-bottom: 20px;
 }
 
 footer>p{
@@ -316,7 +325,7 @@ footer>p{
 
 footer>p:first-child{
     font-size: 25px;
-    color: #A4161A;
+    color: #E32629;
     font-weight: 100;
 }
 
@@ -336,7 +345,7 @@ table.tabellaFooter th > a{
     text-align: center;
     text-decoration: none;
     font-family: Arial, Helvetica, sans-serif;
-    color: #F5F3F4;
+    color: #FFF;
 }
 /*HOMEPAGE FINE*/
 
@@ -344,7 +353,7 @@ table.tabellaFooter th > a{
 div.login{
     display: flex;
     justify-content: center;
-    background-color: #0B090A;
+    background-color: #000;
     margin: 2% auto;
     max-height: 500px;
     max-width: 400px;
@@ -356,7 +365,7 @@ div.login>form>h2{
     text-align: left;
     font-size: 30px;
     font-weight: 100;
-    color: #F5F3F4;
+    color: #FFF;
     margin: 2% 0%;
 }
 
@@ -385,7 +394,7 @@ div.login>form>ul>li:last-of-type{
 li.registerButton>input, li.loginButton>input{
     font-weight: bold;
     font-size: 15px;
-    background-color: #A4161A;
+    background-color: #E32629;
     padding: 20px 50px;
     margin-top: 10px;
     width: 300px;
@@ -424,7 +433,7 @@ a.vaiPagina{
 }
 
 ::placeholder{
-    color: #0B090A;
+    color: #000;
 }
 
 
@@ -455,7 +464,9 @@ section.filtro > h2{
     margin-left: 10%;
     font-size: 20px;
 }
-
+section.filtro > ul {
+    text-align: left;
+}
 section.filtro > ul > li{
     display: inline-block;
     margin-right: 10%;
@@ -469,10 +480,11 @@ section.filtro >ul > li > button{
     text-align: center;
     margin-right: 10px;
     margin-left: 10px;
-    background-color: #A4161A;
+    background-color: #E32629;
     padding-top: 5px;
     padding-bottom: 5px;
-    color: #0B090A;
+    color: #000;
+    font-weight: bold;
 }
 
 
@@ -483,7 +495,7 @@ table.tabellaCategorie {
 }
 
 h2.testoTabella{
-    color: #F5F3F4;
+    color: #FFF;
     font-weight: 100;
 }
 
@@ -493,15 +505,17 @@ p.testoTabella{
 }
 
 .bottoneTabella {
-    background-color: #A4161A;
+    background-color: #E32629;
     min-width: 150px;
     min-height: 50px;
-    color: #0B090A;
+    color: #000;
+    font-weight: bold;
 }
 /* CATEGORIE FINE */
 
 /* PRODOTTO INIZIO */
 section.prodottoSingolo{
+    text-align: left;
     margin: 5% 3%;
 }
 
@@ -518,7 +532,7 @@ section.prodottoSingolo > h2{
     margin-top: 2%;
     margin-left: 2%;
     font-size: 30px;
-    color: #F5F3F4;
+    color: #FFF;
 }
 
 form.selezionaQuantità{
@@ -530,22 +544,23 @@ select{
     background-color: rgba(0, 0, 0, 0);
     min-width: 50px;
     min-height: 50px;
-    color: #F5F3F4;
-    border: 1px solid #A4161A;
+    color: #FFF;
+    border: 1px solid #E32629;
 }
 option{
-    background-color: #0B090A;
+    background-color: #000;
     
 }
 
 button.aggiungi{
-    background-color: #A4161A;
+    background-color: #E32629;
     min-width: 150px;
     min-height: 50px;
-    color: #0B090A;
+    color: #000;
     position: absolute;
     margin-left: -205px;
     margin-top: 80px;
+    font-weight: bold;
 }
 
 section.prodottoSingolo > p{
@@ -560,11 +575,12 @@ section.prodottoSingolo > p{
 
 button.mostra{
     margin-left: 3%;
-    background-color: #A4161A;
+    background-color: #E32629;
     max-width: 100px;
-    color: #0B090A;
+    color: #000;
     min-width: 150px;
     min-height: 50px;
+    font-weight: bold;
 }
 
 section.prodottoSingolo > table{
@@ -578,13 +594,13 @@ section.prodottoSingolo > table{
 }
 
 section.prodottoSingolo > table td, section.prodottoSingolo > table th{
-    border: 1px solid #A4161A;
+    border: 1px solid #E32629;
     padding: 0 20px;
-    color: #F5F3F4;
+    color: #FFF;
 }
 
 label{
-    color: #F5F3F4;
+    color: #FFF;
     font-size: 15px;
     margin-bottom: 1%;
     font-weight: 100;
@@ -599,30 +615,40 @@ section.intestazioneCarrello{
 }
 
 section.intestazioneCarrello> h1{
-    color: #A4161A;
+    color: #E32629;
     font-size: 40px;
     font-weight: bold;
 }
 
 section.intestazioneCarrello> p{
-    color: #F5F3F4;
+    color: #FFF;
     font-size: 20px;
 }
 
+.bottoneSecondario{
+    background-color: #E32629;
+    min-width: 150px;
+    min-height: 50px;
+    color: #000;
+    font-weight: bold;
+}
+
 .link2{
-    color: #A4161A;
+    background-color: #E32629;
+    color: #000;
     font-size: 15px;
-    font-weight: 100;
+    font-weight: bold;
     text-align: left;
     text-decoration: none;
+    padding: 2%;
 }
 
 .aggiornaQuantità{
-    background-color: #A4161A;
+    background-color: #E32629;
     min-width: 10%;
     font-weight: bold;
     font-size: 18px;
-    color: #D3D3D3;
+    color: #000000;
 }
 
 input.testoTabella {
@@ -652,12 +678,12 @@ section.notifiche > div {
     margin-left: 10%;
     margin-right: 10%;
     background-color: #161A1D;
-    border-bottom: 1px solid #0B090A;
+    border-bottom: 1px solid #000;
     
 }
 
 section.notifiche > div > p {
-    color: #F5F3F4;
+    color: #FFF;
     text-align: left;
     margin-top: 0;
     margin-bottom: 0;
@@ -680,8 +706,9 @@ section.notifiche > button {
     text-align: left;
     border: none;
     outline: none;
-    border-bottom: 1px solid #A4161A;
-    color: #A4161A;
+    border-bottom: 1px solid #E32629;
+    color: #B1A7A6;
+    font-weight: bold;
     
 }
 section.notifiche > div > button{
@@ -690,12 +717,13 @@ section.notifiche > div > button{
     margin-left: 80%;
     min-width: auto;
     min-height: auto;
+    font-weight: bold;
     
 }
 
 .visualizzato{
-    color: #F5F3F4 !important;
-    border-bottom: 1px solid #0B090A !important;
+    color: #FFF !important;
+    border-bottom: 1px solid #000 !important;
 }
 
 .nascondi{
@@ -732,7 +760,7 @@ section.notifiche > div > button{
     }
 
     section.prodottoEsaurito{
-        border: 5px solid #A4161A;
+        border: 5px solid #E32629;
     }
 
     
@@ -766,4 +794,8 @@ section.notifiche > div > button{
 
 *{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+:disabled{
+    background-color: #B1A7A6!important;
 }

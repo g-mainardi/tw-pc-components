@@ -9,7 +9,7 @@
             <table class="tabellaCategorie">
                 <tr>
                     <th><h2 class="testoTabella">RTX 3080</h2></th>
-                    <th><h2 class="testoTabella">1800 $</h2></th>
+                    <th><h2 class="testoTabella">1800 €</h2></th>
                     
                 </tr>
                 <tr>

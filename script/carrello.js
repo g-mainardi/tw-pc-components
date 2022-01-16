@@ -1,12 +1,12 @@
 function calcolaTotaleCarrello() {
     var temp = 0;
     $(".container").each(function(){
-        var prezzo = $(this).find(".prezzo").text().split("$");
+        var prezzo = $(this).find(".prezzo").text().split("€");
         prezzo = parseInt(prezzo[0]);
 
         temp += (prezzo * parseInt($(this).find("input.testoTabella").attr("value")));
     });
-    $(".totale").text("Totale: " + temp + "$");
+    $(".totale").text("Totale: " + temp + " €");
 }
 
 function getQtyArticolo(articlename){

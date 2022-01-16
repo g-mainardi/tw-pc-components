@@ -2,7 +2,7 @@
 
             <section class="intestazioneCarrello">
                 <h1>Carrello</h1>
-                <p class="totale">Totale: 0$</p>
+                <p class="totale">Totale: 0 €</p>
                 <input class="bottoneSecondario" type="submit" name="save" value="Salva carrello" disabled></input>
                 <input class="bottoneTabella" type="submit" name="submit" value="Vai al pagamento"></input>
             </section>
@@ -20,7 +20,7 @@
                     <table class="tabellaCategorie">
                         <tr>
                             <th><h2 class="testoTabella"><?php echo $artCarrello["marca"]." ".$artCarrello["nome"];?></h2></th>
-                            <th><h2 class="testoTabella prezzo"><?php echo $artCarrello["prezzo"]." $"; ?></h2></th>
+                            <th><h2 class="testoTabella prezzo"><?php echo $artCarrello["prezzo"]." €"; ?></h2></th>
                         </tr>
                         <tr>
                             <td>
@@ -31,7 +31,7 @@
                                 <button class="aggiornaQuantità" name="qty[<?php echo $artCarrello["ID_Articolo"]; ?>]">-</button>
                             </td>
                             <td>
-                                <button class="link2" name="qty[<?php echo $artCarrello["ID_Articolo"]; ?>]">elimina dal carrello</button>
+                                <button class="link2" name="qty[<?php echo $artCarrello["ID_Articolo"]; ?>]">Elimina dal carrello</button>
                             </td>
                         </tr>
                     </table>
