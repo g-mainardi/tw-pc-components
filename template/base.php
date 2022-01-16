@@ -109,7 +109,7 @@
     <footer>
         <?php if(!isset($SetParameters["logged"]) || (!$SetParameters["logged"]) || ($SetParameters["Tipo"] != "venditore")): ?>
         
-        <p>CATEGORIE:</p>
+        <p class="categorieFooter">CATEGORIE:</p>
         <table class="tabellaFooter">
             <tr>
                 <th><a href="categorie.php?categoria=Motherboard">Motherboard</a></th> 

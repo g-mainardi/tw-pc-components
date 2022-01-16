@@ -13,12 +13,10 @@
                     
                 </tr>
                 <tr>
-                    <td>
-                    <p class="testoTabella">quantià rimaste: 1</p>
+                    <td colspan="2">
+                      <p class="testoTabella">quantià rimaste: 1</p>
                     </td>
-                    <td>
-                        <a class="link1" href="">Dettagli...</a>
-                    </td>
+
                 </tr>
                 
                 <tr>
@@ -36,12 +34,10 @@
                     <input class="modificaProdotti" type="text" id="prezzo" name="prezzo" value="1800 $" />
                     </form>
                     </td>
-                </tr>
-                <tr>
-                    <td><button class="bottoneTabella">AGGIORNA</button></td>
-                    
-                </tr>
+                </tr>   
+                
             </table>
+            <button class="bottoneTabella">AGGIORNA</button>
         </div>
       
     

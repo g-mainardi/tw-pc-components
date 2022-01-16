@@ -323,7 +323,7 @@ footer>p{
     margin: auto;
 }
 
-footer>p:first-child{
+p.categorieFooter{
     font-size: 25px;
     color: #E32629;
     font-weight: 100;
@@ -401,7 +401,7 @@ li.registerButton>input, li.loginButton>input{
 }
 
 div.login>form>ul>li>input.field{
-    background-color: #999999;
+    background-color: #D3D3D3;;
     padding: 2%;
     width: 240px;
     height: 25px;
@@ -662,11 +662,17 @@ input.testoTabella {
 .modificaProdotti{
     background-color: #D3D3D3;
     margin-top: 2%;
+    color: rgb(12, 5, 5);
 }
 
 table.tabellaCategorie td > .bottoneTabella{
     margin-top: 10%;
 }
+
+div.container > button:last-of-type{
+    margin-top: 5%;
+}
+
 /* GESTIONE PRODOTTI FINE*/
 
 /* NOTIFICHE INIZIO*/
@@ -732,13 +738,49 @@ section.notifiche > div > button{
 
 /*NOTIFICHE FINE*/
 
+/*PAGAMENTO INIZIO*/
+
+section.pagamento > form > div > label {
+   color: #FFF;
+   margin-top: 1%; 
+}
+section.pagamento > form > div > p {
+    margin-top: 4%;
+    color: #E32629; 
+ }
+
+section.pagamento > form > div> input{
+    margin: 0 auto;
+    padding: 5px 20px;
+    background-color: #D3D3D3;
+}
+
+section.pagamento > form > div> input:last-of-type{
+    margin-top: 5%;
+    background-color: #E32629;
+    min-width: 150px;
+    min-height: 50px;
+    color: #000;
+    font-weight: bold;
+}
+
+section.pagamento > form > div> p, section.pagamento > form > div > input, section.pagamento > form > div > label{
+    display: block;
+}
+
+section.pagamento > form > div {
+text-align: center;
+}
+
+/*PAGAMENTO FINE*/
+
 @media screen and (min-width: 768px){
     /*HOMEPAGE*/
     div.barra > ul {
         display: flex;
     }
 
-    section:not(:first-of-type){
+    section:not(:first-of-type, .pagamento){
         display: inline-block;
         width: 40%;
         margin-left: 6%;
@@ -790,6 +832,9 @@ section.notifiche > div > button{
         position: relative;
         margin-left: 40px;
     }
+
+    /*PAGAMENTO*/
+
 }
 
 *{
@@ -797,5 +842,5 @@ section.notifiche > div > button{
 }
 
 :disabled{
-    background-color: #B1A7A6!important;
+    background-color: #B1A7A6;
 }
