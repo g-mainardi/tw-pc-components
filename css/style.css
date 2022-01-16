@@ -57,6 +57,45 @@ header > ul > li:nth-child(2) > a > img{
  max-height: 50px;
 }
 
+header a{
+    position: relative;
+    display: inline-block;
+}
+
+/* PARTE ICONE HEADER */
+header p {
+    position: absolute;   
+    color: white;
+    font-size: 12px;
+    display: inline-block;
+    bottom: 23px;
+    right: 13px;
+    background-color: #a4161a;
+    padding: 1px 5px;
+    border-radius: 10px;
+}
+
+header img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.text-box {
+    position: absolute;    
+    height: 100%;
+    text-align: center;    
+    width: 100%;
+}
+/* FINE PARTE ICONE HEADER */
+
+.text-box:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+ }
+
 div.barra {
     margin-top: 85px;
 }

@@ -25,17 +25,40 @@
             <li>
                 <button class="bottoneMenu"><img src="immagini/menu-logo.png" alt=""></button>
             </li>
+
             <li>
                 <a href="index.php"><img src="immagini/Razer-Logo.png" alt=""></a>          
             </li>
             <?php if(isset($SetParameters["logged"]) && $SetParameters["logged"]) :?>
+
             <li>
-                <a href="notifiche.php"><img src="immagini/notification<?php if(count($dbh->getOnlyUnreadNotifications($SetParameters["ID_Utente"])) == 0 ) {echo "-zero";} ?>.png" alt=""></a>
+                <a href="notifiche.php">
+                    <?php
+                    if(count($SetParameters["notifichenonlette"]) > 0) {
+                        echo '<div class="text-box">
+                        <p>'.count($SetParameters["notifichenonlette"]).'</p>
+                    </div>';
+                    }
+                    ?>
+
+                    <img src="immagini/notifiche.png" alt="" />
+                </a>
             </li>
             <?php endif;?>
             <?php if(isset($SetParameters["logged"]) && $SetParameters["logged"] && $SetParameters["Tipo"]!="venditore") :?>
+
             <li>
-                <a href="carrello.php"><img src="immagini/carrello<?php if(isset($SetParameters["cart"]) && count($SetParameters["cart"])!=0) {echo "_non_vuoto";}?>.png" alt=""></a>
+                <a href="carrello.php">
+                    <?php 
+                    if(count($SetParameters["cart"]) > 0) {
+                        echo '<div class="text-box">
+                        <p>'.count($SetParameters["cart"]).'</p>
+                    </div>';
+                    }
+                    ?>
+                    
+                    <img src="immagini/carrello.png" alt="" />
+                </a>
             </li>
             <?php endif;?> 
         </ul>

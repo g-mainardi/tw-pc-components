@@ -37,8 +37,9 @@ if(isLoggedIn()){
             
         }
         
-        $SetParameters["cart"]=$dbh->getCartProducts($SetParameters["ID_Utente"]);
+        $SetParameters["cart"] = $dbh->getCartProducts($SetParameters["ID_Utente"]);
     }
+    $SetParameters["notifichenonlette"] = $dbh->getOnlyUnreadNotifications($SetParameters["ID_Utente"]);
     $SetParameters["Tipo"] = isVenditore()? "venditore" : "cliente";
 } else {
     // Non loggato -> Visualizzazione normale
