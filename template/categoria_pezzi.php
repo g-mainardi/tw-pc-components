@@ -44,7 +44,7 @@
             <tr>
                 <td><a class="link1" href="prodotto.php?id=<?php echo $prodotto['ID_Articolo']?>">Dettagli...</a></td>    
                 <td><form action="#" method="POST">
-                    <input type="hidden" name="id" value="<?php echo $prodotto["ID_Articolo"];?>" />
+                    <input type="hidden" name="ID_Articolo" value="<?php echo $prodotto["ID_Articolo"];?>" />
                     <button class="bottoneTabella" type="submit" name="submit">AGGIUNGI AL CARRELLO</button>
                 </form></td>
             </tr>

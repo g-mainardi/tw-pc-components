@@ -34,16 +34,32 @@ if(isLoggedIn()){
                     $dbh->modifyCartArticleQuantity($SetParameters["ID_Utente"], $key, $val);
                 } 
             }
-            
+    
+        }
+        
+        // Controllo se è stato richiesto di aggiungere qualcosa al carrello
+        if(isset($_POST["ID_Articolo"])){
+            var_dump($_POST["ID_Articolo"]);
+            //Inserisco nel carrello dell'utente
+            $dbh->insertProductInCart($SetParameters["ID_Utente"], intval($_POST["ID_Articolo"]), 1);
         }
         
         $SetParameters["cart"] = $dbh->getCartProducts($SetParameters["ID_Utente"]);
     }
     $SetParameters["notifichenonlette"] = $dbh->getOnlyUnreadNotifications($SetParameters["ID_Utente"]);
     $SetParameters["Tipo"] = isVenditore()? "venditore" : "cliente";
+
 } else {
+
+    // Controllo se è stato richiesto di aggiungere qualcosa al carrello
+    if(isset($_POST["ID_Articolo"])){
+        // Mando alla pagina di login
+        header("location:login.php");
+    }
+
     // Non loggato -> Visualizzazione normale
     $SetParameters["logged"] = false;
+
 }
 
 ?>
