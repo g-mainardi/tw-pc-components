@@ -194,13 +194,31 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function insertProductInCart($idcliente, $idarticolo, $quantità){
-        $query = "INSERT INTO carrello (ID_Cliente, ID_Articolo, quantità) VALUES (?, ?, ?)";
+    public function getCartProduct($idcliente, $idarticolo) {
+        $query = "SELECT carrello.quantità
+                  FROM carrello
+                  WHERE carrello.ID_Cliente=? AND carrello.ID_Articolo=?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('iii', $idcliente, $idarticolo, $quantità);
-
+        $stmt->bind_param('ii', $idcliente, $idarticolo);
         $stmt->execute();
-        return $stmt->insert_id;
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function insertProductInCart($idcliente, $idarticolo, $quantità){
+        $qty = $this->getCartProduct($idcliente, $idarticolo);
+        if(isset($qty[0])){
+            $quantità += $qty[0]["quantità"];
+            $this->modifyCartArticleQuantity($idcliente, $idarticolo, $quantità);
+        } else {
+            $query = "INSERT INTO carrello (ID_Cliente, ID_Articolo, quantità) VALUES (?, ?, ?)";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('iii', $idcliente, $idarticolo, $quantità);
+    
+            $stmt->execute();
+            return $stmt->insert_id;
+        }
     }
 
     public function modifyCartArticleQuantity($idcliente, $idarticolo, $qty){
