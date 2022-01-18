@@ -7,14 +7,14 @@
                 <input class="bottoneTabella" type="submit" name="submit" value="Vai al pagamento"></input>
             </section>
 
-    <?php $cont = 0; 
+    <?php 
     if(isset($SetParameters["cart"])) :
         foreach($SetParameters["cart"] as $artCarrello):
             $articolo = $dbh->getProdotto($artCarrello["ID_Articolo"]);
 
-            echo "        <section name='qty[".$artCarrello["ID_Articolo"]."]' class='".($artCarrello['quantità'] > $articolo[0]['quantità'] ? 'prodottoEsaurito ' : '>').$cont."'>\n";
+            echo "        <section name='qty[".$artCarrello["ID_Articolo"]."]' class='".($artCarrello['quantità'] > $articolo[0]['quantità'] ? 'prodottoEsaurito ' : '>')."0"."'>\n";
 
-            ?>
+    ?>
                 <div class="container">
                     <img src="immagini/<?php echo$artCarrello["img"]; ?>" alt="">
                     <table class="tabellaCategorie">
@@ -40,5 +40,7 @@
 
     <?php 
         endforeach; 
-    endif;?>
+    endif;
+    ?>
+    
     </form>

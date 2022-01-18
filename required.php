@@ -47,6 +47,11 @@ if(isLoggedIn()){
         $SetParameters["cart"] = $dbh->getCartProducts($SetParameters["ID_Utente"]);
     }
     $SetParameters["notifichenonlette"] = $dbh->getOnlyUnreadNotifications($SetParameters["ID_Utente"]);
+
+    // QUELLO SOTTO è DA CAMBIARE CON QUESTO : FUNZIONE DA FARE
+    // $SetParameters["notifichenonmostrate"] = $dbh->getOnlyUnshownNotifications($SetParameters["ID_Utente"]);
+    $SetParameters["notifichenonmostrate"] = $dbh->getOnlyUnreadNotifications($SetParameters["ID_Utente"]);
+
     $SetParameters["Tipo"] = isVenditore()? "venditore" : "cliente";
 
 } else {

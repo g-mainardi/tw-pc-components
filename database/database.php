@@ -146,7 +146,8 @@ class DatabaseHelper{
     public function getAllNotifications($idutente) {
         $query = "SELECT ID_Notifica, ordine, titolo, descrizione, visualizzato
                   FROM notifica
-                  WHERE utente=?";
+                  WHERE utente=?
+                  ORDER BY ID_Notifica DESC";
 
         $stmt = $this->db->prepare($query);
 
@@ -164,7 +165,8 @@ class DatabaseHelper{
     public function getOnlyUnreadNotifications($idutente) {
         $query = "SELECT ID_Notifica, ordine, titolo, descrizione, visualizzato
                   FROM notifica
-                  WHERE utente=? AND visualizzato=0";
+                  WHERE utente=? AND visualizzato=0
+                  ORDER BY ID_Notifica DESC";
 
         $stmt = $this->db->prepare($query);
 
@@ -177,6 +179,24 @@ class DatabaseHelper{
         $result = $stmt->get_result();
 
         return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    // DA FARE
+    public function deleteNotification($idnotifica){
+        $query = "";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i', $idnotifica);
+        
+        return $stmt->execute();
+    }
+
+    // DA FARE
+    public function setNotificationRead($idnotifica){
+        $query = "";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i', $idnotifica);
+        
+        return $stmt->execute();
     }
 
     public function getCartProducts($idutente) {

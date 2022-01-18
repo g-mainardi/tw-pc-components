@@ -85,6 +85,46 @@
 
         </ul>
     </nav>
+    
+    <?php 
+    if(isset($SetParameters["logged"]) && $SetParameters["logged"] && count($SetParameters["notifichenonmostrate"]) > 0): 
+        for($i = 0; $i < 2; $i++):
+    ?>
+
+    <nav class="notifica">
+        <div>
+            <header>
+<!--        Facoltativo per futuro: richiedo immagine da db (id notifica -> id ordine -> id carrello -> id articolo -> img)
+                <div>
+                    <img src="./" alt="" />
+                </div> 
+-->
+                <h2>giosy</h2>
+                <p>2021-12-26 - Gino Pino</p>
+            </header>
+            <section>
+                <p>Prova anteprima</p>
+            </section>
+            <footer>
+                <a href="articolo.php?id=4">Leggi tutto</a>
+            </footer>
+        </article>
+    </nav>
+
+    <?php 
+        endfor; 
+        if($SetParameters["notifichenonmostrate"] > 2):
+    ?>
+
+    <nav class="notifica">
+        <a>Vedi tutto...</a>
+    </nav>
+
+    <?php 
+        endif; 
+    endif; 
+    ?>
+
     <?php if(!isset($SetParameters["logged"]) || (!$SetParameters["logged"]) || ($SetParameters["Tipo"] != "venditore")): ?>
 
     <div class="barra">

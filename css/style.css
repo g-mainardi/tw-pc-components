@@ -104,8 +104,7 @@ div.barra > ul{
     display:  none;
     margin-bottom: 0;
     margin-top: auto;
-    padding-top: 1%;
-    padding-bottom: 1%;
+    padding: 1%;
     background-color: #000;
     border-bottom: 5px solid #E32629;
 }
@@ -126,7 +125,7 @@ div.barra > ul > li > a{
     padding: 0;
 }
 
-nav.menu{
+nav.menu, nav.notifica{
     z-index: 1;
     background-color: #000;
     display: none;
@@ -679,57 +678,69 @@ div.container > button:last-of-type{
 section.notifiche{
     text-align: center;
 }
-section.notifiche > div {
+
+section.notifiche > p {
+    color: #D3D3D3;
+    font: size 20px;
+}
+
+section.notifiche > ul {
+    border: 2px solid #E32629;
+    padding: 0;
+    margin: 0 5%;
+}
+
+section.notifiche > ul > li > div {
     display: none;
-    margin-left: 10%;
-    margin-right: 10%;
+    width: 100%;
     background-color: #161A1D;
     border-bottom: 1px solid #000;
-    
 }
 
-section.notifiche > div > p {
+
+section.notifiche > ul > li >  div > p {
     color: #FFF;
     text-align: left;
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-top: 1%;
-    padding-bottom: 1%;
-    margin-left: 10px;
+    margin: 0;
+    padding: 1% 40px;
 }
 
-section.notifiche >img {
+section.notifiche > ul > li > img {
     max-height: 20px;
     position: absolute;
-    right: 12%;
+    right: 10%;
     padding-top: 20px;    
 }
 
-section.notifiche > button {
+section.notifiche > ul > li > button {
     background-color: #161A1D;
     padding: 20px;
-    width: 80%;
+    width: 99.6%;
+    margin: 0.2%;
     text-align: left;
     border: none;
     outline: none;
-    border-bottom: 1px solid #E32629;
-    color: #B1A7A6;
+    color: #D3D3D3;
     font-weight: bold;
-    
+    border: 1px solid #D3D3D3;
 }
-section.notifiche > div > button{
-    margin-top: 2%;
-    margin-bottom: 2%;
-    margin-left: 80%;
+
+section.notifiche > ul > li > div > footer {
+    text-align: right;
+    display: block;
+    padding: 1%;
+    background-color: transparent;
+}
+
+section.notifiche > ul > li > div > footer > button{
     min-width: auto;
     min-height: auto;
     font-weight: bold;
-    
 }
 
 .visualizzato{
-    color: #FFF !important;
-    border-bottom: 1px solid #000 !important;
+    color: #B1A7A6 !important;
+    border: 1px solid transparent !important;
 }
 
 .nascondi{

@@ -1,27 +1,29 @@
 <section class="notifiche">
-    <h2>gestisci le tue notifiche</h2>
-    <button class="bottoneNotifica">Ordine Confermato</button>
-    <img src="immagini/exclamation-mark.png" alt="">
-    <div>
-    <p>
-    Notifica automatica: il suo ordine riguardante il prodotto x è stato confermato, riceverà un'altra notifica al momento dell'avvio spedizione
-    </p>
-    <button class="bottoneTabella">ELIMINA</button>
-    </div>  
-    <button class="bottoneNotifica">Ordine Spedito</button>
-    <img src="immagini/exclamation-mark.png" alt="">
-    <div>  
-    <p>
-    Notifica automatica: il suo pacco riguardante il prodotto x è stato spedito, riceverà un'altra notifica al momento della conferma di arrivo
-    </p>
-    <button class="bottoneTabella">ELIMINA</button>
-    </div>  
-    <button class="bottoneNotifica">Pacco Arrivato</button>
-    <img src="immagini/exclamation-mark.png" alt="">
-    <div>  
-    <p>
-    Notifica automatica: è stato confermato l'arrivo del suo pacco, grazie per aver acquistato da noi
-    </p>
-    <button class="bottoneTabella">ELIMINA</button>
-    </div>  
+    <h2>Le tue notifiche</h2>
+
+    <?php if(isset($SetParameters["notifiche"]) && count($SetParameters["notifiche"]) > 0) :?>
+
+    <ul>
+        <?php foreach($SetParameters["notifiche"] as $notifica):?>
+
+        <li> 
+            <button class="bottoneNotifica <?php if($notifica['visualizzato']) {echo 'visualizzato';} ?>" >
+                <?php echo $notifica["titolo"]; ?>
+            </button>
+            <?php if(!$notifica['visualizzato']) {echo '<img src="immagini/exclamation-mark.png" alt="">';} ?>
+            <div>
+                <p><?php echo $notifica["descrizione"]; ?></p>
+                <footer>
+                    <button class="bottoneTabella" onclick = "location.href = 'notifiche.php?notifica=<?php echo $notifica['ID_Notifica']; ?>&action=1'" >ELIMINA</button>
+                </footer>
+            </div>     
+        </li>
+
+        <?php endforeach;?>
+    </ul>
+
+    <?php else: ?>
+        <p>Non ci sono notifiche al momento.</p>
+    <?php endif; ?>
+
 </section>
