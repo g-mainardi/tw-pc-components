@@ -36,7 +36,7 @@
 
                 </tr>
                 
-                <tr><td>
+                <tr><td colspan="2">
                     <input type="hidden" name="id" value="<?php echo $prodotto["ID_Articolo"]?>" />
                     <button class="bottoneTabella" type="submit" name="submit">AGGIORNA</button>
                 </td></tr> 
