@@ -4,11 +4,17 @@
 <h1>SCEGLI UN FORNITORE</h1>
         <h2>scegli un fornitore per filtrare i prodotti</h2>
         <ul>
-        <?php foreach ($SetParameters["venditori"] as $venditore): ?> 
+        <?php foreach ($SetParameters["venditori"] as $venditore): 
+            if($venditore["nome"] == $_GET["venditore"]):?> 
             
+                <li>
+                <button class="filtroBottoni1 disabilitato" onclick = "location.href = 'categorie.php?categoria=<?php echo $SetParameters['categoria']; ?>&venditore=<?php echo $venditore['nome']; ?>'"><?php echo $venditore["nome"]; ?></button>
+                </li>
+            <?php else: ?>
                 <li>
                 <button class="filtroBottoni1" onclick = "location.href = 'categorie.php?categoria=<?php echo $SetParameters['categoria']; ?>&venditore=<?php echo $venditore['nome']; ?>'"><?php echo $venditore["nome"]; ?></button>
                 </li>
+            <?php endif; ?>
            
             
         <?php endforeach;?>
