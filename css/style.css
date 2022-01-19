@@ -820,22 +820,22 @@ section.notifiche > ul > li > div > footer > button{
 
 /*PAGAMENTO INIZIO*/
 
-section.pagamento > form > div > label {
+section.pagamento > form > div >div > label {
    color: #FFF;
    margin-top: 1%; 
 }
-section.pagamento > form > div > p {
+section.pagamento > form > div > div > p {
     margin-top: 4%;
     color: #E32629; 
  }
 
-section.pagamento > form > div> input{
+section.pagamento > form > div> div >input{
     margin: 0 auto;
     padding: 5px 20px;
     background-color: #D3D3D3;
 }
 
-section.pagamento > form > div> input:last-of-type{
+section.pagamento > form > div > div:last-of-type> input:last-of-type{
     margin-top: 5%;
     background-color: #E32629;
     min-width: 150px;
@@ -844,11 +844,11 @@ section.pagamento > form > div> input:last-of-type{
     font-weight: bold;
 }
 
-section.pagamento > form > div> p, section.pagamento > form > div > input, section.pagamento > form > div > label{
+section.pagamento > form > div > div> p, section.pagamento > form > div > div > input, section.pagamento > form > div > div > label{
     display: block;
 }
 
-section.pagamento > form > div {
+section.pagamento > form > div > div {
 text-align: center;
 }
 
@@ -914,9 +914,20 @@ text-align: center;
     }
 
     /*PAGAMENTO*/
+    .row{
+        display: flex;
+    }
+    .col{
+        flex: 1;
+        padding: 5% 0;
+    }
+
+    section.pagamento > form > div > div:last-of-type> input:last-of-type{
+        margin-top: 15%;
+      
+    }
 
 }
-
 *{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }

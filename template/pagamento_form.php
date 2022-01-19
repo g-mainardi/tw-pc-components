@@ -3,24 +3,24 @@
    </section>
 <section class="pagamento">
     <form> 
-        <div>
-        <p>contatto</p>
-        <label for="email">E-Mail:</label>
-        <input required type="email" id="email" name="email" placeholder="example@gmail.com"/>
+        <div class="row">
+         <div class="col">
         <p>indirizzo di spedizione</p>
         <label for="nome">Nome:</label>
         <input required type="text" id="nome" name="nome"/>
         <label for="cognome">Cognome:</label>
         <input required type="text" id="cognome" name="cognome"/>
         <label for="indirizzo">Indirizzo:</label>
-        <input required type="text" id="indirizzo" name="indirizzo"/>
+        <input required type="text" id="indirizzo" name="indirizzo" value="Via Cesare Pavese, 50"/>
         <p>spedizione in: ITALIA</p>
         <label for="città">Città:</label>
-        <input required type="text" id="città" name="città"/>
+        <input required type="text" id="città" name="città"  value="Cesena"/>
         <label for="provincia">Provincia:</label>
-        <input required type="text" id="provincia" name="provincia"/>
+        <input required type="text" id="provincia" name="provincia"  value="FC"/>
         <label for="cap">CAP:</label>
-        <input required id="cap" type="tel" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" placeholder="xxxxx">
+        <input required id="cap" type="tel" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" placeholder="xxxxx" value="47521">
+        </div>
+        <div class="col">
         <p>carta di credito o prepagata</p>
         <label for="nomeCarta">intestatario della carta:</label>
         <input required type="text" id="nomeCarta" name="nomeCarta"/>
@@ -31,7 +31,8 @@
         <label for="CYV">CYV:</label>
         <input required id="CYV" type="tel" inputmode="numeric" pattern="[0-9]{3}" maxlength="3" placeholder="xxx">
         <input type="submit">
-    </div>
+        </div>
+        </div>
         </form>
-   
+        Via Cesare Pavese, 50, 47521 Cesena FC
 </section>
