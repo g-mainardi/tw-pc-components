@@ -181,18 +181,18 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    // DA FARE
+    // Fatto?
     public function deleteNotification($idnotifica){
-        $query = "";
+        $query = "DELETE FROM notifica WHERE ID_Notifica = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i', $idnotifica);
         
         return $stmt->execute();
     }
 
-    // DA FARE
+    // Fatto?
     public function setNotificationRead($idnotifica){
-        $query = "";
+        $query = "UPDATE notifica SET visualizzato = 1 WHERE ID_Notifica = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i', $idnotifica);
         
