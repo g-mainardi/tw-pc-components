@@ -90,10 +90,10 @@
 
     <section class="areaNotifiche">
         <?php 
-        for($i = 0; $i < 2; $i++): 
+        for($i = 0; $i < count($SetParameters["notifichenonmostrate"]); $i++): 
             $notifica = $SetParameters["notifichenonmostrate"][$i];
             ?>
-        <div>
+        <div id="notificaschermo<?php echo $notifica["ID_Notifica"]?>" class="<?php if($i >= 2) {echo 'damostrare';} else {echo 'inmostra';}?>">
 <!--        Facoltativo per futuro: richiedo immagine da db (id notifica -> id ordine -> id carrello -> id articolo -> img)
             <div>
                 <img src="./" alt="" />
@@ -101,7 +101,7 @@
 -->
             <div>
                 <h2><a href="notifiche.php?id=<?php echo $notifica["ID_Notifica"]?>">Titolo</a></h2>
-                <button>X</button>
+                <button class="close" id="notificaschermo<?php echo $notifica["ID_Notifica"]?>">X</button>
             </div>
             <p>Descrizione</p>
             <footer>
