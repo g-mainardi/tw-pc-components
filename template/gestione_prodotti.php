@@ -6,7 +6,7 @@
     <section>    
         <div class="container">
             <img src="immaginiGPU/<?php echo $prodotto["img"];?>" alt="">
-        <form name="Modifica" class="selezioaQuantità" action="#" method="POST"> 
+        <form class="selezioaQuantità" action="#" method="POST"> 
             <table class="tabellaCategorie">
                 <tr>
                     <th><h2 class="testoTabella"><?php echo $prodotto["nome"];?></h2></th>
@@ -24,14 +24,14 @@
 
                     <td>
                    <label>aggiorna quantià<br/>
-                   <input class="modificaProdotti" type="text" id="prezzo" name="quantita" value="<?php echo $prodotto["quantità"];?>" />
+                   <input class="modificaProdotti" type="text" id="prezzo" name="quantita<?php echo $prodotto["ID_Articolo"]?>" value="<?php echo $prodotto["quantità"];?>" />
                    </form>  
                 </td>
 
                 <td>
                      
                     <label>modifica prezzo<br/>
-                    <input class="modificaProdotti" type="text" id="prezzo" name="prezzo" value="<?php echo $prodotto["prezzo"];?>" />
+                    <input class="modificaProdotti" type="text" id="prezzo" name="prezzo<?php echo $prodotto["ID_Articolo"]?>" value="<?php echo $prodotto["prezzo"];?>" />
                     </td>
 
                 </tr>
