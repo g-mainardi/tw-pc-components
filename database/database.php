@@ -79,8 +79,8 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getProdottiRandom(){
-        $query = ("SELECT nome FROM articolo ORDER BY RAND() LIMIT 5");
+    public function randomProducts(){
+        $query = ("SELECT articolo.ID_Articolo, articolo.img FROM articolo ORDER BY RAND() LIMIT 3");
         $stmt = $this->db->prepare($query);
         $stmt->execute();
         $result = $stmt->get_result();
