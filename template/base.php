@@ -86,44 +86,42 @@
         </ul>
     </nav>
     
-    <?php 
-    if(isset($SetParameters["logged"]) && $SetParameters["logged"] && count($SetParameters["notifichenonmostrate"]) > 0): 
-        for($i = 0; $i < 2; $i++):
-    ?>
+    <?php if(isset($SetParameters["logged"]) && $SetParameters["logged"] && count($SetParameters["notifichenonmostrate"]) > 0): ?>
 
-    <nav class="notifica">
+    <section class="areaNotifiche">
+        <?php 
+        for($i = 0; $i < 2; $i++): 
+            $notifica = $SetParameters["notifichenonmostrate"][$i];
+            ?>
         <div>
-            <header>
 <!--        Facoltativo per futuro: richiedo immagine da db (id notifica -> id ordine -> id carrello -> id articolo -> img)
-                <div>
-                    <img src="./" alt="" />
-                </div> 
+            <div>
+                <img src="./" alt="" />
+            </div> 
 -->
-                <h2>giosy</h2>
-                <p>2021-12-26 - Gino Pino</p>
-            </header>
-            <section>
-                <p>Prova anteprima</p>
-            </section>
+            <div>
+                <h2><a href="notifiche.php?id=<?php echo $notifica["ID_Notifica"]?>">Titolo</a></h2>
+                <button>X</button>
+            </div>
+            <p>Descrizione</p>
             <footer>
-                <a href="articolo.php?id=4">Leggi tutto</a>
+                <a href="notifiche.php?id=<?php echo $notifica["ID_Notifica"]?>">Vai alla notifica</a>
             </footer>
-        </article>
-    </nav>
+        </div>
 
-    <?php 
-        endfor; 
-        if($SetParameters["notifichenonmostrate"] > 2):
-    ?>
+        <?php 
+            endfor; 
+            if(count($SetParameters["notifichenonmostrate"]) > 2):
+        ?>
 
-    <nav class="notifica">
-        <a>Vedi tutto...</a>
-    </nav>
+        <div class="vediTutto">
+            <a href="notifiche.php">Vedi tutto...</a>
+        </div>
 
-    <?php 
-        endif; 
-    endif; 
-    ?>
+        <?php endif; ?>
+
+    </section>
+    <?php endif; ?>
 
     <?php if(!isset($SetParameters["logged"]) || (!$SetParameters["logged"]) || ($SetParameters["Tipo"] != "venditore")): ?>
 

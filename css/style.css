@@ -125,7 +125,7 @@ div.barra > ul > li > a{
     padding: 0;
 }
 
-nav.menu, nav.notifica{
+nav.menu{
     z-index: 1;
     background-color: #000;
     display: none;
@@ -156,6 +156,75 @@ nav.menu>ul>li>a{
 main{
     padding: 2% 0;
 }
+
+/* NOTIFICHE A SCHERMO */
+section.areaNotifiche{
+    z-index: 1;
+    background-color: transparent;
+    position: fixed;
+    padding: 0 2%;
+    margin: 90px 0 0;
+    width: 96%;
+}
+
+section.areaNotifiche > div{
+    height: 60px;
+    padding: 1% 2%;
+    background-color: white;
+    margin: 3px 0;
+    border: 2px solid #717171;
+}
+
+section.areaNotifiche > div.vediTutto{
+    height: 20px;
+    padding: 0;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+section.areaNotifiche a{
+    text-decoration: none;
+    color: #E32629;
+}
+
+section.areaNotifiche > div > div{
+    height: 20px;
+    text-align: left;
+}
+
+section.areaNotifiche > div > div > h2{
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    float: left;
+}
+
+section.areaNotifiche > div > div > button{
+    font-size: 12px;
+    width: 20px;
+    margin: 0;
+    padding: 0;
+    float: right;
+}
+
+section.areaNotifiche > div > p{
+    height: 26px;
+    font-size: 10px;
+    margin: 1px 0;
+    text-align: left;
+}
+
+section.areaNotifiche > div > footer{
+    height: 12px;
+    font-size: 10px;
+    padding: 0;
+    text-align: right;
+    display: block;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+
 
 /*SLIDER IMMAGINI INZIO*/
 .slider{
