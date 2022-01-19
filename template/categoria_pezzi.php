@@ -1,3 +1,4 @@
+<script src="./script/categorie.js"></script>
 <section class="filtro">
             
 <h1>SCEGLI UN FORNITORE</h1>
@@ -6,7 +7,7 @@
         <?php foreach ($SetParameters["venditori"] as $venditore): ?> 
             
                 <li>
-                <button onclick = "location.href = 'categorie.php?categoria=<?php echo $SetParameters['categoria']; ?>&venditore=<?php echo $venditore['nome']; ?>'"><?php echo $venditore["nome"]; ?></button>
+                <button class="filtroBottoni1" onclick = "location.href = 'categorie.php?categoria=<?php echo $SetParameters['categoria']; ?>&venditore=<?php echo $venditore['nome']; ?>'"><?php echo $venditore["nome"]; ?></button>
                 </li>
            
             
@@ -21,7 +22,7 @@
                     foreach ($SetParameters["tipologia"] as $tipologia): ?>
                         
                             <li>
-                            <button onclick = "location.href = 'categorie.php?categoria=<?php echo $SetParameters['categoria']; ?>&tipologia=<?php echo $tipologia['tipologia']; ?>'"><?php echo $tipologia["tipologia"]; ?></button>
+                            <button class="filtroBottoni2" onclick = "location.href = 'categorie.php?categoria=<?php echo $SetParameters['categoria']; ?>&tipologia=<?php echo $tipologia['tipologia']; ?>'"><?php echo $tipologia["tipologia"]; ?></button>
                             </li>
                     
                        

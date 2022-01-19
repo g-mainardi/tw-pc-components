@@ -865,4 +865,13 @@ text-align: center;
 
 :disabled{
     background-color: #B1A7A6;
+    color: #413A39;
+    pointer-events: none;
+}
+
+
+.disabilitato{
+    background-color: #B1A7A6!important;
+    color: #413A39!important;
+    pointer-events: none;
 }
