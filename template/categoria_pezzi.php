@@ -43,7 +43,7 @@
                 <th><h2 class="testoTabella"><?php echo $prodotto["prezzo"]; ?> €</h2></th>
             </tr>
             <tr>
-                <td><a class="link1" href="prodotto.php?id=<?php echo $prodotto['ID_Articolo']?>">Dettagli...</a></td>    
+                <td><a class="link1" href="prodotto.php?id=<?php echo $prodotto['ID_Articolo'];?>">Dettagli...</a></td>    
                 <td><form action="#" method="POST">
                     <input type="hidden" name="ID_Articolo" value="<?php echo $prodotto["ID_Articolo"];?>" />
                     <button class="bottoneTabella" type="submit" name="submit">AGGIUNGI AL CARRELLO</button>
