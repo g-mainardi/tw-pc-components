@@ -9,6 +9,10 @@ class DatabaseHelper{
         }        
     }
 
+    //------------------------------------------------------------------
+
+    //PRODOTTI
+
     public function getProdotti($categoria){
         $stmt = $this->db->prepare("SELECT DISTINCT articolo.* 
                                     FROM articolo, categoria 
@@ -22,6 +26,20 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    //Prodotti per gestione del venditore
+    public function getSellerProducts($idvenditore){
+        $query = "SELECT articolo.ID_Articolo, articolo.nome, articolo.prezzo, articolo.quantità, articolo.img
+                  FROM articolo, utente
+                  WHERE articolo.venditore = utente.ID_Utente AND utente.ID_Utente = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i', $idvenditore);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    //Prodotti che vende un certo venditore di una certa categoria
     public function getVenditoreProdotti($categoria, $venditore){
         $stmt = $this->db->prepare("SELECT DISTINCT articolo.* 
                                     FROM articolo, categoria, utente 
@@ -29,19 +47,6 @@ class DatabaseHelper{
                                     AND utente.nome = ? AND categoria.ID_Categoria = articolo.categoria AND utente.ID_Utente = articolo.venditore");
 
         $stmt->bind_param('ss',$categoria, $venditore);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
-
-    public function getType($categoria){
-        $stmt = $this->db->prepare("SELECT DISTINCT articolo.tipologia 
-                                    FROM articolo, categoria
-                                    WHERE categoria.nome = ? 
-                                    AND categoria.ID_Categoria = articolo.categoria");
-
-        $stmt->bind_param('s', $categoria);
         $stmt->execute();
         $result = $stmt->get_result();
 
@@ -67,16 +72,6 @@ class DatabaseHelper{
         $result = $stmt->get_result();
 
         return $result->fetch_all(MYSQLI_ASSOC);
-
-    }
-
-    public function getUtenti(){
-        $stmt = $this->db->prepare("SELECT * FROM utente");
-        $stmt->bind_param('i', $id);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        return $result->fetch_all(MYSQLI_ASSOC);
     }
 
     public function randomProducts(){
@@ -88,8 +83,12 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getQuantitaProdotti($id){
-        $stmt = $this->db->prepare("SELECT DISTINCT COUNT(*) FROM articolo WHERE quantità <= 6 AND ID_Articolo = ?");
+    //------------------------------------------------------------------
+
+    //UTENTE
+
+    public function getUtenti(){
+        $stmt = $this->db->prepare("SELECT * FROM utente");
         $stmt->bind_param('i', $id);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -142,12 +141,15 @@ class DatabaseHelper{
         $stmt->execute();
         return $stmt->insert_id;
     }
+    //------------------------------------------------------------------
+
+    //NOTIFICHE
 
     public function getAllNotifications($idutente) {
-        $query = "SELECT ID_Notifica, ordine, titolo, descrizione, visualizzato
-                  FROM notifica
-                  WHERE utente=?
-                  ORDER BY ID_Notifica DESC";
+        $query = "SELECT ID_Notifica, ordine, titolo, descrizione, notifica.stato AS statoNotifica, ordine.stato AS statoOrdine
+                  FROM notifica, ordine
+                  WHERE utente=? AND notifica.ordine = ordine.ID_Ordine
+                  ORDER BY notifica.data DESC";
 
         $stmt = $this->db->prepare($query);
 
@@ -163,10 +165,10 @@ class DatabaseHelper{
     }
 
     public function getOnlyUnreadNotifications($idutente) {
-        $query = "SELECT ID_Notifica, ordine, titolo, descrizione, visualizzato
-                  FROM notifica
-                  WHERE utente=? AND visualizzato=0
-                  ORDER BY ID_Notifica DESC";
+        $query = "SELECT ID_Notifica, ordine, titolo, descrizione,  notifica.stato AS statoNotifica, ordine.stato AS statoOrdine
+                  FROM notifica, ordine
+                  WHERE utente=? AND (notifica.stato='not read' OR notifica.stato='not read on screen') AND notifica.ordine = ordine.ID_Ordine
+                  ORDER BY notifica.data DESC";
 
         $stmt = $this->db->prepare($query);
 
@@ -190,14 +192,35 @@ class DatabaseHelper{
         return $stmt->execute();
     }
 
-    // Fatto?
-    public function setNotificationRead($idnotifica){
-        $query = "UPDATE notifica SET visualizzato = 1 WHERE ID_Notifica = ?";
+    /*Cambiamento dello stato di una notifica
+    richiede l'id della notifica e lo stato in 
+    cui si vuole cambiare che deve essere una stringa
+    "read" = letta, "not read" = non letta ma notifica
+    a schermo tolta, "not read on screen" = non letta e
+    notifica a schermo*/
+    public function changeNotification($idnotifica, $stato){
+        $query = "UPDATE notifica SET stato = ? WHERE ID_Notifica = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('i', $idnotifica);
-        
+        $stmt->bind_param('si', $idnotifica, $stato);
+
         return $stmt->execute();
     }
+
+    //Ho fatto un inserimento generalizzato, poi modificabile come meglio credi Giosuè
+    //inoltre la data non c'è bisogno di metterla, mette in automatica quella di quando
+    //viene inserita la riga nella tabella
+    public function insertNotification($idutente, $idordine, $titolo, $descrizione){
+        $query = "INSERT INTO `notifica` (`utente`, `ordine`, `titolo`, `descrizione`) 
+                    VALUES ( ?, ?, ?, ?);";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('iiss', $idcliente, $idarticolo, $quantità);
+    
+        $stmt->execute();
+        return $stmt->insert_id;
+    }
+    //------------------------------------------------------------------
+
+    //CARRELLO
 
     public function getCartProducts($idutente) {
         $query = "SELECT carrello.ID_Carrello, carrello.ID_Articolo, carrello.quantità, articolo.nome, articolo.descrizione, articolo.img, articolo.prezzo, articolo.marca
@@ -257,22 +280,58 @@ class DatabaseHelper{
         return true;
     }
 
-    public function getSellerProducts($idvenditore){
-        $query = "SELECT articolo.ID_Articolo, articolo.nome, articolo.prezzo, articolo.quantità, articolo.img
-                  FROM articolo, utente
-                  WHERE articolo.venditore = utente.ID_Utente AND utente.ID_Utente = ?";
+    public function updateProduct($prezzo, $quantita, $id){
+        $query = "UPDATE articolo SET prezzo = ?, quantità = ? WHERE ID_Articolo = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('i', $idvenditore);
+        $stmt->bind_param('iii', $prezzo, $quantita, $id);
+
+        return $stmt->execute();
+    }
+    
+    //-----------------------------------------------------------------------------------
+
+    //Categoria che appaiono nella homepage
+    public function getAllCategory(){
+        $query = ("SELECT * FROM categoria");
+        $stmt = $this->db->prepare($query);
         $stmt->execute();
         $result = $stmt->get_result();
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function updateProduct($prezzo, $quantita, $id){
-        $query = "UPDATE articolo SET prezzo = ?, quantità = ? WHERE ID_Articolo = ?";
+    //Tipologia di certi prodotti
+    public function getType($categoria){
+        $stmt = $this->db->prepare("SELECT DISTINCT articolo.tipologia 
+                                    FROM articolo, categoria
+                                    WHERE categoria.nome = ? 
+                                    AND categoria.ID_Categoria = articolo.categoria");
+
+        $stmt->bind_param('s', $categoria);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    
+    //Prende la quantità di un certo prodotto
+    public function getQuantitaProdotti($id){
+        $stmt = $this->db->prepare("SELECT DISTINCT COUNT(*) FROM articolo WHERE quantità <= 6 AND ID_Articolo = ?");
+        $stmt->bind_param('i', $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    /*Modifica stato dell'ordine
+    per lo stato dellordine ci sono
+    "loading" = in esecuzione, "shipped" = spedito
+    "delivered" = consegnato*/
+    public function changeStateOrder($stato, $idordine){
+        $query = "UPDATE ordine SET stato = ? WHERE ID_Ordine = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('iii', $prezzo, $quantita, $id);
+        $stmt->bind_param('si', $stato, $idordine);
 
         return $stmt->execute();
     }

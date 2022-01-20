@@ -11,7 +11,6 @@ $SetParameters["file"] = "gestione_prodotti.php";
 
 if(isset($_POST["prezzo".$_POST["id"]]) && $_POST["prezzo".$_POST["id"]]!='0'
     && isset($_POST["quantita".$_POST["id"]]) && $_POST["quantita".$_POST["id"]]!='0'){
-        echo "<script>console.log('Debug Objects: " . isset($_POST["quantita".$_POST["id"]]) . "' );</script>";
         $dbh->updateProduct(intval($_POST["prezzo".$_POST["id"]]), intval($_POST["quantita".$_POST["id"]]), intval($_POST["id"]));  
     }
 
