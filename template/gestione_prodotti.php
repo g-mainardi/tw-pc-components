@@ -3,7 +3,7 @@
             <h2>qui è dove puoi gestire la tua merce in vendita</h2>
 </section> 
   <?php foreach ($SetParameters["prodotti"] as $prodotto): ?>
-    <section>    
+    <section class="<?php echo ($prodotto["quantità"] == 0 ? "prodottoEsaurito" : ""); ?>">    
         <div class="container">
             <img src="immaginiGPU/<?php echo $prodotto["img"];?>" alt="">
         <form class="selezioaQuantità" action="#" method="POST"> 
