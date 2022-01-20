@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Gen 17, 2022 alle 11:20
+-- Creato il: Gen 20, 2022 alle 18:07
 -- Versione del server: 10.4.21-MariaDB
 -- Versione PHP: 8.0.12
 
@@ -119,8 +119,9 @@ CREATE TABLE `carrello` (
 --
 
 INSERT INTO `carrello` (`ID_Carrello`, `ID_Cliente`, `ID_Articolo`, `quantità`) VALUES
-(21, 12, 1, 1),
-(22, 12, 2, 1);
+(21, 12, 1, 5),
+(26, 12, 5, 1),
+(27, 12, 10, 1);
 
 -- --------------------------------------------------------
 
@@ -130,21 +131,22 @@ INSERT INTO `carrello` (`ID_Carrello`, `ID_Cliente`, `ID_Articolo`, `quantità`)
 
 CREATE TABLE `categoria` (
   `ID_Categoria` int(11) NOT NULL,
-  `nome` text NOT NULL
+  `nome` text NOT NULL,
+  `descrizione` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dump dei dati per la tabella `categoria`
 --
 
-INSERT INTO `categoria` (`ID_Categoria`, `nome`) VALUES
-(1, 'Motherboard'),
-(2, 'GPU'),
-(3, 'PSU'),
-(4, 'RAM'),
-(5, 'CPU'),
-(6, 'Case'),
-(7, 'Cooler');
+INSERT INTO `categoria` (`ID_Categoria`, `nome`, `descrizione`) VALUES
+(1, 'Motherboard', ''),
+(2, 'GPU', ''),
+(3, 'PSU', ''),
+(4, 'RAM', ''),
+(5, 'CPU', ''),
+(6, 'Case', ''),
+(7, 'Cooler', '');
 
 -- --------------------------------------------------------
 
@@ -155,11 +157,20 @@ INSERT INTO `categoria` (`ID_Categoria`, `nome`) VALUES
 CREATE TABLE `notifica` (
   `ID_Notifica` int(11) NOT NULL,
   `utente` int(11) NOT NULL,
-  `ordine` int(11) NOT NULL,
+  `ordine` int(11) DEFAULT NULL,
   `titolo` text NOT NULL,
   `descrizione` text NOT NULL,
-  `visualizzato` tinyint(1) NOT NULL
+  `data` datetime NOT NULL DEFAULT current_timestamp(),
+  `stato` enum('read','not read','not read on screen') NOT NULL DEFAULT 'not read on screen'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dump dei dati per la tabella `notifica`
+--
+
+INSERT INTO `notifica` (`ID_Notifica`, `utente`, `ordine`, `titolo`, `descrizione`, `data`, `stato`) VALUES
+(6, 1, 1, 'efsef', 'sefsef', '2022-01-20 17:56:02', 'not read on screen'),
+(7, 1, 1, 'adwadawd', 'awdawdawd', '2022-01-20 17:59:18', 'not read on screen');
 
 -- --------------------------------------------------------
 
@@ -171,8 +182,15 @@ CREATE TABLE `ordine` (
   `ID_Ordine` int(11) NOT NULL,
   `ID_Cliente` int(11) NOT NULL,
   `ID_Carrello` int(11) NOT NULL,
-  `stato` enum('in esecuzione','spedito','consegnato') NOT NULL DEFAULT 'in esecuzione'
+  `stato` enum('loading','shipped','delivered') DEFAULT 'loading'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dump dei dati per la tabella `ordine`
+--
+
+INSERT INTO `ordine` (`ID_Ordine`, `ID_Cliente`, `ID_Carrello`, `stato`) VALUES
+(1, 1, 26, '');
 
 -- --------------------------------------------------------
 
@@ -266,7 +284,7 @@ ALTER TABLE `articolo`
 -- AUTO_INCREMENT per la tabella `carrello`
 --
 ALTER TABLE `carrello`
-  MODIFY `ID_Carrello` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `ID_Carrello` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT per la tabella `categoria`
@@ -278,13 +296,13 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT per la tabella `notifica`
 --
 ALTER TABLE `notifica`
-  MODIFY `ID_Notifica` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Notifica` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT per la tabella `ordine`
 --
 ALTER TABLE `ordine`
-  MODIFY `ID_Ordine` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Ordine` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT per la tabella `utente`
