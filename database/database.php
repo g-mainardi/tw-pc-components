@@ -79,8 +79,8 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getProdottiRandom(){
-        $query = ("SELECT nome FROM articolo ORDER BY RAND() LIMIT 5");
+    public function randomProducts(){
+        $query = ("SELECT articolo.ID_Articolo, articolo.img FROM articolo ORDER BY RAND() LIMIT 3");
         $stmt = $this->db->prepare($query);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -181,18 +181,18 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    // DA FARE
+    // Fatto?
     public function deleteNotification($idnotifica){
-        $query = "";
+        $query = "DELETE FROM notifica WHERE ID_Notifica = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i', $idnotifica);
         
         return $stmt->execute();
     }
 
-    // DA FARE
+    // Fatto?
     public function setNotificationRead($idnotifica){
-        $query = "";
+        $query = "UPDATE notifica SET visualizzato = 1 WHERE ID_Notifica = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i', $idnotifica);
         
@@ -257,30 +257,25 @@ class DatabaseHelper{
         return true;
     }
 
-    /*
-
-        ESEMPI
-
-    public function getRandomPosts($n){
-        $stmt = $this->db->prepare("SELECT idarticolo, titoloarticolo, imgarticolo FROM articolo ORDER BY RAND() LIMIT ?");
-        $stmt->bind_param('i',$n);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
-
-    public function getAuthors(){
-        $query = "SELECT username, nome, GROUP_CONCAT(DISTINCT nomecategoria) as argomenti FROM categoria, articolo, autore, articolo_ha_categoria WHERE idarticolo=articolo AND categoria=idcategoria AND autore=idautore AND attivo=1 GROUP BY username, nome";
+    public function getSellerProducts($idvenditore){
+        $query = "SELECT articolo.ID_Articolo, articolo.nome, articolo.prezzo, articolo.quantità, articolo.img
+                  FROM articolo, utente
+                  WHERE articolo.venditore = utente.ID_Utente AND utente.ID_Utente = ?";
         $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i', $idvenditore);
         $stmt->execute();
         $result = $stmt->get_result();
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function updateProduct($prezzo, $quantita, $id){
+        $query = "UPDATE articolo SET prezzo = ?, quantità = ? WHERE ID_Articolo = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('iii', $prezzo, $quantita, $id);
 
-    */
+        return $stmt->execute();
+    }
 
 
 }

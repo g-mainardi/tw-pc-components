@@ -1,13 +1,20 @@
+<script src="./script/categorie.js"></script>
 <section class="filtro">
             
 <h1>SCEGLI UN FORNITORE</h1>
         <h2>scegli un fornitore per filtrare i prodotti</h2>
         <ul>
-        <?php foreach ($SetParameters["venditori"] as $venditore): ?> 
+        <?php foreach ($SetParameters["venditori"] as $venditore): 
+            if($venditore["nome"] == $_GET["venditore"]):?> 
             
                 <li>
-                <button onclick = "location.href = 'categorie.php?categoria=<?php echo $SetParameters['categoria']; ?>&venditore=<?php echo $venditore['nome']; ?>'"><?php echo $venditore["nome"]; ?></button>
+                <button class="filtroBottoni1 disabilitato" onclick = "location.href = 'categorie.php?categoria=<?php echo $SetParameters['categoria']; ?>&venditore=<?php echo $venditore['nome']; ?>'"><?php echo $venditore["nome"]; ?></button>
                 </li>
+            <?php else: ?>
+                <li>
+                <button class="filtroBottoni1" onclick = "location.href = 'categorie.php?categoria=<?php echo $SetParameters['categoria']; ?>&venditore=<?php echo $venditore['nome']; ?>'"><?php echo $venditore["nome"]; ?></button>
+                </li>
+            <?php endif; ?>
            
             
         <?php endforeach;?>
@@ -21,7 +28,7 @@
                     foreach ($SetParameters["tipologia"] as $tipologia): ?>
                         
                             <li>
-                            <button onclick = "location.href = 'categorie.php?categoria=<?php echo $SetParameters['categoria']; ?>&tipologia=<?php echo $tipologia['tipologia']; ?>'"><?php echo $tipologia["tipologia"]; ?></button>
+                            <button class="filtroBottoni2" onclick = "location.href = 'categorie.php?categoria=<?php echo $SetParameters['categoria']; ?>&tipologia=<?php echo $tipologia['tipologia']; ?>'"><?php echo $tipologia["tipologia"]; ?></button>
                             </li>
                     
                        
@@ -42,7 +49,7 @@
                 <th><h2 class="testoTabella"><?php echo $prodotto["prezzo"]; ?> €</h2></th>
             </tr>
             <tr>
-                <td><a class="link1" href="prodotto.php?id=<?php echo $prodotto['ID_Articolo']?>">Dettagli...</a></td>    
+                <td><a class="link1" href="prodotto.php?id=<?php echo $prodotto['ID_Articolo'];?>">Dettagli...</a></td>    
                 <td><form action="#" method="POST">
                     <input type="hidden" name="ID_Articolo" value="<?php echo $prodotto["ID_Articolo"];?>" />
                     <button class="bottoneTabella" type="submit" name="submit">AGGIUNGI AL CARRELLO</button>

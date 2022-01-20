@@ -2,7 +2,7 @@
        <h2>inserisci i dati di spedizione e della carta di credito o carta prepagata</h2>
    </section>
 <section class="pagamento">
-    <form> 
+    <form action="index.php"> 
         <div class="row">
          <div class="col">
         <p>indirizzo di spedizione</p>
@@ -30,9 +30,9 @@
         <input required type="date" id="scadenza" name="scadenza"/>
         <label for="CYV">CYV:</label>
         <input required id="CYV" type="tel" inputmode="numeric" pattern="[0-9]{3}" maxlength="3" placeholder="xxx">
-        <input type="submit">
+        <input type="submit"/>
         </div>
         </div>
         </form>
-        Via Cesare Pavese, 50, 47521 Cesena FC
+        
 </section>

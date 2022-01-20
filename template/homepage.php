@@ -1,18 +1,13 @@
         <script src="./script/slider.js"></script>
         <div class="slider">
             <div class="slideshow-container">
+            <?php foreach ($SetParameters["prodottiRandom"] as $prodotti): ?>
                 <div class="mySlides fade">
-                    <img src="immagini/case2.jpg" style="width:100%" />
+                    <a href="prodotto.php?id=<?php echo $prodotti["ID_Articolo"];?>">
+                        <img src="immagini/<?php echo $prodotti["img"];?>" style="width:100%" />
+                    </a>
                 </div>
-                
-                <div class="mySlides fade">
-                    <img src="immagini/cpu2.jpg" style="width:100%" />
-                </div>
-                
-                <div class="mySlides fade">
-                    <img src="immagini/gpu2.jpg" style="width:100%" />
-                </div>
-                
+            <?php endforeach; ?>
                 <a class="prev">&#10094;</a>
                 <a class="next">&#10095;</a>
                     
