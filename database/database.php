@@ -324,7 +324,10 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    //Modifica stato dell'ordine
+    /*Modifica stato dell'ordine
+    per lo stato dellordine ci sono
+    "loading" = in esecuzione, "shipped" = spedito
+    "delivered" = consegnato*/
     public function changeStateOrder($stato, $idordine){
         $query = "UPDATE ordine SET stato = ? WHERE ID_Ordine = ?";
         $stmt = $this->db->prepare($query);
