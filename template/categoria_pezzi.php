@@ -25,12 +25,21 @@
         <?php   if(isset($SetParameters["tipologia"])):
                     echo "<h2>altri filtri</h2>";
                     echo "<ul>";
-                    foreach ($SetParameters["tipologia"] as $tipologia): ?>
+                    foreach ($SetParameters["tipologia"] as $tipologia): 
+                    if(isset($_GET["tipologia"]) && $tipologia["tipologia"] == $_GET["tipologia"]):?> 
                         
+                            <li>
+                            <button class="filtroBottoni2 disabilitato" onclick = "location.href = 'categorie.php?categoria=<?php echo $SetParameters['categoria']; ?>&tipologia=<?php echo $tipologia['tipologia']; ?>'"><?php echo $tipologia["tipologia"]; ?></button>
+                            </li>
+
+                    <?php else: ?>
+
                             <li>
                             <button class="filtroBottoni2" onclick = "location.href = 'categorie.php?categoria=<?php echo $SetParameters['categoria']; ?>&tipologia=<?php echo $tipologia['tipologia']; ?>'"><?php echo $tipologia["tipologia"]; ?></button>
                             </li>
-                    
+
+                    <?php endif; ?>
+
                        
         <?php       endforeach;
         echo "</ul>";
