@@ -16,7 +16,9 @@ $SetParameters["venditori"] = $dbh->getVenditori($_GET["categoria"]);
 if($_GET["categoria"] == "Motherboard" || $_GET["categoria"] == "GPU"){
     $SetParameters["tipologia"] = $dbh->getType($_GET["categoria"]);
 }
-
+if(isset($_POST["submit"])){
+    header("location:aggiunto.php");
+}
 // Controllo se è stato selezionato un venditore
 if(isset($_GET["venditore"])){
     $SetParameters["prodotti"] = $dbh->getVenditoreProdotti($_GET["categoria"], $_GET["venditore"]);

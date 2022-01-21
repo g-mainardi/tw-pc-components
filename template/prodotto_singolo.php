@@ -4,7 +4,7 @@
         <img src="immaginiGPU/3080.jpg" alt="">
          </div>
         <h1><?php echo $prodotto["marca"]." ".$prodotto["nome"]; ?></h1>
-        <h2>1300 €</h2>
+        <h2><?php echo $prodotto["prezzo"]; ?> €</h2>
         <form class="selezionaQuantità" action="#" method="POST">  
             <input type="hidden" name="id" value="<?php echo $prodotto["ID_Articolo"];?>"/>
             <label>QTY<br/>

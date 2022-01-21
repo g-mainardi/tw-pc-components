@@ -16,6 +16,7 @@ if(isset($_POST["id"])){
         header("location:login.php");
     } else {
         $dbh->insertProductInCart($_SESSION["ID_Utente"], intval($_POST["id"]), intval($_POST["quantità"]));
+        header("location:aggiunto.php");
     }
 }
 
