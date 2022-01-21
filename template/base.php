@@ -133,7 +133,7 @@
             <li><a href="categorie.php?categoria=PSU">Alimentatori</a></li>
             <li><a href="categorie.php?categoria=RAM">RAM</a></li>
             <li><a href="categorie.php?categoria=Case">Case</a></li>
-            <li><a href="#">Dissipatori</a></li>
+            <li><a href="categorie.php?categoria=Cooler">Dissipatori</a></li>
         </ul>
     </div>
     <?php endif; ?>
@@ -161,7 +161,7 @@
             </tr>
             <tr>
                 <th></th>
-                <th><a class href="#">Dissipatori</a></th>
+                <th><a class href="categorie.php?categoria=Cooler">Dissipatori</a></th>
             </tr>
         </table>
         <?php endif; ?>
