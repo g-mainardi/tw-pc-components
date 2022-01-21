@@ -465,7 +465,15 @@ li.registerButton>input, li.loginButton>input{
     padding: 20px 50px;
     margin-top: 10px;
     width: 300px;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 8px 16px 0 rgba(255,255,255,0.2), 0 6px 20px 0 rgba(255,255,255,0.19);
 }
+
+li.registerButton>input:hover, li.loginButton>input:hover{
+    border: 1px solid #FFF;
+}
+
 
 div.login>form>ul>li>input.field{
     background-color: #D3D3D3;;
@@ -695,6 +703,15 @@ section.intestazioneCarrello> p{
     color: #FFF;
     font-size: 20px;
 }
+section.intestazioneCarrello > input:last-of-type{
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 8px 16px 0 rgba(255,255,255,0.2), 0 6px 20px 0 rgba(255,255,255,0.19);
+}
+
+section.intestazioneCarrello > input:last-of-type:hover{
+    border: 1px solid #FFF;
+}
 
 .bottoneSecondario{
     background-color: #E32629;
@@ -702,6 +719,14 @@ section.intestazioneCarrello> p{
     min-height: 50px;
     color: #000;
     font-weight: bold;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 8px 16px 0 rgba(255,255,255,0.2), 0 6px 20px 0 rgba(255,255,255,0.19);
+}
+
+
+.bottoneSecondario:hover{
+    border: 1px solid #FFF;
 }
 
 .link2{
@@ -847,8 +872,13 @@ section.pagamento > form > div > div:last-of-type> input:last-of-type{
     min-height: 50px;
     color: #000;
     font-weight: bold;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 8px 16px 0 rgba(255,255,255,0.2), 0 6px 20px 0 rgba(255,255,255,0.19);
 }
-
+section.pagamento > form > div > div:last-of-type> input:last-of-type:hover{
+    border: 1px solid #FFF;
+}
 section.pagamento > form > div > div> p, section.pagamento > form > div > div > input, section.pagamento > form > div > div > label{
     display: block;
 }
@@ -941,6 +971,8 @@ text-align: center;
     background-color: #B1A7A6;
     color: #413A39;
     pointer-events: none;
+    border: none;
+    box-shadow: none;
 }
 
 
@@ -948,4 +980,14 @@ text-align: center;
     background-color: #B1A7A6!important;
     color: #413A39!important;
     pointer-events: none;
+}
+
+button:hover:not(header > ul > li:first-of-type > button){
+    border: 1px solid #FFF;
+}
+
+button:not(header > ul > li:first-of-type > button){
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 8px 16px 0 rgba(255,255,255,0.2), 0 6px 20px 0 rgba(255,255,255,0.19);
 }

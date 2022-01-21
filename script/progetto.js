@@ -28,6 +28,15 @@ $(document).ready(function(){
         }
     });
 
+    // Aprire e chiudere espandi/riduci
+    $(".mostra").click(function(){
+        if($(".tabella").css("display") == "none"){
+            $(".tabella").css("display", "");
+        } else {
+            $(".tabella").css("display", "none");
+        }
+    });
+
     aggiornaNotificheSchermo();
 
     // Chiudere notifica a schermo

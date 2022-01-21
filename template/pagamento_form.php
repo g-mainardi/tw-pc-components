@@ -2,7 +2,7 @@
        <h2>inserisci i dati di spedizione e della carta di credito o carta prepagata</h2>
    </section>
 <section class="pagamento">
-    <form action="index.php"> 
+    <form action="pagamento_effettuato.php"> 
         <div class="row">
          <div class="col">
         <p>indirizzo di spedizione</p>
