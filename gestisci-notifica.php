@@ -9,6 +9,10 @@ if($SetParameters["logged"] && isset($_POST["ID_Notifica"]) && isset($_POST["act
         // Azione per la lettura di una notifica
         $dbh->changeNotification($_POST["ID_Notifica"], "read");
         // Per testing: echo "letta notifica con id : ".$_POST["ID_Notifica"];
+    } elseif($_POST["action"] == 2){
+        // Azione per l'eliminazione di una notifica
+        $dbh->deleteNotification($_POST["ID_Notifica"]);
+        // Per testing: echo "eliminata notifica con id : ".$_POST["ID_Notifica"];
     }
 }
 ?>

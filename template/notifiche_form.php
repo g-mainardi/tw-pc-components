@@ -6,15 +6,15 @@
     <ul>
         <?php foreach($SetParameters["notifiche"] as $notifica):?>
 
-        <li> 
+        <li id="<?php echo $notifica["ID_Notifica"]; ?>"> 
             <button id="<?php echo $notifica["ID_Notifica"]; ?>" class="bottoneNotifica <?php if(isRead($notifica['statoNotifica'])) {echo 'visualizzato';} ?>" >
                 <?php echo $notifica["titolo"]; ?>
             </button>
-            <?php if(!isRead($notifica['statoNotifica']))  {echo '<img src="immagini/exclamation-mark.png" alt="">';} ?>
+            <?php if(!isRead($notifica['statoNotifica']))  {echo '<img src="immagini/exclamation-mark.png" alt=""/>';} ?>
             <div>
                 <p><?php echo $notifica["descrizione"]; ?></p>
                 <footer>
-                    <button class="bottoneTabella" onclick = "location.href = 'notifiche.php?notifica=<?php echo $notifica['ID_Notifica']; ?>&action=1'" >ELIMINA</button>
+                    <button class="bottoneTabella eliminaNotifica" id="<?php echo $notifica['ID_Notifica']; ?>" >ELIMINA</button>
                 </footer>
             </div>     
         </li>

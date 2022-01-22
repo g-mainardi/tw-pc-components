@@ -162,9 +162,9 @@ section.areaNotifiche{
     z-index: 1;
     background-color: transparent;
     position: fixed;
-    padding: 0 2%;
+    padding: 0 3%;
     margin: 90px 0 0;
-    width: 96%;
+    width: 94%;
 }
 
 section.areaNotifiche > div{
@@ -969,9 +969,13 @@ text-align: center;
     }
 
     /* NOTIFICHE A SCHERMO*/
-    section.areaNotifiche > div{
+    section.areaNotifiche{
         width: 50%;
-        float: right;
+        padding: 0 2%;
+        margin-left: 46%;
+    }
+    section.areaNotifiche > div{
+        width: 97%;
     }
 
 }
