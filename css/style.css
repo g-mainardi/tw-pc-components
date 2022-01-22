@@ -11,7 +11,7 @@ body{
     padding: 0;
 }
 
-header {
+body > header {
     background-color: #000;
     margin-top: 0;
     overflow: hidden;
@@ -31,7 +31,7 @@ a:hover{
     color: #E32629!important;
 }
 
-header>ul{
+body > header > ul{
     display:flex;
     justify-content:center;
     margin: 15px 1% 20px;
@@ -39,31 +39,31 @@ header>ul{
     max-height: 50px;
 }
 
-header > ul > li:first-of-type > button > img{
+body > header > ul > li:first-of-type > button > img{
     max-height: 45px;
 }
 
-header > ul > li:nth-child(2){
+body > header > ul > li:nth-child(2){
     margin-right: auto;
     margin-left: auto;
 }
 
-header > ul > li > a >img{
+body > header > ul > li > a >img{
     max-height: 50px;
     margin: 0 10px;
 }
 
-header > ul > li:nth-child(2) > a > img{
+body > header > ul > li:nth-child(2) > a > img{
  max-height: 50px;
 }
 
-header a{
+body > header a{
     position: relative;
     display: inline-block;
 }
 
 /* PARTE ICONE HEADER */
-header p {
+body > header p {
     position: absolute;   
     color: white;
     font-size: 12px;
@@ -75,7 +75,7 @@ header p {
     border-radius: 10px;
 }
 
-header img {
+body > header img {
     display: block;
     max-width: 100%;
     height: auto;
@@ -169,17 +169,15 @@ section.areaNotifiche{
 
 section.areaNotifiche > div{
     height: 60px;
-    padding: 1% 2%;
-    background-color: white;
+    padding: 0.5% 1%;
+    background-color: rgb(255, 255, 255);
     margin: 3px 0;
     border: 2px solid #717171;
+    opacity: 86%;
 }
 
-section.areaNotifiche > div.vediTutto{
-    height: 20px;
-    padding: 0;
-    font-size: 14px;
-    font-weight: bold;
+section.areaNotifiche > div:hover{
+    opacity: 97%;
 }
 
 section.areaNotifiche a{
@@ -187,19 +185,19 @@ section.areaNotifiche a{
     color: #E32629;
 }
 
-section.areaNotifiche > div > div{
+section.areaNotifiche > div > header{
     height: 20px;
     text-align: left;
 }
 
-section.areaNotifiche > div > div > h2{
+section.areaNotifiche > div > header > h2{
     font-size: 16px;
     margin: 0;
     padding: 0;
     float: left;
 }
 
-section.areaNotifiche > div > div > button{
+section.areaNotifiche > div > header > button{
     font-size: 12px;
     width: 20px;
     margin: 0;
@@ -209,7 +207,7 @@ section.areaNotifiche > div > div > button{
 
 section.areaNotifiche > div > p{
     height: 26px;
-    font-size: 10px;
+    font-size: 12px;
     margin: 1px 0;
     text-align: left;
 }
@@ -224,7 +222,15 @@ section.areaNotifiche > div > footer{
     text-decoration: none;
 }
 
+section.areaNotifiche > div > footer > p {
+    color: #a5a5a5e5;
+    margin: 0;
+    float: left;
+}
 
+section.areaNotifiche > div > footer >button{
+    float: right;
+}
 
 /*SLIDER IMMAGINI INZIO*/
 .slider{
@@ -368,22 +374,22 @@ section:not(:first-of-type) > p{
 
 }
 
-footer{
+body > footer{
     background-color: #000;
     text-align: center;
     padding: 1% 0;
     display: table-row;
 }
 
-footer>p:first-of-type{
+body > footer > p:first-of-type{
     padding-top: 20px;
 }
 
-footer>p:last-of-type{
+body > footer > p:last-of-type{
     padding-bottom: 20px;
 }
 
-footer>p{
+body > footer > p{
     color: #D3D3D3;
     font-size: 15px;
     font-weight: 100;
@@ -962,6 +968,12 @@ text-align: center;
       
     }
 
+    /* NOTIFICHE A SCHERMO*/
+    section.areaNotifiche > div{
+        width: 50%;
+        float: right;
+    }
+
 }
 *{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -982,11 +994,11 @@ text-align: center;
     pointer-events: none;
 }
 
-button:hover:not(header > ul > li:first-of-type > button){
+button:hover:not(body > header > ul > li:first-of-type > button){
     border: 1px solid #FFF;
 }
 
-button:not(header > ul > li:first-of-type > button){
+button:not(body > header > ul > li:first-of-type > button){
     border-radius: 8px;
     border: none;
     box-shadow: 0 8px 16px 0 rgba(255,255,255,0.2), 0 6px 20px 0 rgba(255,255,255,0.19);

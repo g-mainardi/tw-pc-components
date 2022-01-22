@@ -146,7 +146,7 @@ class DatabaseHelper{
     //NOTIFICHE
 
     public function getAllNotifications($idutente) {
-        $query = "SELECT ID_Notifica, ordine, titolo, descrizione, notifica.stato AS statoNotifica, ordine.stato AS statoOrdine
+        $query = "SELECT ID_Notifica, ordine, titolo, descrizione, notifica.stato AS statoNotifica, ordine.stato AS statoOrdine, data
                   FROM notifica, ordine
                   WHERE utente=? AND notifica.ordine = ordine.ID_Ordine
                   ORDER BY notifica.data DESC";
@@ -165,7 +165,7 @@ class DatabaseHelper{
     }
 
     public function getOnlyUnreadNotifications($idutente) {
-        $query = "SELECT ID_Notifica, ordine, titolo, descrizione,  notifica.stato AS statoNotifica, ordine.stato AS statoOrdine
+        $query = "SELECT ID_Notifica, ordine, titolo, descrizione,  notifica.stato AS statoNotifica, ordine.stato AS statoOrdine, data
                   FROM notifica, ordine
                   WHERE utente=? AND (notifica.stato='not read' OR notifica.stato='not read on screen') AND notifica.ordine = ordine.ID_Ordine
                   ORDER BY notifica.data DESC";
@@ -184,7 +184,7 @@ class DatabaseHelper{
     }
 
     public function getOnlyNotReadOnScreenNotifications($idutente) {
-        $query = "SELECT ID_Notifica, ordine, titolo, descrizione,  notifica.stato AS statoNotifica, ordine.stato AS statoOrdine
+        $query = "SELECT ID_Notifica, ordine, titolo, descrizione,  notifica.stato AS statoNotifica, ordine.stato AS statoOrdine, data
                   FROM notifica, ordine
                   WHERE utente=? AND notifica.stato='not read on screen' AND notifica.ordine = ordine.ID_Ordine
                   ORDER BY notifica.data DESC";
