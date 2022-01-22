@@ -9,7 +9,6 @@ $dbh = new DatabaseHelper("localhost", "root", "", "hd_progetto", 3306);
 
 $SetParameters["scripts"] = array();
 array_push($SetParameters["scripts"], "./script/progetto.js");
-array_push($SetParameters["scripts"], "./script/prendonotifica.js");
 
 // Controllo se l'utente sia loggato o no
 if(isLoggedIn()){

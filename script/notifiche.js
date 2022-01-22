@@ -17,7 +17,7 @@ $(document).ready(function(){
             $(this).next().addClass("nascondi");
 
             $.post("gestisci-notifica.php", {ID_Notifica: parseInt($(this).attr("id")), action: 1}, function(data){
-                console.log(data);
+                // Per testing console.log(data);
             });
 
             // Devo aggiornare numerino notifiche icona
