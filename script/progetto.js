@@ -1,4 +1,4 @@
-function generaNotifiche(notifiche){
+function generaNotificheSchermo(notifiche){
     let result = "<section class='areaNotifiche'>";
 
     for(let i=0; i < notifiche.length; i++){
@@ -43,16 +43,16 @@ $(document).ready(function(){
     });
 
     // Chiedo i dati delle notifiche a schermo
-    $.getJSON("api-notifiche.php", function(data){
+    $.getJSON("api-notifiche-schermo.php", function(data){
         // Prendo i dati e li formatto nell'HTML poi li aggiungo al body
-        $("nav.menu").after(generaNotifiche(data));
+        $("nav.menu").after(generaNotificheSchermo(data));
 
         // Associo funzione per chiudere notifica a schermo
         $("button.close").click(function(){
             var idnum = parseInt($(this).attr("id").split("notificaschermo")[1]);
             $.post("gestisci-notifica.php", {ID_Notifica: idnum, action: 0}, function(data){
                 // Per testing console.log(data);
-                $("div#" + "notificaschermo" + idnum).hide();
+                $("div#" + "notificaschermo" + idnum).remove();
             });
         });
     });

@@ -103,7 +103,9 @@
 
     <main>
         <?php
-            require($SetParameters["file"]);
+            if(isset($SetParameters["file"])){
+                require($SetParameters["file"]);
+            }
         ?>
     </main>
 
