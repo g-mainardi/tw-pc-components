@@ -38,4 +38,9 @@ function getSpecs($desc){
 
     return $dictionary;
 }
+
+function isRead($state){
+    return !($state == "not read" || $state == "not read on screen");
+}
+
 ?>

@@ -183,7 +183,26 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    // Fatto?
+    public function getOnlyNotReadOnScreenNotifications($idutente) {
+        $query = "SELECT ID_Notifica, ordine, titolo, descrizione,  notifica.stato AS statoNotifica, ordine.stato AS statoOrdine
+                  FROM notifica, ordine
+                  WHERE utente=? AND notifica.stato='not read on screen' AND notifica.ordine = ordine.ID_Ordine
+                  ORDER BY notifica.data DESC";
+
+        $stmt = $this->db->prepare($query);
+
+        if(!$stmt){
+            echo "NON VA BENE LA QUERY";
+        }
+
+        $stmt->bind_param('i', $idutente);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    // Eliminazione di una notifica dal db
     public function deleteNotification($idnotifica){
         $query = "DELETE FROM notifica WHERE ID_Notifica = ?";
         $stmt = $this->db->prepare($query);
@@ -192,16 +211,15 @@ class DatabaseHelper{
         return $stmt->execute();
     }
 
-    /*Cambiamento dello stato di una notifica
-    richiede l'id della notifica e lo stato in 
-    cui si vuole cambiare che deve essere una stringa
-    "read" = letta, "not read" = non letta ma notifica
-    a schermo tolta, "not read on screen" = non letta e
-    notifica a schermo*/
+    /*Cambiamento dello stato di una notifica, richiede l'id della notifica e lo stato in 
+    cui si vuole cambiare (una stringa tra le seguenti):
+    "read" = letta, 
+    "not read" = non letta ma notifica a schermo tolta,
+    "not read on screen" = non letta e notifica a schermo*/
     public function changeNotification($idnotifica, $stato){
         $query = "UPDATE notifica SET stato = ? WHERE ID_Notifica = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('si', $idnotifica, $stato);
+        $stmt->bind_param('si', $stato, $idnotifica);
 
         return $stmt->execute();
     }

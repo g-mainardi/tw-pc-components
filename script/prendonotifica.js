@@ -7,10 +7,10 @@ function generaNotifiche(notifiche){
         let notifica = `
         <div id="notificaschermo${id}" class="${classe}">
             <div>
-                <h2><a href="notifiche.php?id=${id}">Titolo</a></h2>
+                <h2><a href="notifiche.php?id=${id}">${notifiche[i]["titolo"]}</a></h2>
                 <button class="close" id="notificaschermo${id}">X</button>
             </div>
-            <p>Descrizione</p>
+            <p>${notifiche[i]["descrizione"]}</p>
             <footer>
                 <a href="notifiche.php?id=${id}">Vai alla notifica</a>
             </footer>
@@ -65,7 +65,7 @@ $(document).ready(function(){
                 $("div#" + "notificaschermo" + (idnum - 2)).attr("class","inmostra");
                 aggiornaNotificheSchermo();  
             });
-    });
+        });
 
     });
 

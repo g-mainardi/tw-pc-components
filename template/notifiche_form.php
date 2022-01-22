@@ -7,10 +7,10 @@
         <?php foreach($SetParameters["notifiche"] as $notifica):?>
 
         <li> 
-            <button class="bottoneNotifica <?php if($notifica['visualizzato']) {echo 'visualizzato';} ?>" >
+            <button id="<?php echo $notifica["ID_Notifica"]; ?>" class="bottoneNotifica <?php if(isRead($notifica['statoNotifica'])) {echo 'visualizzato';} ?>" >
                 <?php echo $notifica["titolo"]; ?>
             </button>
-            <?php if(!$notifica['visualizzato']) {echo '<img src="immagini/exclamation-mark.png" alt="">';} ?>
+            <?php if(!isRead($notifica['statoNotifica']))  {echo '<img src="immagini/exclamation-mark.png" alt="">';} ?>
             <div>
                 <p><?php echo $notifica["descrizione"]; ?></p>
                 <footer>
