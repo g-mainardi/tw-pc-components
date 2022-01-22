@@ -22,6 +22,32 @@ function generaNotificheSchermo(notifiche){
     </section> `;
 }
 
+function generaIconaNotifiche(notifiche){
+    let icona=`
+    <li>
+        <a href="notifiche.php">
+        <div class="text-box">
+            <p class="numNotifiche">${notifiche.length}</p>
+        </div>
+            <img src="immagini/notifiche.png" alt="" />
+        </a>
+    </li>`
+    return icona;
+}
+
+function generaIconaCarrello(carrello){
+    let icona=`
+    <li>
+        <a href="carrello.php">
+            <div class="text-box">
+                <p class="numCarrello">${carrello.length}</p>
+            </div>
+            <img src="immagini/carrello.png" alt="" />
+        </a>
+    </li>`
+    return icona;
+}
+
 $(document).ready(function(){
 
     // Aprire e chiudere il menù laterale di navigazione
@@ -33,7 +59,7 @@ $(document).ready(function(){
         }
     });
 
-    // Aprire e chiudere espandi/riduci
+    // Aprire e chiudere espandi/riduci - descrizione prodotto
     $(".mostra").click(function(){
         if($(".tabella").css("display") == "none"){
             $(".tabella").css("display", "");
@@ -42,8 +68,8 @@ $(document).ready(function(){
         }
     });
 
-    // Chiedo i dati delle notifiche a schermo
-    $.getJSON("api-notifiche-schermo.php", function(data){
+    // Chiedo i dati delle notifiche a schermo - solo se loggato
+    $.getJSON("api-notifiche.php?statonotifica=2", function(data){
         // Prendo i dati e li formatto nell'HTML poi li aggiungo al body
         $("nav.menu").after(generaNotificheSchermo(data));
 
@@ -55,6 +81,22 @@ $(document).ready(function(){
                 $("div#" + "notificaschermo" + idnum).remove();
             });
         });
+    });
+
+    // Icona notifiche: richiedo i dati delle notifiche da visualizzare - solo se loggato
+    $.getJSON("api-notifiche.php?statonotifica=1", function(data){
+
+            // Prendo i dati e li formatto nell'HTML poi li aggiungo nell'header
+            $("body > header > ul").append(generaIconaNotifiche(data));
+        
+    });
+
+    // Icona carrello: richiedo i dati del carrello - solo se loggato
+        $.getJSON("api-carrello.php", function(data){
+
+            // Prendo i dati e li formatto nell'HTML poi li aggiungo nell'header
+            $("body > header > ul").append(generaIconaCarrello(data));
+        
     });
 
 });

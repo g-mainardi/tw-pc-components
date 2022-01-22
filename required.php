@@ -43,11 +43,9 @@ if(isLoggedIn()){
             //Inserisco nel carrello dell'utente
             $dbh->insertProductInCart($SetParameters["ID_Utente"], intval($_POST["ID_Articolo"]), 1);
         }
-        
+        // Da togliere quando rifai codice carrello
         $SetParameters["cart"] = $dbh->getCartProducts($SetParameters["ID_Utente"]);
     }
-    $SetParameters["notifichenonlette"] = $dbh->getOnlyUnreadNotifications($SetParameters["ID_Utente"]);
-
     $SetParameters["Tipo"] = isVenditore()? "venditore" : "cliente";
 
 } else {

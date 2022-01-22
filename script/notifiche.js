@@ -53,8 +53,8 @@ function checkNoNotifications(){
 
 $(document).ready(function(){
 
-    // Chiedo i dati delle notifiche dell'utente
-    $.getJSON("api-notifiche.php", function(data){
+    // Chiedo i dati di tutte le notifiche dell'utente
+    $.getJSON("api-notifiche.php?statonotifica=0", function(data){
         // Prendo i dati e li formatto nell'HTML poi li aggiungo al main
         $("main").append(generaNotifiche(data));
 
@@ -76,7 +76,11 @@ $(document).ready(function(){
                 });
                 $("div#" + "notificaschermo" + idnum).hide();
 
-                // TODO Devo aggiornare numerino notifiche icona
+                // Aggiorno numero notifiche icona
+                let numnotifiche = parseInt($(".numNotifiche").text());
+                if(numnotifiche > 0){
+                    $(".numNotifiche").text(numnotifiche - 1);
+                }
             }
             
             // Chiusura e apertura pannello con descrizione
