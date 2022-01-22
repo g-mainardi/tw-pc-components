@@ -998,7 +998,7 @@ button:hover:not(body > header > ul > li:first-of-type > button){
     border: 1px solid #FFF;
 }
 
-button:not(body > header > ul > li:first-of-type > button){
+button:not(body > header > ul > li:first-of-type > button):not(section.notifiche > ul > li > button){
     border-radius: 8px;
     border: none;
     box-shadow: 0 8px 16px 0 rgba(255,255,255,0.2), 0 6px 20px 0 rgba(255,255,255,0.19);
