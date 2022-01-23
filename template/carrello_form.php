@@ -17,7 +17,6 @@
     ?>
                 <div class="container">  
                 <img src="immagini/<?php echo$artCarrello["img"]; ?>" alt="">
-                </div> 
                     <table class="tabellaCategorie">
                         <tr>
                             <th><h2 class="testoTabella"><?php echo $artCarrello["marca"]." ".$artCarrello["nome"];?></h2></th>
@@ -36,6 +35,7 @@
                             </td>
                         </tr>
                     </table>
+                </div>  
             </section>
 
     <?php 

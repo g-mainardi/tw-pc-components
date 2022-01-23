@@ -52,7 +52,7 @@
     <section>
         <div class="container">
         <img src="immagini/<?php echo $prodotto["img"];?>" alt="">
-        </div>
+        
         <table class="tabellaCategorie">
             <tr>
                 <th><h2 class="testoTabella"><?php echo $prodotto["marca"]." ".$prodotto["nome"]; ?></h2></th>
@@ -66,5 +66,6 @@
                 </form></td>
             </tr>
         </table>
+        </div>
     </section>
     <?php endforeach; ?>
