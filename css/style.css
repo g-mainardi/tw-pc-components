@@ -467,7 +467,7 @@ div.login>form>ul>li:last-of-type{
 li.registerButton>input, li.loginButton>input{
     font-weight: bold;
     font-size: 15px;
-    background-color: #E32629;
+    background-color: #E4E4E4;
     padding: 20px 50px;
     margin-top: 10px;
     width: 300px;
@@ -477,7 +477,7 @@ li.registerButton>input, li.loginButton>input{
 }
 
 li.registerButton>input:hover, li.loginButton>input:hover{
-    border: 1px solid #FFF;
+    background-color: #E32629    
 }
 
 
@@ -561,7 +561,7 @@ section.filtro >ul > li > button{
     text-align: center;
     margin-right: 10px;
     margin-left: 10px;
-    background-color: #E32629;
+    background-color: #E4E4E4;
     padding-top: 5px;
     padding-bottom: 5px;
     color: #000;
@@ -574,6 +574,10 @@ table.tabellaCategorie {
     width: 100%;
     text-align: center;
 }
+table.tabellaCategorie th:first-of-type{
+    max-width:250px;
+}
+
 
 h2.testoTabella{
     margin-top: 5%;
@@ -589,7 +593,7 @@ p.testoTabella{
 }
 
 .bottoneTabella {
-    background-color: rgb(228, 228, 228);
+    background-color: #E4E4E4;
     min-width: 150px;
     min-height: 50px;
     color: #000;
@@ -642,7 +646,7 @@ option{
 }
 
 button.aggiungi{
-    background-color: #E32629;
+    background-color: #E4E4E4;
     min-width: 150px;
     min-height: 50px;
     color: #000;
@@ -650,6 +654,7 @@ button.aggiungi{
     margin-left: -205px;
     margin-top: 80px;
     font-weight: bold;
+    border: none;
 }
 
 section.prodottoSingolo > p{
@@ -664,12 +669,13 @@ section.prodottoSingolo > p{
 
 button.mostra{
     margin-left: 3%;
-    background-color: #E32629;
+    background-color: #E4E4E4;
     max-width: 100px;
     color: #000;
     min-width: 150px;
     min-height: 50px;
     font-weight: bold;
+    border: none;
 }
 
 section.prodottoSingolo > table{
@@ -720,11 +726,11 @@ section.intestazioneCarrello > input:last-of-type{
 }
 
 section.intestazioneCarrello > input:last-of-type:hover{
-    border: 1px solid #FFF;
+    background-color: #E32629;
 }
 
 .bottoneSecondario{
-    background-color: #E32629;
+    background-color: #E4E4E4;
     min-width: 150px;
     min-height: 50px;
     color: #000;
@@ -736,11 +742,11 @@ section.intestazioneCarrello > input:last-of-type:hover{
 
 
 .bottoneSecondario:hover{
-    border: 1px solid #FFF;
+    background-color: #E32629;
 }
 
 .link2{
-    background-color: #E32629;
+    background-color: #E4E4E4;
     color: #000;
     font-size: 15px;
     font-weight: bold;
@@ -750,7 +756,7 @@ section.intestazioneCarrello > input:last-of-type:hover{
 }
 
 .aggiornaQuantità{
-    background-color: #E32629;
+    background-color: #E4E4E4;
     min-width: 10%;
     font-weight: bold;
     font-size: 18px;
@@ -885,7 +891,7 @@ section.pagamento > form > div> div >input{
 
 section.pagamento > form > div > div:last-of-type> input:last-of-type{
     margin-top: 5%;
-    background-color: #E32629;
+    background-color: #E4E4E4;
     min-width: 150px;
     min-height: 50px;
     color: #000;
@@ -895,7 +901,7 @@ section.pagamento > form > div > div:last-of-type> input:last-of-type{
     box-shadow: 0 8px 16px 0 rgba(255,255,255,0.2), 0 6px 20px 0 rgba(255,255,255,0.19);
 }
 section.pagamento > form > div > div:last-of-type> input:last-of-type:hover{
-    border: 1px solid #FFF;
+    background-color: #E32629;
 }
 section.pagamento > form > div > div> p, section.pagamento > form > div > div > input, section.pagamento > form > div > div > label{
     display: block;
@@ -1007,11 +1013,13 @@ text-align: center;
 .disabilitato{
     background-color: #B1A7A6!important;
     color: #413A39!important;
-    pointer-events: none;
+    pointer-events: none!important;
+    border: none!important;
+    box-shadow: none!important;
 }
 
 button:hover:not(body > header > ul > li:first-of-type > button){
-    border: 1px solid #FFF;
+    background-color: #E32629
 }
 
 button:not(body > header > ul > li:first-of-type > button):not(section.notifiche > ul > li > header > button){

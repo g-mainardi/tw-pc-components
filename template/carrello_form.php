@@ -15,8 +15,9 @@
             echo "        <section name='qty[".$artCarrello["ID_Articolo"]."]' class='".($artCarrello['quantità'] > $articolo[0]['quantità'] ? 'prodottoEsaurito ' : '>')."0"."'>\n";
 
     ?>
-                <div class="container">
-                    <img src="immagini/<?php echo$artCarrello["img"]; ?>" alt="">
+                <div class="container">  
+                <img src="immagini/<?php echo$artCarrello["img"]; ?>" alt="">
+                </div> 
                     <table class="tabellaCategorie">
                         <tr>
                             <th><h2 class="testoTabella"><?php echo $artCarrello["marca"]." ".$artCarrello["nome"];?></h2></th>
@@ -35,7 +36,6 @@
                             </td>
                         </tr>
                     </table>
-                </div>  
             </section>
 
     <?php 

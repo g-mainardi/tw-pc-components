@@ -83,9 +83,9 @@
 
         <section>    
             <div class="container">
-                <a href="#"><img src="immagini/raffreddamento.jpg" alt=""></a>
+                <a href="categorie.php?categoria=cooler"><img src="immagini/raffreddamento.jpg" alt=""></a>
             </div>
             <h2>DISSIPATORI</h2>
             <p>scegli tra la vasta gamma di schede madri quella che fa al caso tuo</p>
-            <a class="link1" href="categorie.php?categoria=Dissipatori">Scopri di più...</a> 
+            <a class="link1" href="categorie.php?categoria=cooler">Scopri di più...</a> 
         </section>

@@ -5,7 +5,7 @@
   <?php foreach ($SetParameters["prodotti"] as $prodotto): ?>
     <section class="<?php echo ($prodotto["quantità"] == 0 ? "prodottoEsaurito" : ""); ?>">    
         <div class="container">
-            <img src="immaginiGPU/<?php echo $prodotto["img"];?>" alt="">
+            <img src="immagini/<?php echo $prodotto["img"];?>" alt="">
         <form class="selezioaQuantità" action="#" method="POST"> 
             <table class="tabellaCategorie">
                 <tr>

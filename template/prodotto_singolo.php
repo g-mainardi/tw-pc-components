@@ -1,7 +1,7 @@
 <?php $prodotto = $SetParameters["prodotto"][0]; ?>   
     <section class="prodottoSingolo" >    
         <div class="container">
-        <img src="immaginiGPU/RTX 3080.png" alt="">
+        <img src="immagini/<?php echo $prodotto["img"];?>" alt="">
          </div>
         <h1><?php echo $prodotto["marca"]." ".$prodotto["nome"]; ?></h1>
         <h2><?php echo $prodotto["prezzo"]; ?> €</h2>
