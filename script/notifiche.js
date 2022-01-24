@@ -1,6 +1,5 @@
 function generaNotifiche(notifiche){
-    let result = `<section class='notifiche'>
-    <h2>Le tue notifiche</h2>`;
+    let result = ``;
 
     for(let i=0; i < notifiche.length; i++){
         if(i == 0){result += "<ul>";}
@@ -34,29 +33,30 @@ function generaNotifiche(notifiche){
         if(i == (notifiche.length - 1)){result += "</ul>";}
     }
 
-    checkNoNotifications();
-
-    return result + `
-    </section> `;
-}
-
-function isAbsent(element){
-    return element.length <= 0;
+    return result;
 }
 
 function checkNoNotifications(){
     // Stampo testo se non ci sono alcun tipo di notifiche nel db per questo utente
-    if(isAbsent($("section.notifiche")) || isAbsent($("section.notifiche > ul")) || isAbsent($("section.notifiche > ul > li"))){
-        $("section.notifiche").append("<p>Non ci sono notifiche al momento.</p>");
+    if($("section.notifiche > ul").length <= 0) {
+        $("section.notifiche").append("<p class='nonotifiche'>Non ci sono notifiche al momento.</p>");
+    } else if($("section.notifiche > ul > li").length <= 0) {
+        $("section.notifiche > ul").remove();
+        $("section.notifiche").append("<p class='nonotifiche'>Non ci sono notifiche al momento.</p>");
     }
 }
 
 $(document).ready(function(){
 
+    $("main").append(`<section class='notifiche'>
+        <h2>Le tue notifiche</h2>
+    </section>`)
     // Chiedo i dati di tutte le notifiche dell'utente
     $.getJSON("api-notifiche.php?statonotifica=0", function(data){
         // Prendo i dati e li formatto nell'HTML poi li aggiungo al main
-        $("main").append(generaNotifiche(data));
+        $("section.notifiche").append(generaNotifiche(data));
+
+        checkNoNotifications();
 
         // Aprire e chiudere le notifiche
         $(".bottoneNotifica").click(function() {
