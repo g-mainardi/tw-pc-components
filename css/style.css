@@ -758,6 +758,10 @@ p.erroreEsaurito{
     color: #E32629!important;
 }
 
+section.prodottoEsaurito{
+    border: 5px solid #E32629;
+}
+
 /* CARRELLO FINE*/
 
 /* GESTIONE PRODOTTI INIZIO*/
@@ -921,9 +925,6 @@ text-align: center;
         padding: 2% 10%;
     }
 
-    section.prodottoEsaurito{
-        border: 5px solid #E32629;
-    }
 
     
     /*IMAGE SLIDER*/
