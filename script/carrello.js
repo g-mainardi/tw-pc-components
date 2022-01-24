@@ -4,7 +4,6 @@ function generaCarrello(articoli){
     <section class="intestazioneCarrello">
         <h1>Carrello</h1>
         <p class="totale">Totale: 0 €</p>
-        <input class="bottoneSecondario" type="submit" name="save" value="Salva carrello" disabled></input>
         <input class="bottoneTabella" type="submit" name="submit" value="Vai al pagamento"></input>
     </section>`;
 
@@ -140,6 +139,9 @@ $(document).ready(function() {
                 // Per testing console.log(data);
             });
         });
+
+        // DA FARE: 
+        $("section.prodottoEsaurito").append("<p class=''>ciao</p>");
 
     });
 

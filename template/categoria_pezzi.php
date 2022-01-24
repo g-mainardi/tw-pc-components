@@ -51,7 +51,9 @@
     <?php foreach($SetParameters["prodotti"] as $prodotto): ?> 
     <section>
         <div class="container">
-        <img src="<?php echo IMG_DIR.$prodotto["img"];?>" alt="" />
+        <a href="prodotto.php?id=<?php echo $prodotto['ID_Articolo'];?>">
+            <img src="<?php echo IMG_DIR.$prodotto["img"];?>" alt="" />
+        </a>
         
         <table class="tabellaCategorie">
             <tr>
