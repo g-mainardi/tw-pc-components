@@ -291,9 +291,15 @@ class DatabaseHelper{
 
     public function insertProductInCart($idcliente, $idarticolo, $quantità){
         $qty = $this->getCartProduct($idcliente, $idarticolo);
+        $quantitaMassima = $this->getQuantitaProdotti($idarticolo);
         if(isset($qty[0])){
             $quantità += $qty[0]["quantità"];
-            $this->modifyCartArticleQuantity($idcliente, $idarticolo, $quantità);
+            if($quantità<=$quantitaMassima[0]["quantità"]){
+                $this->modifyCartArticleQuantity($idcliente, $idarticolo, $quantità);
+            } else {
+                $quantità = $quantitaMassima[0]["quantità"];
+                $this->modifyCartArticleQuantity($idcliente, $idarticolo, $quantità);
+            }
         } else {
             $query = "INSERT INTO carrello (ID_Cliente, ID_Articolo, quantità) VALUES (?, ?, ?)";
             $stmt = $this->db->prepare($query);
