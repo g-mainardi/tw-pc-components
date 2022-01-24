@@ -654,8 +654,7 @@ button.aggiungi{
     min-height: 50px;
     color: #000;
     position: absolute;
-    margin-left: -205px;
-    margin-top: 80px;
+    margin-left: 7%;
     font-weight: bold;
     border: none;
 }
@@ -753,6 +752,10 @@ section.intestazioneCarrello > input:last-of-type:hover{
 input.testoTabella {
     width: 40px;
     text-align: center;
+}
+
+p.erroreEsaurito{
+    color: #E32629!important;
 }
 
 /* CARRELLO FINE*/

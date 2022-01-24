@@ -29,7 +29,7 @@ function generaCarrello(articoli){
                             <label for="">QTY: </label>
                             <input readonly type="number" name="qty[${articolo["ID_Articolo"]}]" class="testoTabella" value="${articolo["quantità"]}"
                                 max="${articolo["disponibilità"]}" min="0"></input>
-                            <button class="aggiornaQuantità" name="qty[${articolo["ID_Articolo"]}]">-</button>
+                            <button class="aggiornaQuantità ${classi}" name="qty[${articolo["ID_Articolo"]}]">-</button>
                         </td>
                         <td>
                             <button class="link2" name="qty[${articolo["ID_Articolo"]}]">Elimina dal carrello</button>
@@ -113,8 +113,9 @@ $(document).ready(function() {
                 qty += modifica;
                 if(qty <= 0){
                     // Comunico l'eliminazione al db
+                    setQtyArticolo($(this).attr("name"), qty);
                     $.post("gestisci-carrello.php", {action: 0,ID_Articolo: id}, function(data){
-                        // Per testing console.log(data);
+                      //Per testing console.log(data);
                     });
                 } else {
                     setQtyArticolo($(this).attr("name"), qty);
@@ -125,8 +126,21 @@ $(document).ready(function() {
                         // Modifico anche l'html
                     });
                 }
+
+                if ($(this).hasClass("prodottoEsaurito") && qty<=parseInt(parseInt(qtyElement.attr("max")))){
+                    $(this).parents("section").children("p").remove();
+                    $(this).parents("section").removeClass("prodottoEsaurito");
+                }
+                
+                if(!$("section").hasClass("prodottoEsaurito")){
+                    $("input.bottoneTabella").removeClass("disabilitato");
+                }
             }
         });
+
+
+
+
 
         // Pulsante elimina da carrello
         $("button.link2").click(function(e){
@@ -140,9 +154,13 @@ $(document).ready(function() {
             });
         });
 
-        // DA FARE: 
-        $("section.prodottoEsaurito").append("<p class=''>ciao</p>");
-
+        // messaggio di errore se si selezionano troppe quantità
+        $("section.prodottoEsaurito").append("<p class='erroreEsaurito'>prodotto esaurito o non disponibile</p>");
+        $("section.prodottoEsaurito").append("<p class='erroreEsaurito'>modificarne quantità</p>");
+ 
+        if($("section").hasClass("prodottoEsaurito")){
+            $("input.bottoneTabella").addClass("disabilitato")
+        }
     });
 
 })
