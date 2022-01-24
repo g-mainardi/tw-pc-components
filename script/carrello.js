@@ -1,3 +1,53 @@
+function generaCarrello(articoli){
+    let result = `    
+<form action="#" method="POST" name="carrello">
+    <section class="intestazioneCarrello">
+        <h1>Carrello</h1>
+        <p class="totale">Totale: 0 €</p>
+        <input class="bottoneSecondario" type="submit" name="save" value="Salva carrello" disabled></input>
+        <input class="bottoneTabella" type="submit" name="submit" value="Vai al pagamento"></input>
+    </section>`;
+
+    for(let i=0; i < articoli.length; i++){
+        let articolo = articoli[i];
+        let classi = "";
+        if(articolo["quantità"] > articolo["disponibilità"]){
+            classi = 'prodottoEsaurito';
+        }
+        
+        let articoloHtml = `
+        <section name="qty[${articolo["ID_Articolo"]}]" class="${classi}">
+            <div class="container">
+                <img src="immagini/${articolo["img"]}" alt="">
+                <table class="tabellaCategorie">
+                    <tr>
+                        <th><h2 class="testoTabella">${articolo["marca"]} ${articolo["nome"]}</h2></th>
+                        <th><h2 class="testoTabella prezzo">${articolo["prezzo"]} €</h2></th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button class="aggiornaQuantità" name="qty[${articolo["ID_Articolo"]}]">+</button>
+                            <label for="">QTY: </label>
+                            <input readonly type="number" name="qty[${articolo["ID_Articolo"]}]" class="testoTabella" value="${articolo["quantità"]}"
+                                max="${articolo["disponibilità"]}" min="0"></input>
+                            <button class="aggiornaQuantità" name="qty[${articolo["ID_Articolo"]}]">-</button>
+                        </td>
+                        <td>
+                            <button class="link2" name="qty[${articolo["ID_Articolo"]}]">Elimina dal carrello</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>  
+        </section>
+        `;
+
+        result += articoloHtml;
+    }
+
+    return result + `
+</form>`;
+}
+
 function calcolaTotaleCarrello() {
     var temp = 0;
     $(".container").each(function(){
@@ -14,69 +64,83 @@ function getQtyArticolo(articlename){
 }
 
 function setQtyArticolo(articlename, qty){
+    // Se la quantità è zero allora nascondo l'elemento e aggiorno icon carrello
+    if(qty <= 0){
+        $("section[name='" + articlename + "']").hide();
+        qty = 0;
+        let numeroCarrello = parseInt($(".numCarrello").text());
+        if(numeroCarrello > 0) {
+            $(".numCarrello").text(numeroCarrello - 1);
+        }
+    }
+
     // Modifico la quantità
     $("input.testoTabella[name='" + articlename + "']").attr("value", qty);
 
-    // Se la quantità è zero allora nascondo l'elemento
-    checkRimozioneArticolo(articlename);
-
     // Ricalcolo del totale
     calcolaTotaleCarrello();
-
-    // Gestione dei pulsanti "Salva carrello" e "Vai al pagamento" per controllo stato
-    if($("input.bottoneSecondario").attr("disabled")){
-        // Abilito il pulsante "Salva carrello"
-        $("input.bottoneSecondario").attr("disabled", false);    
-        
-        // Al cambio pagina mando un messaggio per avvisare di salvare il carrello
-        window.onbeforeunload = function(e) {
-            e.returnValue = "Sicuro di aver salvato le modifiche al carrello?";
-        };
-
-        // Disabilito il pulsante "Vai al pagamento"
-        $("input.bottoneTabella").attr("disabled", true);
-    }
-}
-
-function checkRimozioneArticolo(articlename){
-    if(parseInt(getQtyArticolo(articlename).attr("value")) == 0){
-        $("section[name='" + articlename + "']").hide();
-    }
 }
 
 $(document).ready(function() {
-    
-    // Calcolare il totale del carrello
-    calcolaTotaleCarrello();
 
-    // Modificare la quantità di un singolo prodotto nel carrello
-    $(this).find(".aggiornaQuantità").click(function(event) {
-        event.preventDefault();
-        var qtyElement = getQtyArticolo($(this).attr("name"));
-        var qty = parseInt(qtyElement.attr("value"));
+    // Chiedo i dati di tutte le notifiche dell'utente
+    $.getJSON("api-carrello.php", function(data){   
+        // Per icona: prendo i dati e li formatto nell'HTML poi li aggiungo nell'header
+        $("body > header > ul").append(generaIconaCarrello(data));
 
-        if($(this).text() == "+"){ 
-            // + Prendo la quantità e la aumento di 1 solo se non supera il massimo e 99
-            var maxqty = parseInt(parseInt(qtyElement.attr("max")));
-            qty += (qty < maxqty) && (qty < 99) ? 1 : 0;
-        } else if($(this).text() == "-") {
-            // -  Prendo la quantità e la diminuisco di 1 solo se maggiore di 0
-            qty -= qty > 0 ? 1 : 0;
-        }
+        // Per form carrello: prendo i dati e li formatto nell'HTML poi li aggiungo al main
+        $("main").append(generaCarrello(data));
+            
+        // Calcolare il totale del carrello
+        calcolaTotaleCarrello();
 
-        setQtyArticolo($(this).attr("name"), qty);
-    });
+        // Modificare la quantità di un singolo prodotto nel carrello
+        $(".aggiornaQuantità").click(function(event) {
+            event.preventDefault();
+            let qtyElement = getQtyArticolo($(this).attr("name"));
+            let id = $(this).attr("name").replace("qty[", "").replace("]", "");
+            let qty = parseInt(qtyElement.attr("value"));
+            let modifica = 0;
+            if($(this).text() == "+"){ 
+                // + Prendo la quantità e la aumento di 1 solo se non supera il massimo e 99
+                let maxqty = parseInt(parseInt(qtyElement.attr("max")));
+                modifica = (qty < maxqty) && (qty < 99) ? 1 : 0;
+            } else if($(this).text() == "-") {
+                // -  Prendo la quantità e la diminuisco di 1 solo se maggiore di 0
+                modifica = qty > 0 ? -1 : 0;
+            }
 
-    // Pulsante elimina da carrello
-    $("button.link2").click(function(e){
-        e.preventDefault();
-        if(parseInt(getQtyArticolo($(this).attr("name")).attr("value")) > 0){
+            if(modifica != 0){
+                qty += modifica;
+                if(qty <= 0){
+                    // Comunico l'eliminazione al db
+                    $.post("gestisci-carrello.php", {action: 0,ID_Articolo: id}, function(data){
+                        // Per testing console.log(data);
+                    });
+                } else {
+                    setQtyArticolo($(this).attr("name"), qty);
+                    // Comunico la modifica al db
+                    $.post("gestisci-carrello.php", {action: 1,ID_Articolo: id, quantità: qty}, function(data){
+                        // Per testing console.log(data);
+
+                        // Modifico anche l'html
+                    });
+                }
+            }
+        });
+
+        // Pulsante elimina da carrello
+        $("button.link2").click(function(e){
+            e.preventDefault();
             setQtyArticolo($(this).attr("name"), 0);
-        }
+            
+            let id = $(this).attr("name").replace("qty[", "").replace("]", "");
+            // Comunico l'eliminazione al db
+            $.post("gestisci-carrello.php", {action: 0,ID_Articolo: id}, function(data){
+                // Per testing console.log(data);
+            });
+        });
+
     });
 
-    // 
-    $("input.bottoneSecondario").click(function(e){
-        window.onbeforeunload = null;
-    });
 })

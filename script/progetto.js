@@ -50,6 +50,13 @@ function generaIconaCarrello(carrello){
 
 $(document).ready(function(){
 
+    // Icona notifiche: richiedo i dati delle notifiche da visualizzare - solo se loggato
+    $.getJSON("api-notifiche.php?statonotifica=1", function(data){
+
+        // Prendo i dati e li formatto nell'HTML poi li aggiungo nell'header
+        $("body > header > ul").append(generaIconaNotifiche(data));
+    });
+    
     // Aprire e chiudere il menù laterale di navigazione
     $(".bottoneMenu").click(function(){
         if($(".menu").css("display") == "none"){
@@ -83,20 +90,15 @@ $(document).ready(function(){
         });
     });
 
-    // Icona notifiche: richiedo i dati delle notifiche da visualizzare - solo se loggato
-    $.getJSON("api-notifiche.php?statonotifica=1", function(data){
-
-            // Prendo i dati e li formatto nell'HTML poi li aggiungo nell'header
-            $("body > header > ul").append(generaIconaNotifiche(data));
-        
-    });
-
-    // Icona carrello: richiedo i dati del carrello - solo se loggato
+    // Controllo di non essere nella pagina di carrello
+    if(document.title.match("Carrello")==null){
+        // Icona carrello: richiedo i dati del carrello - solo se loggato
         $.getJSON("api-carrello.php", function(data){
 
             // Prendo i dati e li formatto nell'HTML poi li aggiungo nell'header
             $("body > header > ul").append(generaIconaCarrello(data));
-        
-    });
+        });
+    }
+
 
 });

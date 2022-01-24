@@ -241,7 +241,7 @@ class DatabaseHelper{
     //CARRELLO
 
     public function getCartProducts($idutente) {
-        $query = "SELECT carrello.ID_Carrello, carrello.ID_Articolo, carrello.quantità, articolo.nome, articolo.descrizione, articolo.img, articolo.prezzo, articolo.marca
+        $query = "SELECT carrello.ID_Carrello, carrello.ID_Articolo, carrello.quantità, articolo.nome, articolo.descrizione, articolo.img, articolo.prezzo, articolo.marca, articolo.quantità AS disponibilità
                   FROM carrello, articolo
                   WHERE articolo.ID_Articolo=carrello.ID_Articolo AND carrello.ID_Cliente=?";
         $stmt = $this->db->prepare($query);
@@ -298,6 +298,7 @@ class DatabaseHelper{
         return true;
     }
 
+    // Solo per Venditore
     public function updateProduct($prezzo, $quantita, $id){
         $query = "UPDATE articolo SET prezzo = ?, quantità = ? WHERE ID_Articolo = ?";
         $stmt = $this->db->prepare($query);
