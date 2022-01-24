@@ -56,6 +56,12 @@ function calcolaTotaleCarrello() {
         temp += (prezzo * parseInt($(this).find("input.testoTabella").attr("value")));
     });
     $(".totale").text("Totale: " + temp + " €");
+    console.log("Totale = " + temp);
+    if(temp == 0){
+        $(".intestazioneCarrello > input.bottoneTabella").addClass("disabilitato");
+    } else{
+        $(".intestazioneCarrello > input.bottoneTabella").removeClass("disabilitato");
+    }
 }
 
 function getQtyArticolo(articlename){
@@ -112,6 +118,7 @@ $(document).ready(function() {
             if(modifica != 0){
                 qty += modifica;
                 if(qty <= 0){
+                    qty = 0;
                     // Comunico l'eliminazione al db
                     setQtyArticolo($(this).attr("name"), qty);
                     $.post("gestisci-carrello.php", {action: 0,ID_Articolo: id}, function(data){
@@ -132,15 +139,11 @@ $(document).ready(function() {
                     $(this).parents("section").removeClass("prodottoEsaurito");
                 }
                 
-                if(!$("section").hasClass("prodottoEsaurito")){
+                if(!$("section").hasClass("prodottoEsaurito") && $(".totale").text() != "Totale: 0 €"){
                     $("input.bottoneTabella").removeClass("disabilitato");
                 }
             }
         });
-
-
-
-
 
         // Pulsante elimina da carrello
         $("button.link2").click(function(e){
@@ -154,7 +157,7 @@ $(document).ready(function() {
             });
         });
 
-        // messaggio di errore se si selezionano troppe quantità
+        // Messaggio di errore se si selezionano troppe quantità
         $("section.prodottoEsaurito").append("<p class='erroreEsaurito'>prodotto esaurito o non disponibile</p>");
         $("section.prodottoEsaurito").append("<p class='erroreEsaurito'>modificarne quantità</p>");
  
