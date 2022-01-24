@@ -1009,3 +1009,8 @@ button:not(body > header > ul > li:first-of-type > button):not(section.notifiche
     border: none;
     box-shadow: 0 8px 16px 0 rgba(255,255,255,0.2), 0 6px 20px 0 rgba(255,255,255,0.19);
 }
+
+p.datispedizione{
+    font-size: 25px;
+    color: #d3d3d3;
+}

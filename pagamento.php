@@ -7,6 +7,7 @@ if(isset($_POST["submit"])){
     
     $carrello = $dbh->getCartProducts($SetParameters["ID_Utente"]);
 
+    $datispedizione = $_POST["nome"]." ".$_POST["cognome"]." ".$_POST["indirizzo"]." ".$_POST["città"]." (".$_POST["provincia"].") ".$_POST["cap"];
     foreach($carrello as $articolo){
         $id = $articolo["ID_Articolo"];
 
@@ -24,7 +25,7 @@ if(isset($_POST["submit"])){
 
         // Mando notifica al venditore che l'ordine è stato effettuato
         $dbh->insertNotification($articolo["venditore"], $ordine, "Prodotto acquistato", $SetParameters["nome"]." ha ordinato ".$articolo["quantità"].
-         " quantità dell'articolo ".$articolo["nome"].". Provveda a spedirlo al più presto");
+         " quantità dell'articolo ".$articolo["nome"].". Provveda a spedirlo al più presto."."Dati spedizione: ".$datispedizione);
     }
 
     // Elimino le righe di carrello

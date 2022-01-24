@@ -18,7 +18,7 @@
                 <label for="provincia">Provincia:</label>
                 <input required type="text" id="provincia" name="provincia"  value="FC"/>
                 <label for="cap">CAP:</label>
-                <input required id="cap" type="tel" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" placeholder="xxxxx" value="47521">
+                <input required id="cap" type="tel" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" placeholder="xxxxx" value="47521" name="cap">
             </div>
             <div class="col">
                 <p>carta di credito o prepagata</p>
