@@ -95,6 +95,7 @@
             <tr>
                 <th></th>
                 <th><a class href="categorie.php?categoria=Cooler">Dissipatori</a></th>
+                <th></th>
             </tr>
         </table>
         <?php endif; ?>
