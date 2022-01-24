@@ -82,6 +82,16 @@ class DatabaseHelper{
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+    
+    public function removeQuantityArticles($idarticolo, $qty){
+        $qtyRimasta = $this->getQuantitaProdotti($idarticolo);
+        $qtyRimasta -= $qty;
+        $query = "UPDATE articolo SET quantita = ? WHERE ID_Notifica = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ii', $qtyRimasta, $idarticolo);
+
+        return $stmt->execute();
+    }
 
     //------------------------------------------------------------------
 
@@ -267,6 +277,18 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function getProductsInUserCart($idcliente, $idarticolo) {
+        $query = "SELECT carrello.ID_Articolo, carrello.quantità
+                  FROM carrello
+                  WHERE carrello.ID_Cliente=?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i', $idcliente);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
     public function insertProductInCart($idcliente, $idarticolo, $quantità){
         $qty = $this->getCartProduct($idcliente, $idarticolo);
         if(isset($qty[0])){
@@ -335,7 +357,7 @@ class DatabaseHelper{
     
     //Prende la quantità di un certo prodotto
     public function getQuantitaProdotti($id){
-        $stmt = $this->db->prepare("SELECT DISTINCT COUNT(*) FROM articolo WHERE quantità <= 6 AND ID_Articolo = ?");
+        $stmt = $this->db->prepare("SELECT quantità FROM articolo WHERE ID_Articolo = ?");
         $stmt->bind_param('i', $id);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -355,6 +377,46 @@ class DatabaseHelper{
         return $stmt->execute();
     }
 
+    //Creazione dell'ordine e eliminazione del carrello
+
+    public function getOrders($idutente){
+        $stmt = $this->db->prepare("SELECT * FROM ordine WHERE ID_Cliente = ?");
+        $stmt->bind_param('i', $idutente);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    
+    public function createOrder($idutente, $idarticolo){
+        $query = "INSERT INTO `ordine` (`ID_Cliente`, `ID_Articolo`) 
+                            VALUES ('?', '?');";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ii', $idutente, $idarticolo);
+        
+        $stmt->execute();
+        return $stmt->insert_id;
+    }
+    
+    public function deleteCart($idutente){
+        $articoli = $this->getProductsInUserCart($idutente);
+        foreach($articoli as $articolo){
+            $this->removeQuantityArticles($articolo["ID_Articolo"], $articolo["quantità"]);
+        }
+        
+        $query = "DELETE FROM carrello WHERE ID_Notifica = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i', $idnotifica);
+        
+        return $stmt->execute();
+    }
+
+    public function getAndCreateOrder($idutente){
+        $articoli = $this->getProductsInUserCart($idutente);
+        foreach($articoli as $articolo){
+            $this->createOrder($idutente, $articolo["ID_Articolo"])
+        }
+    }
 
 }
 ?>
