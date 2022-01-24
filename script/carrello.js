@@ -56,7 +56,6 @@ function calcolaTotaleCarrello() {
         temp += (prezzo * parseInt($(this).find("input.testoTabella").attr("value")));
     });
     $(".totale").text("Totale: " + temp + " €");
-    console.log("Totale = " + temp);
     if(temp == 0){
         $(".intestazioneCarrello > input.bottoneTabella").addClass("disabilitato");
     } else{

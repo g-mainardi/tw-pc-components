@@ -20,31 +20,11 @@ if(isLoggedIn()){
     $SetParameters["nome"] = $_SESSION["nome"];
     $SetParameters["username"] = $_SESSION["username"];
     if(!isVenditore()){
-        // Aggiorno il carrello nel db se c'è bisogno
-        if((isset($_POST["submit"]) || isset($_POST["save"])) && isset($_POST["qty"])){ 
-
-            // Ciclo l'array che contiene il carrello nella forma "id" => "quantità"
-            foreach($_POST["qty"] as $key => $val) { 
-
-                if($val==0) { 
-                    // Rimuovi articolo dal carrello sul db
-                    $dbh->removeCartArticle($SetParameters["ID_Utente"], $key);
-                }else{ 
-                    // Modifica quantità articolo nel carrello sul db
-                    $dbh->modifyCartArticleQuantity($SetParameters["ID_Utente"], $key, $val);
-                } 
-            }
-    
-        }
-        
         // Controllo se è stato richiesto di aggiungere qualcosa al carrello
         if(isset($_POST["ID_Articolo"])){
-            var_dump($_POST["ID_Articolo"]);
             //Inserisco nel carrello dell'utente
             $dbh->insertProductInCart($SetParameters["ID_Utente"], intval($_POST["ID_Articolo"]), 1);
         }
-        // Da togliere quando rifai codice carrello
-        $SetParameters["cart"] = $dbh->getCartProducts($SetParameters["ID_Utente"]);
     }
     $SetParameters["Tipo"] = isVenditore()? "venditore" : "cliente";
 
