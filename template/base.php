@@ -23,11 +23,11 @@
     <header>
         <ul>
             <li>
-                <button class="bottoneMenu"><img src="immagini/menu-logo.png" alt=""></button>
+                <button class="bottoneMenu"><img src="immagini/menu-logo.png" alt="" /></button>
             </li>
 
             <li>
-                <a href="index.php"><img src="immagini/Razer-Logo.png" alt=""></a>          
+                <a href="index.php"><img src="immagini/Razer-Logo.png" alt="" /></a>          
             </li>
         </ul>
     </header>

@@ -10,7 +10,7 @@
             <button id="<?php echo $notifica["ID_Notifica"]; ?>" class="bottoneNotifica <?php if(isRead($notifica['statoNotifica'])) {echo 'visualizzato';} ?>" >
                 <?php echo $notifica["titolo"]; ?>
             </button>
-            <?php if(!isRead($notifica['statoNotifica']))  {echo '<img src="immagini/exclamation-mark.png" alt=""/>';} ?>
+            <?php if(!isRead($notifica['statoNotifica']))  {echo '<img src="'.IMG_DIR.'exclamation-mark.png" alt="" />';} ?>
             <div>
                 <p><?php echo $notifica["descrizione"]; ?></p>
                 <footer>

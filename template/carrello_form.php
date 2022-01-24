@@ -16,7 +16,7 @@
 
     ?>
                 <div class="container">  
-                <img src="immagini/<?php echo$artCarrello["img"]; ?>" alt="">
+                <img src="<?php echo IMG_DIR.$artCarrello["img"]; ?>" alt="" />
                     <table class="tabellaCategorie">
                         <tr>
                             <th><h2 class="testoTabella"><?php echo $artCarrello["marca"]." ".$artCarrello["nome"];?></h2></th>
