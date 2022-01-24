@@ -51,7 +51,8 @@
     <?php foreach($SetParameters["prodotti"] as $prodotto): ?> 
     <section>
         <div class="container">
-        <img src="immagini/gpu.jpg" alt="">
+        <img src="<?php echo IMG_DIR.$prodotto["img"];?>" alt="" />
+        
         <table class="tabellaCategorie">
             <tr>
                 <th><h2 class="testoTabella"><?php echo $prodotto["marca"]." ".$prodotto["nome"]; ?></h2></th>
@@ -65,6 +66,6 @@
                 </form></td>
             </tr>
         </table>
-    </div>
+        </div>
     </section>
     <?php endforeach; ?>

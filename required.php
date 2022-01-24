@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-define("IMG_DIR", "./immagini/");
+define("IMG_DIR", "immagini/");
 
 require_once("functions.php");
 require_once("database/database.php");
