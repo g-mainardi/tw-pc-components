@@ -32,7 +32,7 @@
             <a href="categorie.php?categoria=Motherboard"><img src="immagini/motherboard.png" alt="" /></a>
             </div>
             <h2>SCHEDE MADRI</h2>
-            <p>scegli tra la vasta gamma di schede madri quella che fa al caso tuo</p>
+            <p><?php echo $SetParameters["descrizioniCategorie"][0]["descrizione"];?></p>
             <a class="link1" href="categorie.php?categoria=Motherboard">Scopri di più...</a> 
         </section>
         
@@ -41,7 +41,7 @@
             <a href="categorie.php?categoria=GPU"><img src="immagini/gpu.png" alt="" /></a>
             </div>
             <h2>SCHEDE VIDEO</h2>
-            <p>scegli tra la vasta gamma di schede madri quella che fa al caso tuo</p>
+            <p><?php echo $SetParameters["descrizioniCategorie"][1]["descrizione"];?></p>
             <a class="link1" href="categorie.php?categoria=GPU">Scopri di più...</a> 
         </section>
         
@@ -50,7 +50,7 @@
                 <a href="categorie.php?categoria=CPU"><img src="immagini/cpu.png" alt="" /></a>
             </div>
             <h2>PROCESSORI</h2>
-            <p>scegli tra la vasta gamma di schede madri quella che fa al caso tuo</p>
+            <p><?php echo $SetParameters["descrizioniCategorie"][4]["descrizione"];?></p>
             <a class="link1" href="categorie.php?categoria=CPU">Scopri di più...</a> 
         </section>
         
@@ -59,7 +59,7 @@
                 <a href="categorie.php?categoria=PSU"><img src="immagini/PSU.png" alt="" /></a>
             </div>
             <h2>ALIMENTATORI</h2>
-            <p>scegli tra la vasta gamma di schede madri quella che fa al caso tuo</p>
+            <p><?php echo $SetParameters["descrizioniCategorie"][2]["descrizione"];?></p>
             <a class="link1" href="categorie.php?categoria=PSU">Scopri di più...</a> 
         </section>
         
@@ -68,7 +68,7 @@
                 <a href="categorie.php?categoria=RAM"><img src="immagini/RAM.png" alt="" /></a>
             </div>
             <h2>RAM</h2>
-            <p>scegli tra la vasta gamma di schede madri quella che fa al caso tuo</p>
+            <p><?php echo $SetParameters["descrizioniCategorie"][3]["descrizione"];?></p>
             <a class="link1" href="categorie.php?categoria=RAM">Scopri di più...</a> 
         </section>
 
@@ -77,7 +77,7 @@
                 <a href="categorie.php?categoria=Case"><img src="immagini/case.png" alt="" /></a>
             </div>
             <h2>CASE</h2>
-            <p>scegli tra la vasta gamma di schede madri quella che fa al caso tuo</p>
+            <p><?php echo $SetParameters["descrizioniCategorie"][5]["descrizione"];?></p>
             <a class="link1" href="categorie.php?categoria=Case">Scopri di più...</a> 
         </section>
 
@@ -86,6 +86,6 @@
                 <a href="categorie.php?categoria=cooler"><img src="immagini/raffreddamento.png" alt="" /></a>
             </div>
             <h2>DISSIPATORI</h2>
-            <p>scegli tra la vasta gamma di schede madri quella che fa al caso tuo</p>
+            <p><?php echo $SetParameters["descrizioniCategorie"][6]["descrizione"];?></p>
             <a class="link1" href="categorie.php?categoria=cooler">Scopri di più...</a> 
         </section>

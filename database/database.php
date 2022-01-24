@@ -310,7 +310,7 @@ class DatabaseHelper{
     //-----------------------------------------------------------------------------------
 
     //Categoria che appaiono nella homepage
-    public function getAllCategory(){
+    public function getAllCategories(){
         $query = ("SELECT * FROM categoria");
         $stmt = $this->db->prepare($query);
         $stmt->execute();

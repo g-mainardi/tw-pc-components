@@ -9,6 +9,7 @@ if($SetParameters["logged"] && $SetParameters["Tipo"] == "venditore"){
 $SetParameters["titolo"] = "Home";
 $SetParameters["file"] = "homepage.php";
 $SetParameters["prodottiRandom"] = $dbh->randomProducts();
+$SetParameters["descrizioniCategorie"] = $dbh->getAllCategories();
     
 require("template/base.php");
 
