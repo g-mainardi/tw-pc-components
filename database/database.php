@@ -86,7 +86,7 @@ class DatabaseHelper{
     public function removeQuantityArticles($idarticolo, $qty){
         $qtyRimasta = $this->getQuantitaProdotti($idarticolo);
         $qtyRimasta -= $qty;
-        $query = "UPDATE articolo SET quantita = ? WHERE ID_Notifica = ?";
+        $query = "UPDATE articolo SET quantità = ? WHERE ID_Articolo = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('ii', $qtyRimasta, $idarticolo);
 
@@ -241,7 +241,7 @@ class DatabaseHelper{
         $query = "INSERT INTO `notifica` (`utente`, `ordine`, `titolo`, `descrizione`) 
                     VALUES ( ?, ?, ?, ?);";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('iiss', $idcliente, $idarticolo, $quantità);
+        $stmt->bind_param('iiss', $idutente, $idordine, $titolo, $descrizione);
     
         $stmt->execute();
         return $stmt->insert_id;
@@ -251,7 +251,7 @@ class DatabaseHelper{
     //CARRELLO
 
     public function getCartProducts($idutente) {
-        $query = "SELECT carrello.ID_Carrello, carrello.ID_Articolo, carrello.quantità, articolo.nome, articolo.descrizione, articolo.img, articolo.prezzo, articolo.marca, articolo.quantità AS disponibilità
+        $query = "SELECT carrello.ID_Carrello, carrello.ID_Articolo, carrello.quantità, articolo.nome, articolo.descrizione, articolo.img, articolo.prezzo, articolo.marca, articolo.quantità AS disponibilità, articolo.venditore
                   FROM carrello, articolo
                   WHERE articolo.ID_Articolo=carrello.ID_Articolo AND carrello.ID_Cliente=?";
         $stmt = $this->db->prepare($query);
@@ -367,8 +367,9 @@ class DatabaseHelper{
         $stmt->bind_param('i', $id);
         $stmt->execute();
         $result = $stmt->get_result();
+        $result = $result->fetch_all(MYSQLI_ASSOC);
 
-        return $result->fetch_all(MYSQLI_ASSOC);
+        return $result[0]["quantità"];
     }
 
     /*Modifica stato dell'ordine
@@ -395,24 +396,18 @@ class DatabaseHelper{
     }
     
     public function createOrder($idutente, $idarticolo){
-        $query = "INSERT INTO `ordine` (`ID_Cliente`, `ID_Articolo`) 
-                            VALUES ('?', '?');";
+        $query = "INSERT INTO ordine (ID_Cliente, articolo) VALUES (?, ?);";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('ii', $idutente, $idarticolo);
         
         $stmt->execute();
         return $stmt->insert_id;
     }
-    
+
     public function deleteCart($idutente){
-        $articoli = $this->getProductsInUserCart($idutente);
-        foreach($articoli as $articolo){
-            $this->removeQuantityArticles($articolo["ID_Articolo"], $articolo["quantità"]);
-        }
-        
-        $query = "DELETE FROM carrello WHERE ID_Notifica = ?";
+        $query = "DELETE FROM carrello WHERE ID_Cliente = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('i', $idnotifica);
+        $stmt->bind_param('i', $idutente);
         
         return $stmt->execute();
     }
@@ -420,7 +415,7 @@ class DatabaseHelper{
     public function getAndCreateOrder($idutente){
         $articoli = $this->getProductsInUserCart($idutente);
         foreach($articoli as $articolo){
-            $this->createOrder($idutente, $articolo["ID_Articolo"])
+            $this->createOrder($idutente, $articolo["ID_Articolo"]);
         }
     }
 
