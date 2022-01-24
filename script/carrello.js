@@ -18,7 +18,7 @@ function generaCarrello(articoli){
         let articoloHtml = `
         <section name="qty[${articolo["ID_Articolo"]}]" class="${classi}">
             <div class="container">
-                <img src="immagini/${articolo["img"]}" alt="">
+                <img src="${articolo["img"]}" alt="">
                 <table class="tabellaCategorie">
                     <tr>
                         <th><h2 class="testoTabella">${articolo["marca"]} ${articolo["nome"]}</h2></th>
