@@ -23,14 +23,14 @@
                 <tr>
 
                     <td>
-                   <label>aggiorna quantià<br/>
+                   <label>aggiorna quantià<br/></label>
                    <input class="modificaProdotti" type="text" id="prezzo" name="quantita<?php echo $prodotto["ID_Articolo"]?>" value="<?php echo $prodotto["quantità"];?>" />
-                   </form>  
+                   
                 </td>
 
                 <td>
                      
-                    <label>modifica prezzo<br/>
+                    <label>modifica prezzo<br/></label>
                     <input class="modificaProdotti" type="text" id="prezzo" name="prezzo<?php echo $prodotto["ID_Articolo"]?>" value="<?php echo $prodotto["prezzo"];?>" />
                     </td>
 
