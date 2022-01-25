@@ -73,7 +73,7 @@ function getQtyArticolo(articlename){
 function setQtyArticolo(articlename, qty){
     // Se la quantità è zero allora nascondo l'elemento e aggiorno icon carrello
     if(qty <= 0){
-        $("section#" + articlename).hide();
+        $("section[id='" + articlename+"']").hide();
         qty = 0;
         let numeroCarrello = parseInt($(".numCarrello").text());
         if(numeroCarrello > 0) {
@@ -136,7 +136,7 @@ $(document).ready(function() {
                     });
                 }
 
-                if ($(this).hasClass("prodottoEsaurito") && qty<=parseInt(parseInt(qtyElement.attr("max")))){
+                if ($(this).hasClass("prodottoEsaurito") && qty<=parseInt(qtyElement.attr("max"))){
                     $(this).parents("section").children("p").remove();
                     $(this).parents("section").removeClass("prodottoEsaurito");
                 }
