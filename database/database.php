@@ -412,11 +412,13 @@ class DatabaseHelper{
         return $stmt->execute();
     }
 
-    public function getAndCreateOrder($idutente){
-        $articoli = $this->getProductsInUserCart($idutente);
-        foreach($articoli as $articolo){
-            $this->createOrder($idutente, $articolo["ID_Articolo"]);
-        }
+    public function getOrderIdByNotification($idnotifica){
+        $stmt = $this->db->prepare("SELECT ordine FROM notifica WHERE ID_Notifica = ?");
+        $stmt->bind_param('i', $idnotifica);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $result = $result->fetch_all(MYSQLI_ASSOC);
+        return $result[0]["ordine"];
     }
 
 }

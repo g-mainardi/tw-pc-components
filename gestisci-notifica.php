@@ -9,6 +9,15 @@ if($SetParameters["logged"] && isset($_POST["ID_Notifica"]) && isset($_POST["act
         // Azione per la lettura di una notifica
         $dbh->changeNotification($_POST["ID_Notifica"], "read");
         // Per testing: echo "letta notifica con id : ".$_POST["ID_Notifica"];
+
+        // Prendo l'idordine della notifica per comunicare che l'azione è stata eseguita
+        $idordine = $dbh->getOrderIdByNotification($_POST["ID_Notifica"]);
+        if($idordine != NULL){
+            // Setto lo stato dell'ordine in base all'utente che lo legge
+            $stato = ($SetParameters["Tipo"] == "cliente")? "delivered" : "shipped";
+            $dbh->changeStateOrder($stato, $idordine);
+        }
+
     } elseif($_POST["action"] == 2){
         // Azione per l'eliminazione di una notifica
         $dbh->deleteNotification($_POST["ID_Notifica"]);
