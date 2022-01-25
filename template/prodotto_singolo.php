@@ -14,6 +14,7 @@
             </select></label>
             <button type="submit" class="aggiungi">AGGIUNGI AL CARRELLO</button>
         </form>
+        <p><?php echo "quantità rimaste: ".$prodotto["quantità"];?></p>
         <p><?php echo $prodotto["anteprima"]; ?></p>
         <button class="mostra">Espandi/Riduci</button>
         <table class="tabella">

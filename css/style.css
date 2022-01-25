@@ -580,6 +580,9 @@ section.filtro >ul > li > button{
     font-weight: bold;
 }
 
+.nomeProdotti{
+    font-size: 35px;
+}
 
 table.tabellaCategorie {
     border-collapse: collapse;
@@ -591,10 +594,11 @@ table.tabellaCategorie th:first-of-type{
 }
 
 
-h2.testoTabella{
+p.titoliTabella{
     margin-top: 5%;
     color: #FFF;
     font-weight: 100;
+    font-size: 25px;
 }
 
 p.testoTabella{
