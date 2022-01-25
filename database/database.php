@@ -234,9 +234,6 @@ class DatabaseHelper{
         return $stmt->execute();
     }
 
-    //Ho fatto un inserimento generalizzato, poi modificabile come meglio credi Giosuè
-    //inoltre la data non c'è bisogno di metterla, mette in automatica quella di quando
-    //viene inserita la riga nella tabella
     public function insertNotification($idutente, $idordine, $titolo, $descrizione){
         $query = "INSERT INTO `notifica` (`utente`, `ordine`, `titolo`, `descrizione`) 
                     VALUES ( ?, ?, ?, ?);";
@@ -419,6 +416,31 @@ class DatabaseHelper{
         $result = $stmt->get_result();
         $result = $result->fetch_all(MYSQLI_ASSOC);
         return $result[0]["ordine"];
+    }
+
+    public function getOrderProduct($idordine) {
+        $query = "SELECT articolo.nome, articolo.venditore, articolo.ID_Articolo
+                  FROM ordine, articolo
+                  WHERE ordine.ID_Ordine=? AND ordine.ID_Articolo=articolo.ID_Articolo";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i', $idordine);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC)[0];
+    }
+
+    
+    public function getOrderClient($idordine) {
+        $query = "SELECT utente.nome, utente.ID_Utente, utente.username
+                  FROM ordine, utente
+                  WHERE ordine.ID_Ordine=? AND ordine.ID_Cliente=utente.ID_Utente";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i', $idordine);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC)[0];
     }
 
 }
