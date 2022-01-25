@@ -11,28 +11,28 @@ if($SetParameters["logged"] && isset($_POST["ID_Notifica"]) && isset($_POST["act
         // Per testing: echo "letta notifica con id : ".$_POST["ID_Notifica"];
 
         // Prendo l'idordine della notifica per comunicare che l'azione è stata eseguita
-        $idordine = $dbh->getOrderIdByNotification($_POST["ID_Notifica"]);
-        if($idordine != NULL){
+        $notifica = $dbh->getNotificationById($_POST["ID_Notifica"]);
+
+        if($notifica["ordine"] != NULL){
+            $ordine = $dbh->getOrderByNotification($_POST["ID_Notifica"]);
+
             // Prendo l'articolo che è presente nell'ordine
-            $articolo = $dbh->getOrderProduct($idordine);
-
+            $articolo = $dbh->getOrderProduct($ordine["ID_Ordine"]);
             // Setto lo stato dell'ordine in base all'utente che legge la notifica
-            if($SetParameters["Tipo"] == "cliente"){
+            if($SetParameters["Tipo"] == "cliente" && $ordine["stato"] == "shipped"){
                 // Il cliente conferma al venditore la ricezione dell'ordine
-                $stato = "delivered";
-                $dbh->insertNotification($articolo["venditore"], $idordine, "Prodotto consegnato", $SetParameters["nome"].
+                $dbh->insertNotification($articolo["venditore"], $ordine["ID_Ordine"], "Prodotto consegnato", $SetParameters["nome"].
                 " ha ricevuto l'articolo ".$articolo["nome"].".");
-            } else {
-                $stato = "shipped";
+                $dbh->changeStateOrder("delivered", $ordine["ID_Ordine"]);
+            } else if($SetParameters["Tipo"] == "venditore" && $ordine["stato"] == "loading"){
                 // Il venditore notifica il cliente della partenza dell'ordine
-                $cliente = $dbh->getOrderClient($idordine);
-
-                $dbh->insertNotification($cliente["ID_Utente"], $idordine, "Prodotto spedito", "Gentile ".$cliente["nome"].", il tuo articolo ".$articolo["nome"].
+                $cliente = $dbh->getUserById($ordine["ID_Cliente"]);
+                $dbh->insertNotification($cliente["ID_Utente"], $ordine["ID_Ordine"], "Prodotto spedito", "Gentile ".$cliente["nome"].", il tuo articolo ".$articolo["nome"].
                 " è stato spedito, puoi confermare l'avvenuta consegna.");
+                $dbh->changeStateOrder("shipped", $ordine["ID_Ordine"]);
             }
-            $dbh->changeStateOrder($stato, $idordine);
-
         }
+
 
     } elseif($_POST["action"] == 2){
         // Azione per l'eliminazione di una notifica

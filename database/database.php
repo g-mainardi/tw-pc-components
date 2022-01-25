@@ -151,6 +151,19 @@ class DatabaseHelper{
         $stmt->execute();
         return $stmt->insert_id;
     }
+
+    public function getUserById($idutente) {
+        $query = "SELECT utente.*
+                  FROM utente
+                  WHERE utente.ID_Utente=?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i', $idutente);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC)[0];
+    }
+
     //------------------------------------------------------------------
 
     //NOTIFICHE
@@ -409,13 +422,13 @@ class DatabaseHelper{
         return $stmt->execute();
     }
 
-    public function getOrderIdByNotification($idnotifica){
-        $stmt = $this->db->prepare("SELECT ordine FROM notifica WHERE ID_Notifica = ?");
+    public function getOrderByNotification($idnotifica){
+        $stmt = $this->db->prepare("SELECT ordine.* FROM notifica,ordine WHERE ID_Notifica=? AND ordine=ID_Ordine");
         $stmt->bind_param('i', $idnotifica);
         $stmt->execute();
         $result = $stmt->get_result();
         $result = $result->fetch_all(MYSQLI_ASSOC);
-        return $result[0]["ordine"];
+        return $result[0];
     }
 
     public function getOrderProduct($idordine) {
@@ -430,13 +443,12 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC)[0];
     }
 
-    
-    public function getOrderClient($idordine) {
-        $query = "SELECT utente.nome, utente.ID_Utente, utente.username
-                  FROM ordine, utente
-                  WHERE ordine.ID_Ordine=? AND ordine.ID_Cliente=utente.ID_Utente";
+    public function getNotificationById($idnotifica) {
+        $query = "SELECT notifica.*
+                  FROM notifica
+                  WHERE notifica.ID_Notifica=?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('i', $idordine);
+        $stmt->bind_param('i', $idnotifica);
         $stmt->execute();
         $result = $stmt->get_result();
 
