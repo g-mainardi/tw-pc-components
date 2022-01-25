@@ -396,7 +396,7 @@ class DatabaseHelper{
     }
     
     public function createOrder($idutente, $idarticolo){
-        $query = "INSERT INTO ordine (ID_Cliente, articolo) VALUES (?, ?);";
+        $query = "INSERT INTO ordine (ID_Cliente, ID_Articolo) VALUES (?, ?);";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('ii', $idutente, $idarticolo);
         
