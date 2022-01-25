@@ -19,26 +19,12 @@ if(isLoggedIn()){
     $SetParameters["ID_Utente"] = $_SESSION["ID_Utente"];
     $SetParameters["nome"] = $_SESSION["nome"];
     $SetParameters["username"] = $_SESSION["username"];
-    if(!isVenditore()){
-        // Controllo se è stato richiesto di aggiungere qualcosa al carrello
-        if(isset($_POST["ID_Articolo"])){
-            //Inserisco nel carrello dell'utente
-            $dbh->insertProductInCart($SetParameters["ID_Utente"], intval($_POST["ID_Articolo"]), 1);
-        }
-    }
+
     $SetParameters["Tipo"] = isVenditore()? "venditore" : "cliente";
 
 } else {
-
-    // Controllo se è stato richiesto di aggiungere qualcosa al carrello
-    if(isset($_POST["ID_Articolo"])){
-        // Mando alla pagina di login
-        header("location:login.php");
-    }
-
     // Non loggato -> Visualizzazione normale
     $SetParameters["logged"] = false;
-
 }
 
 ?>

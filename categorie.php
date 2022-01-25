@@ -16,8 +16,18 @@ $SetParameters["venditori"] = $dbh->getVenditori($_GET["categoria"]);
 if($_GET["categoria"] == "Motherboard" || $_GET["categoria"] == "GPU"){
     $SetParameters["tipologia"] = $dbh->getType($_GET["categoria"]);
 }
-if(isset($_POST["submit"])){
-    header("location:aggiunto.php");
+
+if(isset($_POST["submit"]) && isset($_POST["ID_Articolo"])){    
+    if(!$SetParameters["logged"]){
+        // Se non è loggato, mando alla pagina di login
+        header("location:login.php");
+    } else if($SetParameters["Tipo"] == "cliente"){
+        // Utente loggato come cliente : Inserisco nel carrello
+        $dbh->insertProductInCart($SetParameters["ID_Utente"], intval($_POST["ID_Articolo"]), 1);
+
+        // Mando a pagina di conferma
+        header("location:aggiunto.php");
+    }
 }
 // Controllo se è stato selezionato un venditore
 if(isset($_GET["venditore"])){
