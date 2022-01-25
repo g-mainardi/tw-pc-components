@@ -13,9 +13,9 @@ function generaNotifiche(notifiche){
         }
         
         let notifica = `
-        <li id="${id}">
+        <li class="${id}">
             <header>
-                <button id="${id}" class="bottoneNotifica ${classe}">
+                <button class="bottoneNotifica ${classe} ${id}">
                     ${notifiche[i]["titolo"]}
                 </button>
                 ${img}
@@ -24,7 +24,7 @@ function generaNotifiche(notifiche){
                 <p>${notifiche[i]["descrizione"]}</p>
                 <footer>
                     <p>${notifiche[i]["data"]}</p>
-                    <button class="bottoneTabella eliminaNotifica" id="${id}" >ELIMINA</button>
+                    <button class="bottoneTabella eliminaNotifica ${id}">ELIMINA</button>
                 </footer>
             </div>
         </li>`;
@@ -60,8 +60,11 @@ $(document).ready(function(){
 
         // Aprire e chiudere le notifiche
         $(".bottoneNotifica").click(function() {
+            let string = $(this).attr("class");
+            let pos = string.search("notifica");
+            let id = string.slice(pos+8, string.length);
             // Salvo l'id di questa notifica
-            let idnum = parseInt($(this).attr("id").split("notifica")[1]);
+            let idnum = parseInt(id);
             // Aggiunge la classe visualizzato nel caso in cui non ci fosse già
             $(this).addClass("visualizzato");
 
@@ -96,13 +99,17 @@ $(document).ready(function(){
 
         // Eliminazione notifica
         $("button.eliminaNotifica").click(function() {
-            let idnum = parseInt($(this).attr("id").split("notifica")[1]);
+            let string = $(this).attr("class");
+            let pos = string.search("notifica");
+            let id = string.slice(pos+8, string.length);
+
+            let idnum = parseInt(id);
             // Comunico l'eliminazione al db
             $.post("gestisci-notifica.php", {ID_Notifica: idnum, action: 2}, function(data){
                 // Per testing console.log(data);
             });
 
-            $("li#notifica" + idnum).remove();
+            $("li.notifica" + idnum).remove();
             checkNoNotifications();
         });
     });

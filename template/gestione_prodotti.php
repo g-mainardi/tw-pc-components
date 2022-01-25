@@ -25,10 +25,10 @@
                 </tr>
                 <tr>
                     <td>
-                    <input class="modificaProdotti" type="text" id="quantita" name="quantita<?php echo $prodotto["ID_Articolo"]?>" value="<?php echo $prodotto["quantità"];?>" />
+                    <input class="modificaProdotti" type="text" name="quantita<?php echo $prodotto["ID_Articolo"]?>" value="<?php echo $prodotto["quantità"];?>" />
                     </td>
                     <td>
-                    <input class="modificaProdotti" type="text" id="prezzo" name="prezzo<?php echo $prodotto["ID_Articolo"]?>" value="<?php echo $prodotto["prezzo"];?>" />
+                    <input class="modificaProdotti" type="text" name="prezzo<?php echo $prodotto["ID_Articolo"]?>" value="<?php echo $prodotto["prezzo"];?>" />
                     </td>
                 </tr>
                 
