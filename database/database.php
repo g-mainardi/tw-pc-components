@@ -97,15 +97,6 @@ class DatabaseHelper{
 
     //UTENTE
 
-    public function getUtenti(){
-        $stmt = $this->db->prepare("SELECT * FROM utente");
-        $stmt->bind_param('i', $id);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
-
     public function getVenditori($categoria){
         $stmt = $this->db->prepare("SELECT DISTINCT utente.nome 
                                      FROM articolo, utente, categoria
@@ -287,18 +278,6 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getProductsInUserCart($idcliente, $idarticolo) {
-        $query = "SELECT carrello.ID_Articolo, carrello.quantità
-                  FROM carrello
-                  WHERE carrello.ID_Cliente=?";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param('i', $idcliente);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
-
     public function insertProductInCart($idcliente, $idarticolo, $quantità){
         $qty = $this->getCartProduct($idcliente, $idarticolo);
         $quantitaMassima = $this->getQuantitaProdotti($idarticolo);
@@ -371,7 +350,7 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
     
-    //Prende la quantità di un certo prodotto
+    //Prende la quantità disponibile di un certo prodotto
     public function getQuantitaProdotti($id){
         $stmt = $this->db->prepare("SELECT quantità FROM articolo WHERE ID_Articolo = ?");
         $stmt->bind_param('i', $id);
@@ -394,17 +373,6 @@ class DatabaseHelper{
         return $stmt->execute();
     }
 
-    //Creazione dell'ordine e eliminazione del carrello
-
-    public function getOrders($idutente){
-        $stmt = $this->db->prepare("SELECT * FROM ordine WHERE ID_Cliente = ?");
-        $stmt->bind_param('i', $idutente);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
-    
     public function createOrder($idutente, $idarticolo){
         $query = "INSERT INTO ordine (ID_Cliente, ID_Articolo) VALUES (?, ?);";
         $stmt = $this->db->prepare($query);
