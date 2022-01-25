@@ -15,15 +15,15 @@ function generaCarrello(articoli){
         }
         
         let articoloHtml = `
-        <section name="qty[${articolo["ID_Articolo"]}]" class="${classi}">
+        <section id="qty[${articolo["ID_Articolo"]}]" class="${classi}">
             <div class="container">
                 <a href="prodotto.php?id=${articolo["ID_Articolo"]}">
                     <img src="${articolo["img"]}" alt="">
                 </a>
                 <table class="tabellaCategorie">
                     <tr>
-                        <th><h2 class="testoTabella">${articolo["marca"]} ${articolo["nome"]}</h2></th>
-                        <th><h2 class="testoTabella prezzo">${articolo["prezzo"]} €</h2></th>
+                        <th><h1 class="testoTabella">${articolo["marca"]} ${articolo["nome"]}</h1></th>
+                        <th><h1 class="testoTabella prezzo">${articolo["prezzo"]} €</h1></th>
                     </tr>
                     <tr>
                         <td>
@@ -72,7 +72,7 @@ function getQtyArticolo(articlename){
 function setQtyArticolo(articlename, qty){
     // Se la quantità è zero allora nascondo l'elemento e aggiorno icon carrello
     if(qty <= 0){
-        $("section[name='" + articlename + "']").hide();
+        $("section#" + articlename).hide();
         qty = 0;
         let numeroCarrello = parseInt($(".numCarrello").text());
         if(numeroCarrello > 0) {
