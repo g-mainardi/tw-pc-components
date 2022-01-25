@@ -58,13 +58,12 @@
 
     <div class="barra">
         <ul>
-            <li><a href="categorie.php?categoria=Motherboard">Motherboard</a></li>
-            <li><a href="categorie.php?categoria=GPU">GPU</a></li>
-            <li><a href="categorie.php?categoria=CPU">CPU</a></li>
-            <li><a href="categorie.php?categoria=PSU">Alimentatori</a></li>
-            <li><a href="categorie.php?categoria=RAM">RAM</a></li>
-            <li><a href="categorie.php?categoria=Case">Case</a></li>
-            <li><a href="categorie.php?categoria=Cooler">Dissipatori</a></li>
+
+            <?php foreach($SetParameters["categorie"] as $categoria) :?>
+
+            <li><a href="categorie.php?categoria=<?php echo $categoria["nome"];?>"><?php echo $categoria["nome_esposizione"];?></a></li>  
+            <?php endforeach;?>
+            
         </ul>
     </div>
     <?php endif; ?>
@@ -82,21 +81,24 @@
         
         <p class="categorieFooter">CATEGORIE:</p>
         <table class="tabellaFooter">
-            <tr>
-                <th><a href="categorie.php?categoria=Motherboard">Motherboard</a></th> 
-                <th><a href="categorie.php?categoria=GPU">GPU</a></th>
-                <th><a href="categorie.php?categoria=CPU">CPU</a></th>
-            </tr>
-            <tr>
-                <th><a href="categorie.php?categoria=PSU">Alimentatori</a></th>
-                <th><a href="categorie.php?categoria=RAM">RAM</a></th>
-                <th><a href="categorie.php?categoria=case">Case</a></th>
-            </tr>
-            <tr>
-                <th></th>
-                <th><a class href="categorie.php?categoria=Cooler">Dissipatori</a></th>
-                <th></th>
-            </tr>
+            <?php 
+            $row_number = count($SetParameters["categorie"]) / 3;
+            if(is_float($row_number)){
+                $row_number = floor($row_number) + 1;
+            } 
+
+            $righe = "";
+            for($row = 0; $row < $row_number; $row++){
+                $righe .= "<tr>";
+                for($i = ($row * 3); $i < count($SetParameters["categorie"]) && $i < (($row + 1) * 3); $i++){
+                    $categoria = $SetParameters["categorie"][$i];
+                    $righe .= "<th><a href='categorie.php?categoria=".$categoria["nome"]."'>".$categoria["nome_esposizione"]."</a></th>";
+                }
+                $righe .= "</tr>";
+            }
+            echo $righe;
+            ?>
+
         </table>
         <?php endif; ?>
 

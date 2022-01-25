@@ -9,8 +9,8 @@ if($SetParameters["logged"] && $SetParameters["Tipo"] == "venditore"){
 $SetParameters["titolo"] = "Home";
 $SetParameters["file"] = "homepage.php";
 $SetParameters["prodottiRandom"] = $dbh->randomProducts();
-$SetParameters["descrizioniCategorie"] = $dbh->getAllCategories();
-    
+
+array_push($SetParameters["scripts"], "./script/slider.js");
 require("template/base.php");
 
 ?>

@@ -6,9 +6,9 @@ if($SetParameters["logged"] && $SetParameters["Tipo"] == "venditore"){
     header("location:gestione.php");   
 }
 
-$SetParameters["titolo"] = "Categorie";
 $SetParameters["file"] = "categoria_pezzi.php";
 $SetParameters["categoria"] = $_GET["categoria"];
+$SetParameters["titolo"] = $_GET["categoria"];
 $SetParameters["venditori"] = $dbh->getVenditori($_GET["categoria"]);
 
 /* Filtraggio prodotti mostrati */

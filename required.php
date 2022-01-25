@@ -10,6 +10,8 @@ $dbh = new DatabaseHelper("localhost", "root", "", "hd_progetto", 3306);
 $SetParameters["scripts"] = array();
 array_push($SetParameters["scripts"], "./script/progetto.js");
 
+$SetParameters["categorie"] = $dbh->getAllCategories();
+
 // Controllo se l'utente sia loggato o no
 if(isLoggedIn()){
     // Loggato -> Non mostro Accedi e Registrati, mostro icona notifiche e quantità carrello
