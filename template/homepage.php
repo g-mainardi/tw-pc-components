@@ -1,11 +1,13 @@
         <div class="slider">
             <div class="slideshow-container">
-            <?php foreach ($SetParameters["prodottiRandom"] as $prodotti): ?>
-                <div class="mySlides fade">
-                    <a href="prodotto.php?id=<?php echo $prodotti["ID_Articolo"];?>">
-                        <img src="<?php echo IMG_DIR.$prodotti["img"];?>" alt=""/>
-                    </a>
-                </div>
+            <?php foreach ($SetParameters["prodottiRandom"] as $prodotti): 
+                if($prodotti["quantità"]:?>
+                    <div class="mySlides fade">
+                        <a href="prodotto.php?id=<?php echo $prodotti["ID_Articolo"];?>">
+                            <img src="<?php echo IMG_DIR.$prodotti["img"];?>" alt=""/>
+                        </a>
+                    </div>
+                <?php endif; ?>
             <?php endforeach; ?>
                 <a class="prev">&#10094;</a>
                 <a class="next">&#10095;</a>
