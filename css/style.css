@@ -158,7 +158,7 @@ main{
 }
 
 /* NOTIFICHE A SCHERMO */
-section.areaNotifiche{
+div.areaNotifiche{
     z-index: 1;
     background-color: transparent;
     position: fixed;
@@ -167,7 +167,7 @@ section.areaNotifiche{
     width: 94%;
 }
 
-section.areaNotifiche > div{
+div.areaNotifiche > div{
     height: 60px;
     padding: 0.5% 1%;
     background-color: rgb(255, 255, 255);
@@ -176,28 +176,28 @@ section.areaNotifiche > div{
     opacity: 86%;
 }
 
-section.areaNotifiche > div:hover{
+div.areaNotifiche > div:hover{
     opacity: 97%;
 }
 
-section.areaNotifiche a{
+div.areaNotifiche a{
     text-decoration: none;
     color: #E32629;
 }
 
-section.areaNotifiche > div > header{
+div.areaNotifiche > div > header{
     height: 20px;
     text-align: left;
 }
 
-section.areaNotifiche > div > header > h2{
+div.areaNotifiche > div > header > h2{
     font-size: 16px;
     margin: 0;
     padding: 0;
     float: left;
 }
 
-section.areaNotifiche > div > header > button{
+div.areaNotifiche > div > header > button{
     font-size: 12px;
     width: 20px;
     margin: 0;
@@ -205,14 +205,14 @@ section.areaNotifiche > div > header > button{
     float: right;
 }
 
-section.areaNotifiche > div > p{
+div.areaNotifiche > div > p{
     height: 26px;
     font-size: 12px;
     margin: 1px 0;
     text-align: left;
 }
 
-section.areaNotifiche > div > footer{
+div.areaNotifiche > div > footer{
     height: 12px;
     font-size: 10px;
     padding: 0;
@@ -222,13 +222,13 @@ section.areaNotifiche > div > footer{
     text-decoration: none;
 }
 
-section.areaNotifiche > div > footer > p {
+div.areaNotifiche > div > footer > p {
     color: #a5a5a5e5;
     margin: 0;
     float: left;
 }
 
-section.areaNotifiche > div > footer >button{
+div.areaNotifiche > div > footer >button{
     float: right;
 }
 
@@ -985,12 +985,12 @@ text-align: center;
     }
 
     /* NOTIFICHE A SCHERMO*/
-    section.areaNotifiche{
+    div.areaNotifiche{
         width: 50%;
         padding: 0 2%;
         margin-left: 46%;
     }
-    section.areaNotifiche > div{
+    div.areaNotifiche > div{
         width: 97%;
     }
 

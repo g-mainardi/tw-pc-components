@@ -1,5 +1,5 @@
 function generaNotificheSchermo(notifiche){
-    let result = "<section class='areaNotifiche'>";
+    let result = "<div class='areaNotifiche'>";
 
     for(let i=0; i < notifiche.length; i++){
         let id = notifiche[i]["ID_Notifica"];
@@ -19,7 +19,7 @@ function generaNotificheSchermo(notifiche){
     }
 
     return result + `
-    </section> `;
+    </div> `;
 }
 
 function generaIconaNotifiche(notifiche){
