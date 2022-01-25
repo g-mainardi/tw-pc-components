@@ -1,4 +1,3 @@
-<script src="./script/categorie.js"></script>
 <section class="filtro">
             
 <h1>SCEGLI UN FORNITORE</h1>
@@ -48,9 +47,11 @@
 
     </section>   
 
+<<<<<<< Updated upstream
     <?php foreach($SetParameters["prodotti"] as $prodotto): 
         if($prodotto["quantità"]>0):?> 
             <section>
+                <h1 class="nomeProdotti"><?php echo $prodotto["marca"]." ".$prodotto["nome"]; ?></h1>
                 <div class="container">
                 <a href="prodotto.php?id=<?php echo $prodotto['ID_Articolo'];?>">
                     <img src="<?php echo IMG_DIR.$prodotto["img"];?>" alt="" />
@@ -58,8 +59,8 @@
                 
                 <table class="tabellaCategorie">
                     <tr>
-                        <th><h2 class="testoTabella"><?php echo $prodotto["marca"]." ".$prodotto["nome"]; ?></h2></th>
-                        <th><h2 class="testoTabella"><?php echo $prodotto["prezzo"]; ?> €</h2></th>
+<th><p class="titoliTabella"><?php echo "quantità rimaste: ".$prodotto["quantità"];?></p></th>
+                <th><p class="titoliTabella"><?php echo $prodotto["prezzo"]; ?> €</p></th>
                     </tr>
                     <tr>
                         <td><a class="link1" href="prodotto.php?id=<?php echo $prodotto['ID_Articolo'];?>">Dettagli...</a></td>    
@@ -72,4 +73,29 @@
                 </div>
             </section>
         <?php endif; ?>
+=======
+    <?php foreach($SetParameters["prodotti"] as $prodotto): ?> 
+    <section>
+        <h1 class="nomeProdotti"><?php echo $prodotto["marca"]." ".$prodotto["nome"]; ?></h1>
+        <div class="container">
+        <a href="prodotto.php?id=<?php echo $prodotto['ID_Articolo'];?>">
+            <img src="<?php echo IMG_DIR.$prodotto["img"];?>" alt="" />
+        </a>
+        
+        <table class="tabellaCategorie">
+            <tr>
+                <th><p class="titoliTabella"><?php echo "quantità rimaste: ".$prodotto["quantità"];?></p></th>
+                <th><p class="titoliTabella"><?php echo $prodotto["prezzo"]; ?> €</p></th>
+            </tr>
+            <tr>
+                <td><a class="link1" href="prodotto.php?id=<?php echo $prodotto['ID_Articolo'];?>">Dettagli...</a></td>    
+                <td><form action="#" method="POST">
+                    <input type="hidden" name="ID_Articolo" value="<?php echo $prodotto["ID_Articolo"];?>" />
+                    <button class="bottoneTabella" type="submit" name="submit">AGGIUNGI AL CARRELLO</button>
+                </form></td>
+            </tr>
+        </table>
+        </div>
+    </section>
+>>>>>>> Stashed changes
     <?php endforeach; ?>

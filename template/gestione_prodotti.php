@@ -4,19 +4,15 @@
 </section> 
   <?php foreach ($SetParameters["prodotti"] as $prodotto): ?>
     <section class="<?php echo ($prodotto["quantità"] == 0 ? "prodottoEsaurito" : ""); ?>">    
+        <h1 class="nomeProdotti"><?php echo $prodotto["nome"];?></h1>
         <div class="container">
             <img src="<?php echo IMG_DIR.$prodotto["img"];?>" alt="" />
         <form class="selezioaQuantità" action="#" method="POST"> 
             <table class="tabellaCategorie">
                 <tr>
-                    <th><h2 class="testoTabella"><?php echo $prodotto["nome"];?></h2></th>
-                    <th><h2 class="testoTabella"><?php echo $prodotto["prezzo"]." €";?></h2></th>
+                    <th><p class="titoliTabella"><?php echo "quantità rimaste: ".$prodotto["quantità"];?></p></th>
+                    <th><p class="titoliTabella"><?php echo $prodotto["prezzo"]." €";?></p></th>
                     
-                </tr>
-                <tr>
-                    <td colspan="2">
-                      <p class="testoTabella"><?php echo "quantità rimaste: ".$prodotto["quantità"];?></p>
-                    </td>
                 </tr>
                 <tr>
                     <td>
@@ -29,7 +25,7 @@
                 </tr>
                 <tr>
                     <td>
-                    <input class="modificaProdotti" type="text" id="prezzo" name="quantita<?php echo $prodotto["ID_Articolo"]?>" value="<?php echo $prodotto["quantità"];?>" />
+                    <input class="modificaProdotti" type="text" id="quantita" name="quantita<?php echo $prodotto["ID_Articolo"]?>" value="<?php echo $prodotto["quantità"];?>" />
                     </td>
                     <td>
                     <input class="modificaProdotti" type="text" id="prezzo" name="prezzo<?php echo $prodotto["ID_Articolo"]?>" value="<?php echo $prodotto["prezzo"];?>" />

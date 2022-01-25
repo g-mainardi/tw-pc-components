@@ -16,14 +16,15 @@ function generaCarrello(articoli){
         
         let articoloHtml = `
         <section name="qty[${articolo["ID_Articolo"]}]" class="${classi}">
+        <h1 class="nomeProdotti">${articolo["marca"]} ${articolo["nome"]}</h1>
             <div class="container">
                 <a href="prodotto.php?id=${articolo["ID_Articolo"]}">
                     <img src="${articolo["img"]}" alt="">
                 </a>
                 <table class="tabellaCategorie">
                     <tr>
-                        <th><h2 class="testoTabella">${articolo["marca"]} ${articolo["nome"]}</h2></th>
-                        <th><h2 class="testoTabella prezzo">${articolo["prezzo"]} €</h2></th>
+                        <th><p class="titoliTabella">prova</p></th>
+                        <th><p class="titoliTabella prezzo">${articolo["prezzo"]} €</p></th>
                     </tr>
                     <tr>
                         <td>
