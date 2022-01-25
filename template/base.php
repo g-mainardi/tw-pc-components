@@ -54,9 +54,7 @@
         </ul>
     </nav>
 
-    <?php if(!isset($SetParameters["logged"]) || (!$SetParameters["logged"]) || ($SetParameters["Tipo"] != "venditore")): ?>
-
-    <div class="barra">
+    <div class='barra <?php if(($SetParameters["logged"]) && ($SetParameters["Tipo"] == "venditore")){echo "nascondi";} ?>'>
         <ul>
 
             <?php foreach($SetParameters["categorie"] as $categoria) :?>
@@ -66,7 +64,6 @@
             
         </ul>
     </div>
-    <?php endif; ?>
 
     <main>
         <?php

@@ -9,12 +9,13 @@ if($SetParameters["logged"] && $SetParameters["Tipo"] == "cliente"){
 $SetParameters["titolo"] = "Gestione prodotti "; 
 $SetParameters["file"] = "gestione_prodotti.php";
 
-if(isset($_POST["prezzo".$_POST["id"]]) && $_POST["prezzo".$_POST["id"]]!='0'
+if(isset($_POST["id"]) && isset($_POST["prezzo".$_POST["id"]]) && $_POST["prezzo".$_POST["id"]]!='0'
     && isset($_POST["quantita".$_POST["id"]]) && $_POST["quantita".$_POST["id"]]!='0'){
-        $dbh->updateProduct(intval($_POST["prezzo".$_POST["id"]]), intval($_POST["quantita".$_POST["id"]]), intval($_POST["id"]));  
-    }
 
-$SetParameters["prodotti"] = $dbh->getSellerProducts($_SESSION["ID_Utente"]);
+    $dbh->updateProduct(intval($_POST["prezzo".$_POST["id"]]), intval($_POST["quantita".$_POST["id"]]), intval($_POST["id"]));  
+}
+
+$SetParameters["prodotti"] = $dbh->getSellerProducts($SetParameters["ID_Utente"]);
 
 require("template/base.php");
 ?>
