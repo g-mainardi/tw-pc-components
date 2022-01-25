@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Gen 24, 2022 alle 01:50
+-- Creato il: Gen 25, 2022 alle 10:57
 -- Versione del server: 10.4.21-MariaDB
 -- Versione PHP: 8.0.12
 
@@ -20,8 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `hd_progetto`
 --
-
-USE `hd_progetto` ;
+CREATE DATABASE IF NOT EXISTS `hd_progetto` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `hd_progetto`;
 
 --
 -- Dump dei dati per la tabella `articolo`
@@ -46,9 +46,9 @@ INSERT INTO `articolo` (`ID_Articolo`, `nome`, `descrizione`, `anteprima`, `img`
 (16, 'Ballistix 2x8 3600mhz', 'Marca:‎Crucial: Produttore:‎Crucial: Colore:‎Nero: Dimensioni prodotto:13.33 x 0.72 x 3.92 cm: Numero modello Articolo:‎BL2K8G36C16U4B: Dimensioni RAM:‎16 GB: Tecnologia di memoria:	‎DDR4: Tipologia di memoria computer	‎:DDR4 SDRAM: Clock di Memoria:3600 MHz: Voltaggio:‎1.35 Volt: Wattaggio:‎15: Peso Articolo:‎113 g', 'Crucial Ballistix BL2K8G36C16U4B 3600 MHz, DDR4, DRAM, Memoria Gaming Kit per Computer Fissi, 16GB (8GB x2), CL16, Nero', 'ballistix2x83600.png', 90, 'Crucial', 6, 5, 4, NULL),
 (17, 'Core i7-11700K', 'Marca:‎Intel: Produttore:‎Intel: Dimensioni prodotto:‎22 x 17 x 10 cm: Numero modello Articolo:‎BX8070811700K: Marchio processore:‎Intel: Supporto processore:LGA 1200: Numero processori:‎8: Wattaggio:‎125 watt: Peso Articolo:70 g', 'Intel Core i7-11700K processore desktop di 11a generazione (cloack base: 3,6 GHz. Tuboost: 4,9 GHz, 8 core, LGA1200) BX8070811700 K', 'i711700k.png', 330, 'Intel', 6, 3, 5, NULL),
 (18, 'Core i5-12600K', 'Marca:‎Intel: Produttore:‎Intel: Colore:‎Nero: Dimensioni prodotto:‎12 x 10 x 8 cm: Numero modello Articolo:‎BX8071512600K: Marchio processore:‎Intel: Tipo processore:‎Core i5: Velocità processore:‎4.9 GHz: Dimensioni RAM:‎128 GB: Wattaggio:‎125 watt: Peso Articolo:‎40 g', 'Intel Core i5-12600K - Processore desktop di 12a generazione (cloack base: 3,7 GHz Tuboboost: 4,9 GHz, 6 core, LGA1700, RAM DDR4 e DDR5 fino a 128 GB) BX8071512600K', 'i512600K.png', 350, 'Intel', 6, 3, 5, NULL),
-(19, 'Core i9-12900K', 'Marca:Intel: Produttore:‎Intel: Colore:Trasparente: Dimensioni prodotto:‎13.5 x 14 x 16.5 cm: Numero modello Articolo:‎BX8071512900K: Marchio processore:‎Intel: Tipo processore:‎5X86: Velocità processore:‎3.2 GHz: Wattaggio:‎125 watt: Peso Articolo:‎460 g', '', 'i912900K.png', 700, 'Intel', 6, 3, 5, NULL),
+(19, 'Core i9-12900K', 'Marca:Intel: Produttore:‎Intel: Colore:Trasparente: Dimensioni prodotto:‎13.5 x 14 x 16.5 cm: Numero modello Articolo:‎BX8071512900K: Marchio processore:‎Intel: Tipo processore:‎5X86: Velocità processore:‎3.2 GHz: Wattaggio:‎125 watt: Peso Articolo:‎460 g', 'Intel Core i9-12900K, 8Core+8efficentsCore/24Threads, 3.20-5.20GHz, in scatola senza Dissipatore', 'i912900K.png', 700, 'Intel', 6, 3, 5, NULL),
 (20, 'Core i9-11900K', 'Marca:‎Intel: Produttore:‎Intel: Dimensioni prodotto:‎10 x 8 x 15 cm: Numero modello Articolo:‎BX8070811900K: Marchio processore:‎Intel: Tipo processore:‎Intel Core i9-11900K: Velocità processore:‎3.5 GHz: Supporto processore:‎LGA 1200: Numero processori:‎8: Wattaggio:‎125 watt: Peso Articolo:‎70 g', 'Intel Core i9-11900K - Processore (frequenza di base: 3,5 GHz Tuboboost: 5,1 GHz, 8 core, LGA1200) BX8070811900K', 'i911900K.png', 500, 'Intel', 6, 3, 5, NULL),
-(21, 'Core i5-11400', 'Marca:‎Intel: Produttore:‎Intel: Dimensioni prodotto:‎70 x 10 x 12 cm: Numero modello Articolo:‎BX8070811400F: Marchio processore:‎Intel: Tipo processore:‎Intel Core i5-11400F: Velocità processore:‎2.6 GHz:  Supporto processore:‎LGA 1200: Numero processori:‎6: Wattaggio:‎65 watt: Peso Articolo:‎310 g', 'Intel Core i5-11400F - Processore desktop da 11 generazione (clock di base: 2.6 GHz Tuboost: 4.4 GHz, 6 core, LGA1200) BX8070811400F', 'i511400.png', 200, 'Intel', 6, 3, 5, NULL),
+(21, 'Core i5-11400', 'Marca:‎Intel: Produttore:‎Intel: Dimensioni prodotto:‎70 x 10 x 12 cm: Numero modello Articolo:‎BX8070811400F: Marchio processore:‎Intel: Tipo processore:‎Intel Core i5-11400F: Velocità processore:‎2.6 GHz:  Supporto processore:‎LGA 1200: Numero processori:‎6: Wattaggio:‎65 watt: Peso Articolo:‎310 g', 'Intel Core i5-11400F - Processore desktop da 11 generazione (clock di base: 2.6 GHz Tuboost: 4.4 GHz, 6 core, LGA1200) BX8070811400F', 'i511400.png', 200, 'Intel', -2, 3, 5, NULL),
 (22, 'Ryzen 5 5600X', 'Marca:AMD: Produttore:‎AMD: Dimensioni del collo:‎13.9 x 13.3 x 7.4 cm: Numero modello Articolo:‎100-100000065CBX: Marchio processore:‎AMD: Velocità processore:‎3.7 GHz: Supporto processore:‎Socket AM4: Numero processori:‎6: Wattaggio:‎65 watt: Peso Articolo:‎430 g', 'AMD AM4 Ryzen 5 6 Box 5600X 3,7GHz Max Boost 4,6GHz 6xCore 35MB 65W con Wraith Stealth Cooler', 'ryzen55600x.png', 320, 'AMD', 6, 2, 5, NULL),
 (23, 'Ryzen 9 3900X', 'Marca:AMD:\nProduttore:‎AMD:\nSerie:3900X:\nColore:‎MultiColore:\nDimensioni prodotto:‎4 x 4 x 0.6 cm:\nNumero modello Articolo:‎Ryzen 9 3900X:\nMarchio processore:‎AMD:\nTipo processore:‎Ryzen 9 3900X:\nVelocità processore:‎4.6 GHz:\nSupporto processore:‎Socket AM4:\nNumero processori:12:\nWattaggio:105 watt:\nPeso Articolo:‎45.3 g', 'Processore AMD Ryzen 9 5900X (12C/24T, 70 MB di cache, fino a 4,8 GHz Max Boost)', 'ryzen93900x.png', 450, 'AMD', 6, 2, 5, NULL),
 (24, 'Ryzen 9 5900X', 'Marca:‎AMD: Produttore:AMD: Serie:AMD Ryzen™ 9 5900X: Dimensioni prodotto:‎4 x 4 x 0.6 cm: Numero modello Articolo:‎AMD Ryzen 9 5900X: Marchio processore:‎AMD: Velocità processore:‎3.7 GHz: Supporto processore:‎Socket AM4: Numero processori:‎12: Wattaggio:‎105 watt: Peso Articolo:‎79.2 g', 'Processore AMD Ryzen 9 5900X (12C/24T, 70 MB di cache, fino a 4,8 GHz Max Boost)', 'ryzen95900x.png', 520, 'AMD', 6, 2, 5, NULL),
@@ -84,40 +84,17 @@ INSERT INTO `articolo` (`ID_Articolo`, `nome`, `descrizione`, `anteprima`, `img`
 (54, 'TRX40 Taichi', 'Marca:Asrock: Chipset:AMD: Serie:‎Trx40: Dimensioni prodotto:‎36.83 x 31.75 x 15.24 cm; 1.5 Kg: Numero modello Articolo:‎TRX40 TAICHI: Supporto processore:‎STRX4: Tecnologia di memoria:	‎DDR4: Tipologia di memoria computer	‎:DDR4 SDRAM: Memoria massima supportata:‎256 GB: Clock di Memoria:‎2666 MHz: Interfaccia scheda grafica:‎PCI-E: Tipo wireless:‎802.11ax: Wattaggio:‎125 watt: Peso Articolo:‎1.5 kg', 'A differenza dei tradizionali connettori di alimentazione per CPU dual-core che si trovano strettamente sullo stesso lato, ASRock li separa da entrambi i lati della scheda madre per creare una corsia più ampia per la CPU VRM. Questo design offre una migliore efficienza di uscita delle prestazioni e una temperatura più bassa, migliorando la stabilità del sistema e aumentando il potenziale di overclocking.', 'trx40taichi.png', 620, 'ASRock', 6, 10, 1, 'AMD');
 
 --
--- Dump dei dati per la tabella `carrello`
---
-
-INSERT INTO `carrello` (`ID_Carrello`, `ID_Cliente`, `ID_Articolo`, `quantità`) VALUES
-(28, 12, 15, 1),
-(29, 12, 37, 1);
-
---
 -- Dump dei dati per la tabella `categoria`
 --
 
 INSERT INTO `categoria` (`ID_Categoria`, `nome`, `descrizione`) VALUES
-(1, 'Motherboard', ''),
-(2, 'GPU', ''),
-(3, 'PSU', ''),
-(4, 'RAM', ''),
-(5, 'CPU', ''),
-(6, 'Case', ''),
-(7, 'Cooler', '');
-
---
--- Dump dei dati per la tabella `notifica`
---
-
-INSERT INTO `notifica` (`ID_Notifica`, `utente`, `ordine`, `titolo`, `descrizione`, `data`, `stato`) VALUES
-(6, 1, 1, 'efsef', 'sefsef', '2022-01-20 17:56:02', 'not read on screen'),
-(7, 1, 1, 'adwadawd', 'awdawdawd', '2022-01-20 17:59:18', 'not read on screen');
-
---
--- Dump dei dati per la tabella `ordine`
---
-
-INSERT INTO `ordine` (`ID_Ordine`, `ID_Cliente`, `ID_Carrello`, `stato`) VALUES
-(1, 1, 26, '');
+(1, 'Motherboard', 'scegli tra la vasta gamma di schede madri quella che più fa al caso tuo e del tuo computer'),
+(2, 'GPU', ' sfrutta la potenza delle nostre nuove schede video per avere un gioco fluido e senza cali di frame'),
+(3, 'PSU', ' scegli il prodotto che più soddisfa le tue esigenze tra una vasta scelta di alimentatori modulari e non modulari'),
+(4, 'RAM', 'scegli la tua RAM tra i migliori Kit disponibili, sia da 32 GB che da 16 GB e con funzionalita RGB'),
+(5, 'CPU', ' il cuore del tuo computer, scegli tra i nostri processori quello che ti permetterà una prestazione elevata senza interruzioni'),
+(6, 'Case', ' mostra a tutti il tuo computer con i nostri case stravaganti con vetro trasparente, illuminazione rgb e un\'ottima areanzione'),
+(7, 'Cooler', ' i migliori dissipatori sul mercato sia liquidi che a ventola, mantieni temperature basse e fps alti grazie ai nostri prodotti ');
 
 --
 -- Dump dei dati per la tabella `utente`
@@ -135,7 +112,7 @@ INSERT INTO `utente` (`ID_Utente`, `nome`, `username`, `password`, `Tipo`) VALUE
 (9, 'MSI', 'msi@venditore.com', 'msi2022', 'venditore'),
 (10, 'ASRock', 'asrock@venditore.com', 'asrock2022', 'venditore'),
 (11, 'Asus', 'asus@venditore.com', 'asus2022', 'venditore'),
-(12, 'Luis', 'luisinca@bruh.com', '1234', 'cliente');
+(12, 'Luis', 'luisinca@gmail.com', '1234', 'cliente');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
