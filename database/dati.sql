@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Gen 25, 2022 alle 10:57
+-- Creato il: Gen 25, 2022 alle 14:40
 -- Versione del server: 10.4.21-MariaDB
 -- Versione PHP: 8.0.12
 
@@ -87,14 +87,14 @@ INSERT INTO `articolo` (`ID_Articolo`, `nome`, `descrizione`, `anteprima`, `img`
 -- Dump dei dati per la tabella `categoria`
 --
 
-INSERT INTO `categoria` (`ID_Categoria`, `nome`, `descrizione`) VALUES
-(1, 'Motherboard', 'scegli tra la vasta gamma di schede madri quella che più fa al caso tuo e del tuo computer'),
-(2, 'GPU', ' sfrutta la potenza delle nostre nuove schede video per avere un gioco fluido e senza cali di frame'),
-(3, 'PSU', ' scegli il prodotto che più soddisfa le tue esigenze tra una vasta scelta di alimentatori modulari e non modulari'),
-(4, 'RAM', 'scegli la tua RAM tra i migliori Kit disponibili, sia da 32 GB che da 16 GB e con funzionalita RGB'),
-(5, 'CPU', ' il cuore del tuo computer, scegli tra i nostri processori quello che ti permetterà una prestazione elevata senza interruzioni'),
-(6, 'Case', ' mostra a tutti il tuo computer con i nostri case stravaganti con vetro trasparente, illuminazione rgb e un\'ottima areanzione'),
-(7, 'Cooler', ' i migliori dissipatori sul mercato sia liquidi che a ventola, mantieni temperature basse e fps alti grazie ai nostri prodotti ');
+INSERT INTO `categoria` (`ID_Categoria`, `nome`, `nome_esposizione`, `descrizione`) VALUES
+(1, 'Motherboard', 'Schede madri', 'scegli tra la vasta gamma di schede madri quella che più fa al caso tuo e del tuo computer'),
+(2, 'GPU', 'Schede Video', ' sfrutta la potenza delle nostre nuove schede video per avere un gioco fluido e senza cali di frame'),
+(3, 'PSU', 'Alimentatori', ' scegli il prodotto che più soddisfa le tue esigenze tra una vasta scelta di alimentatori modulari e non modulari'),
+(4, 'RAM', 'RAM', 'scegli la tua RAM tra i migliori Kit disponibili, sia da 32 GB che da 16 GB e con funzionalita RGB'),
+(5, 'CPU', 'Processori', ' il cuore del tuo computer, scegli tra i nostri processori quello che ti permetterà una prestazione elevata senza interruzioni'),
+(6, 'Case', 'Case', ' mostra a tutti il tuo computer con i nostri case stravaganti con vetro trasparente, illuminazione rgb e un\'ottima areanzione'),
+(7, 'Cooler', 'Dissipatori', ' i migliori dissipatori sul mercato sia liquidi che a ventola, mantieni temperature basse e fps alti grazie ai nostri prodotti ');
 
 --
 -- Dump dei dati per la tabella `utente`
