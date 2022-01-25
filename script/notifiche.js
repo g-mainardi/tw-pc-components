@@ -66,7 +66,7 @@ $(document).ready(function(){
             $(this).addClass("visualizzato");
 
             // Controllo attraverso la presenza del disclaimer se la notifica doveva ancora essere letta 
-            if($(this).next().is("img")){
+            if($(this).next().is("img") && !$(this).next().hasClass("nascondi")){
                 // Rimuovo il disclaimer
                 $(this).next().addClass("nascondi");
 
