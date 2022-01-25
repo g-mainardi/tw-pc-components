@@ -3,7 +3,7 @@
             <?php foreach ($SetParameters["prodottiRandom"] as $prodotti): ?>
                 <div class="mySlides fade">
                     <a href="prodotto.php?id=<?php echo $prodotti["ID_Articolo"];?>">
-                        <img src="<?php echo IMG_DIR.$prodotti["img"];?>" style="width:100%" alt=""/>
+                        <img src="<?php echo IMG_DIR.$prodotti["img"];?>" alt=""/>
                     </a>
                 </div>
             <?php endforeach; ?>
@@ -12,9 +12,8 @@
                     
             </div>
 
-            <br>
             
-            <div style="text-align:center">
+            <div class="divDot">
                 <span class="dot"></span> 
                 <span class="dot"></span> 
                 <span class="dot"></span> 

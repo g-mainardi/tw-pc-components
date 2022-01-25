@@ -17,23 +17,23 @@
                     <td colspan="2">
                       <p class="testoTabella"><?php echo "quantità rimaste: ".$prodotto["quantità"];?></p>
                     </td>
-
                 </tr>
-                
                 <tr>
-
                     <td>
-                   <label>aggiorna quantià<br/></label>
-                   <input class="modificaProdotti" type="text" id="prezzo" name="quantita<?php echo $prodotto["ID_Articolo"]?>" value="<?php echo $prodotto["quantità"];?>" />
-                   
+                   <label>aggiorna quantià</label>                   
+                </td>
+                <td>
+                    <label>modifica prezzo</label>             
                 </td>
 
-                <td>
-                     
-                    <label>modifica prezzo<br/></label>
+                </tr>
+                <tr>
+                    <td>
+                    <input class="modificaProdotti" type="text" id="prezzo" name="quantita<?php echo $prodotto["ID_Articolo"]?>" value="<?php echo $prodotto["quantità"];?>" />
+                    </td>
+                    <td>
                     <input class="modificaProdotti" type="text" id="prezzo" name="prezzo<?php echo $prodotto["ID_Articolo"]?>" value="<?php echo $prodotto["prezzo"];?>" />
                     </td>
-
                 </tr>
                 
                 <tr><td colspan="2">
