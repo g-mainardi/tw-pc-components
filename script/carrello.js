@@ -23,7 +23,7 @@ function generaCarrello(articoli){
                 </a>
                 <table class="tabellaCategorie">
                     <tr>
-                        <th><p class="titoliTabella">prova</p></th>
+                        <th><p class="titoliTabella">Quantità rimasta: ${articolo["disponibilità"]}</p></th>
                         <th><p class="titoliTabella prezzo">${articolo["prezzo"]} €</p></th>
                     </tr>
                     <tr>
