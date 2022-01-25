@@ -25,7 +25,7 @@ if(isset($_POST["submit"])){
 
         // Mando notifica al venditore che l'ordine è stato effettuato
         $dbh->insertNotification($articolo["venditore"], $ordine, "Prodotto acquistato", $SetParameters["nome"]." ha ordinato ".$articolo["quantità"].
-         " quantità dell'articolo ".$articolo["nome"].". Provveda a spedirlo al più presto."."Dati spedizione: ".$datispedizione);
+         " quantità dell'articolo ".$articolo["nome"].". Puoi confermare l'avvenuta spedizione."."Dati spedizione: ".$datispedizione);
     }
 
     // Elimino le righe di carrello
