@@ -57,6 +57,15 @@ $(document).ready(function(){
         $("body > header > ul").append(generaIconaNotifiche(data));
     });
     
+    $("table.tabellaFooter > tbody > tr").each(function(){
+        let colnumber = $(this).children().length;
+        if(colnumber == 1){
+            $(this).children().last().attr("colspan", "3");
+        } else if (colnumber == 2){
+            $(this).children().last().attr("colspan", "2");
+        }
+    });
+
     // Aprire e chiudere il menù laterale di navigazione
     $(".bottoneMenu").click(function(){
         if($(".menu").css("display") == "none"){
