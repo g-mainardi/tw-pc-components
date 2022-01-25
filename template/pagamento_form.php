@@ -1,7 +1,8 @@
 <section>
-       <h2>inserisci i dati di spedizione e della carta di credito o carta prepagata</h2>
+       <h1 class="nomeProdotti">INSERISCI I DATI DI SPEDIZIONE E DELLA CARTA DI CREDITO O CARTA PREPAGATA</h1>
 </section>
 <section class="pagamento">
+<h1 class="nomeProdotti">INSERISCI I DATI</h1>    
     <form action="pagamento.php" method="POST" name="pagamento"> 
         <div class="row">
             <div class="col">
