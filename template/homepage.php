@@ -1,7 +1,7 @@
         <div class="slider">
             <div class="slideshow-container">
             <?php foreach ($SetParameters["prodottiRandom"] as $prodotti): 
-                if($prodotti["quantità"]:?>
+                if($prodotti["quantità"]>0):?>
                     <div class="mySlides fade">
                         <a href="prodotto.php?id=<?php echo $prodotti["ID_Articolo"];?>">
                             <img src="<?php echo IMG_DIR.$prodotti["img"];?>" alt=""/>
