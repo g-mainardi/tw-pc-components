@@ -6,7 +6,7 @@
         <h2><?php echo $prodotto["prezzo"]; ?> €</h2>
         <form class="selezionaQuantità" action="#" method="POST">  
             <input type="hidden" name="id" value="<?php echo $prodotto["ID_Articolo"];?>"/>
-            <label>QTY<br/>
+            <label>QTY
             <select name="quantità">
             <?php for ($i=1; $i <= $prodotto["quantità"]; $i++) { 
                 echo "<option value='".$i."'>".$i."</option>";

@@ -246,6 +246,7 @@ section.areaNotifiche > div > footer >button{
     margin-left: auto;
     margin-right: auto;
     display: block;
+
 }
 
 .slideshow-container {
@@ -276,6 +277,10 @@ section.areaNotifiche > div > footer >button{
 
 .prev:hover, .next:hover {
     background-color: #000;
+}
+
+.divDot{
+    text-align: center;
 }
 
 .dot {
