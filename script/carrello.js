@@ -4,7 +4,7 @@ function generaCarrello(articoli){
     <section class="intestazioneCarrello">
         <h1>Carrello</h1>
         <p class="totale">Totale: 0 €</p>
-        <input class="bottoneTabella" type="submit" name="submit" value="Vai al pagamento"></input>
+        <input class="bottoneTabella" type="submit" name="submit" value="Vai al pagamento"/>
     </section>`;
 
     for(let i=0; i < articoli.length; i++){
@@ -31,7 +31,7 @@ function generaCarrello(articoli){
                             <button class="aggiornaQuantità" name="qty[${articolo["ID_Articolo"]}]">+</button>
                             <label for="">QTY: </label>
                             <input readonly type="number" name="qty[${articolo["ID_Articolo"]}]" class="testoTabella" value="${articolo["quantità"]}"
-                                max="${articolo["disponibilità"]}" min="0"></input>
+                                max="${articolo["disponibilità"]}" min="0"/>
                             <button class="aggiornaQuantità ${classi}" name="qty[${articolo["ID_Articolo"]}]">-</button>
                         </td>
                         <td>
