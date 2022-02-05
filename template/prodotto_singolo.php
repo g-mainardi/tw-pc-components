@@ -1,7 +1,7 @@
 <?php $prodotto = $SetParameters["prodotto"][0]; ?>   
     <section class="prodottoSingolo" >    
         <div class="container">
-        <img src="<?php echo IMG_DIR.$prodotto["img"];?>" alt="" />
+        <img src="<?php echo IMG_DIR.$prodotto["img"];?>" alt="<?php echo $prodotto["marca"]." ".$prodotto["nome"];?>" />
         <h1><?php echo $prodotto["marca"]." ".$prodotto["nome"]; ?></h1>
         <h2><?php echo $prodotto["prezzo"]; ?> €</h2>
         <form class="selezionaQuantità" action="#" method="POST">  

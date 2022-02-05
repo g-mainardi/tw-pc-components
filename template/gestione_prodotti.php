@@ -6,7 +6,7 @@
     <section class="<?php echo ($prodotto["quantità"] == 0 ? "prodottoEsaurito" : ""); ?>">    
         <h1 class="nomeProdotti"><?php echo $prodotto["nome"];?></h1>
         <div class="container">
-            <img src="<?php echo IMG_DIR.$prodotto["img"];?>" alt="" />
+            <img src="<?php echo IMG_DIR.$prodotto["img"];?>" alt="<?php echo $prodotto["nome"];?>" />
         <form class="selezioaQuantità" action="#" method="POST"> 
             <table class="tabellaCategorie">
                 <tr>

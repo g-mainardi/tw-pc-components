@@ -75,7 +75,7 @@ class DatabaseHelper{
     }
 
     public function randomProducts(){
-        $query = ("SELECT articolo.ID_Articolo, articolo.img, articolo.quantità FROM articolo ORDER BY RAND() LIMIT 3");
+        $query = ("SELECT articolo.ID_Articolo, articolo.img, articolo.quantità, articolo.nome, articolo.marca FROM articolo ORDER BY RAND() LIMIT 3");
         $stmt = $this->db->prepare($query);
         $stmt->execute();
         $result = $stmt->get_result();

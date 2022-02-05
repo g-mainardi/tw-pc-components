@@ -4,7 +4,7 @@
                 if($prodotti["quantità"]>0):?>
                     <div class="mySlides fade">
                         <a href="prodotto.php?id=<?php echo $prodotti["ID_Articolo"];?>">
-                            <img src="<?php echo IMG_DIR.$prodotti["img"];?>" alt=""/>
+                            <img src="<?php echo IMG_DIR.$prodotti["img"];?>" alt="<?php echo $prodotti["marca"]." ".$prodotti["nome"];?>"/>
                         </a>
                     </div>
                 <?php endif; ?>
@@ -31,7 +31,7 @@
 
         <section>    
             <div class="container">
-                <a href="categorie.php?categoria=<?php echo $categoria["nome"];?>"><img src="<?php echo IMG_DIR.strtolower($categoria["nome"]);?>.png" alt="" /></a>
+                <a href="categorie.php?categoria=<?php echo $categoria["nome"];?>"><img src="<?php echo IMG_DIR.strtolower($categoria["nome"]);?>.png" alt="<?php echo $categoria["nome"];?>" /></a>
             </div>
             <h2><?php echo $categoria["nome_esposizione"];?></h2>
             <p><?php echo $categoria["descrizione"];?></p>

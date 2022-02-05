@@ -53,7 +53,7 @@
                 <h1 class="nomeProdotti"><?php echo $prodotto["marca"]." ".$prodotto["nome"]; ?></h1>
                 <div class="container">
                 <a href="prodotto.php?id=<?php echo $prodotto['ID_Articolo'];?>">
-                    <img src="<?php echo IMG_DIR.$prodotto["img"];?>" alt="" />
+                    <img src="<?php echo IMG_DIR.$prodotto["img"];?>" alt="<?php echo $prodotto["marca"]." ".$prodotto["nome"]; ?>" />
                 </a>
                 
                 <table class="tabellaCategorie">
